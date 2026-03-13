@@ -32,7 +32,7 @@ export function Header({ logoHref }: HeaderProps) {
           )}
         </div>
         <a
-          href="#download"
+          href="/#download"
           className="btn-landing-primary px-6 py-2 inline-block"
         >
           Get the app

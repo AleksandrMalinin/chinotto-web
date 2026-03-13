@@ -17,18 +17,9 @@ export function Footer() {
           <a href="/privacy" className="text-landing-muted hover:underline">
             Privacy
           </a>
-          <span className="inline-flex items-baseline gap-1">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-landing-muted hover:underline"
-            >
-              GitHub ↗
-            </a>
-            <span className="text-xs text-landing-muted opacity-60">
-              · soon
-            </span>
+          <span className="inline-flex items-baseline gap-1 text-landing-muted text-sm">
+            <span className="opacity-60">GitHub ↗</span>
+            <span className="text-xs opacity-60">· soon</span>
           </span>
         </div>
       </div>
