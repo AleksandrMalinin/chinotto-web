@@ -1,0 +1,37 @@
+import { ChinottoLogo } from "../ChinottoLogo";
+
+export function Footer() {
+  return (
+    <footer
+      className="py-12 px-8 border-t border-landing-border-subtle"
+    >
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <ChinottoLogo size={24} className="text-landing-border" />
+          <span className="text-sm text-landing-border">© 2026 Chinotto</span>
+        </div>
+        <div className="flex gap-6 text-sm">
+          <a href="/manifesto" className="text-landing-muted hover:underline">
+            Manifesto
+          </a>
+          <a href="/privacy" className="text-landing-muted hover:underline">
+            Privacy
+          </a>
+          <span className="inline-flex items-baseline gap-1">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-landing-muted hover:underline"
+            >
+              GitHub ↗
+            </a>
+            <span className="text-xs text-landing-muted opacity-60">
+              · soon
+            </span>
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+}
