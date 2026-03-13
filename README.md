@@ -1,11 +1,26 @@
+# Chinotto Site
 
-  # Minimalist Logo Design
+Marketing website for Chinotto — a minimal local-first desktop thinking tool. This repo is the **website only** (landing, privacy, manifesto). Not the desktop app, not a web app, not a backend.
 
-  This is a code bundle for Minimalist Logo Design. The original project is available at https://www.figma.com/design/FKVELv5tumdqJzZ3PTuZ3l/Minimalist-Logo-Design.
+## Run
 
-  ## Running the code
+```bash
+pnpm install
+pnpm dev
+```
 
-  Run `npm i` to install the dependencies.
+Open http://localhost:5173 (or the port Vite prints).
 
-  Run `npm run dev` to start the development server.
-  
+## Build
+
+```bash
+pnpm build
+```
+
+Static output in `dist/`. Deploy to Vercel, Netlify, or any static host. For client-side routes (`/privacy`, `/manifesto`, `/showcase`) to work on direct load or refresh, the host must serve `index.html` for those paths (see `vercel.json` for Vercel).
+
+## Stack
+
+Vite, React 18, React Router, Tailwind CSS v4. Static build, no backend, no CMS.
+
+See [AGENTS.md](AGENTS.md) for project goals, tech stack details, design and engineering principles, and guidance for coding agents.
