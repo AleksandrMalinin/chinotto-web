@@ -36,10 +36,10 @@ export function PrivacyPage() {
           <p>
             For questions about privacy:{" "}
             <a
-              href="mailto:privacy@chinotto.app"
+              href="mailto:hello@chinotto.app"
               className="text-landing-foreground hover:underline"
             >
-              privacy@chinotto.app
+              hello@chinotto.app
             </a>
           </p>
         </section>
