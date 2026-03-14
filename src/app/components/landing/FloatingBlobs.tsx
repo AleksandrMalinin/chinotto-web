@@ -1,4 +1,60 @@
-export function FloatingBlobs() {
+export interface PlaceholderMousePos {
+  x: number;
+  y: number;
+}
+
+interface FloatingBlobsProps {
+  /** Full-bleed background variant: ambient light blobs, optional mouse reaction */
+  variant?: "default" | "background";
+  /** Normalized 0–1; one blob follows slightly for ambient lighting effect */
+  mouse?: PlaceholderMousePos | null;
+}
+
+const MOUSE_INFLUENCE = 24;
+
+export function FloatingBlobs({ variant = "default", mouse = null }: FloatingBlobsProps) {
+  if (variant === "background") {
+    const dx = mouse ? (mouse.x - 0.5) * MOUSE_INFLUENCE : 0;
+    const dy = mouse ? (mouse.y - 0.5) * MOUSE_INFLUENCE : 0;
+
+    return (
+      <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute top-[10%] left-[5%] placeholder-blob--mouse"
+          style={{ transform: `translate(${dx}px, ${dy}px)` }}
+        >
+          <div
+            className="placeholder-blob w-[min(90vw,36rem)] h-[min(90vw,36rem)] rounded-full blur-[140px] opacity-[0.09]"
+            style={{
+              backgroundColor: "#3b0764",
+              animation: "placeholder-blob-float 60s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            }}
+          />
+        </div>
+        <div
+          className="placeholder-blob absolute w-[min(85vw,34rem)] h-[min(85vw,34rem)] rounded-full blur-[130px] opacity-[0.08]"
+          style={{
+            backgroundColor: "#0f172a",
+            top: "45%",
+            right: "0%",
+            animation: "placeholder-blob-float 72s cubic-bezier(0.4, 0, 0.6, 1) infinite reverse",
+            animationDelay: "-18s",
+          }}
+        />
+        <div
+          className="placeholder-blob absolute w-[min(80vw,30rem)] h-[min(80vw,30rem)] rounded-full blur-[120px] opacity-[0.07]"
+          style={{
+            backgroundColor: "#431407",
+            bottom: "15%",
+            left: "20%",
+            animation: "placeholder-blob-float 66s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            animationDelay: "-8s",
+          }}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="relative max-w-6xl mx-auto h-64 mb-20">
       <div

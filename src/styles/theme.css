@@ -242,7 +242,7 @@
   }
 }
 
-/* Placeholder landing: very slow blob movement, cursor, logo breath */
+/* Placeholder landing: slow blob movement, cursor, logo breath */
 @keyframes placeholder-blob-float {
   0%,
   100% {
@@ -273,7 +273,17 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.015);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes placeholder-logo-dots-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.82;
   }
 }
 
@@ -281,15 +291,23 @@
   will-change: transform;
 }
 
+.placeholder-blob--mouse {
+  transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
 .placeholder-cursor {
   display: inline-block;
-  width: 0.12em;
-  height: 1.05em;
+  width: 2px;
+  height: 1em;
   background-color: var(--landing-muted);
   vertical-align: -0.2em;
   animation: placeholder-cursor-blink 2s step-end infinite;
 }
 
 .placeholder-logo-wrap {
-  animation: placeholder-logo-breathe 5s ease-in-out infinite;
+  animation: placeholder-logo-breathe 7s ease-in-out infinite;
+}
+
+.placeholder-logo-wrap svg circle[fill="currentColor"] {
+  animation: placeholder-logo-dots-pulse 4s ease-in-out infinite;
 }
