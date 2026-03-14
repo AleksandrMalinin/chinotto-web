@@ -1,7 +1,5 @@
 export { Container } from "./Container";
 export { CTASection } from "./CTASection";
-export { FeatureCard } from "./FeatureCard";
-export { FeatureGrid } from "./FeatureGrid";
 export { PrinciplesStrip } from "./PrinciplesStrip";
 export { ProductMockup } from "./ProductMockup";
 export { FloatingBlobs } from "./FloatingBlobs";
