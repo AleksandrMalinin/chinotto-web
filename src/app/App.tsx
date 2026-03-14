@@ -14,6 +14,7 @@ import { PrivacyPage } from "./pages/PrivacyPage";
 import { ManifestoPage } from "./pages/ManifestoPage";
 import { PreviewPage } from "./pages/PreviewPage";
 import { PlaceholderLandingPage } from "./pages/PlaceholderLandingPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function LandingPage() {
   const location = useLocation();
@@ -47,6 +48,7 @@ export default function App() {
       <Route path="/preview" element={<PreviewPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/manifesto" element={<ManifestoPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

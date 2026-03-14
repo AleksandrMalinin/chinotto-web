@@ -312,3 +312,60 @@
 .placeholder-logo-wrap svg circle[fill="currentColor"] {
   animation: placeholder-logo-dots-pulse 4s ease-in-out infinite;
 }
+
+/* 404 page: subtle motion */
+@keyframes notfound-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notfound-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.notfound-page {
+  position: relative;
+}
+
+.notfound-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 50%,
+    rgba(138, 148, 200, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .notfound-page::before {
+    animation: notfound-glow-breathe 8s ease-in-out infinite;
+  }
+
+  .notfound-content {
+    animation: notfound-fade-in 500ms ease-out both;
+  }
+
+  .notfound-arrow {
+    display: inline-block;
+    transition: transform 0.2s ease-out;
+  }
+
+  .notfound-content a:hover .notfound-arrow {
+    transform: translateX(3px);
+  }
+}

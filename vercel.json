@@ -3,6 +3,7 @@
     { "source": "/privacy", "destination": "/index.html" },
     { "source": "/manifesto", "destination": "/index.html" },
     { "source": "/preview", "destination": "/index.html" },
-    { "source": "/showcase", "destination": "/index.html" }
+    { "source": "/showcase", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
