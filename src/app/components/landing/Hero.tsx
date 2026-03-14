@@ -39,14 +39,15 @@ export function Hero() {
             <ChinottoLogo size={120} className="text-landing-accent" />
           </button>
         </div>
-        <h1 className="text-6xl font-light tracking-tight mb-6 text-landing-foreground">
-          Capture thoughts.
+        <h1 className="text-6xl font-light tracking-tight mb-6 text-landing-foreground leading-[1.08]">
+          Capture first.
           <br />
-          Recover context.
+          <span className="opacity-[0.85]">Revisit later.</span>
         </h1>
-        <p className="text-xl mb-12 max-w-2xl mx-auto text-landing-muted">
-          A minimal desktop thinking tool for instantly capturing thoughts and
-          recovering context later. No organization required.
+        <p className="text-xl font-light mb-12 max-w-2xl mx-auto text-[#A7AEC4] opacity-80">
+          A minimal desktop tool to capture thoughts and revisit them later.
+          <br />
+          No organization required.
         </p>
         <div className="flex items-center justify-center gap-4">
           <a
