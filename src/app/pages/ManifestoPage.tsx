@@ -30,7 +30,9 @@ export function ManifestoPage() {
           don’t.
         </p>
         <p className="text-landing-foreground font-light">
-          Capture first. Structure later.
+          Capture first.
+          <br />
+          Revisit later.
         </p>
       </div>
     </ContentPageLayout>

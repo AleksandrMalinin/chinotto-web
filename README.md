@@ -2,16 +2,21 @@
   <img src="docs/logo.svg" width="80" alt="Chinotto" />
 </p>
 
-# Chinotto Website
+# Chinotto
 
-Landing page for Chinotto — a minimal desktop thinking tool.
+Capture first.  
+Revisit later.
 
-Capture thoughts instantly.  
-Recover context later.
+Chinotto is a minimal desktop thinking tool built for the moment a thought appears.  
+Capture it instantly — without projects, folders, or workspaces.
 
----
+Structure can come later, when you revisit.
+
+**Stack:** React · Vite · TypeScript · Tailwind CSS
 
 ## Development
+
+Run the website locally.
 
 Install dependencies:
 
@@ -31,4 +36,6 @@ Build the site:
 pnpm build
 ```
 
-Built with React, Vite and Tailwind.
+**Desktop app:** https://github.com/AleksandrMalinin/chinotto
+
+**License:** Proprietary. All rights reserved.
