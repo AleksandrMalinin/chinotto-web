@@ -1,0 +1,25 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background – same as landing -->
+  <rect width="1200" height="630" fill="#0a0a0e"/>
+  <!-- Soft radial glow -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%">
+      <stop offset="0%" stop-color="rgba(138,148,200,0.12)"/>
+      <stop offset="50%" stop-color="rgba(138,148,200,0.04)"/>
+      <stop offset="100%" stop-color="rgba(138,148,200,0)"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="600" cy="284" rx="500" ry="280" fill="url(#glow)"/>
+  <!-- Real Chinotto logo (from ChinottoLogo.tsx): 120px equivalent, scale(120/64)=1.875 -->
+  <g transform="translate(600,200) scale(1.875) translate(-32,-32)">
+    <circle cx="32" cy="32" r="28" stroke="#8a94c8" stroke-width="2" fill="none"/>
+    <circle cx="32" cy="20" r="6" fill="#8a94c8"/>
+    <circle cx="22" cy="34" r="5" fill="#8a94c8"/>
+    <circle cx="42" cy="34" r="5" fill="#8a94c8"/>
+    <circle cx="32" cy="44" r="4" fill="#8a94c8"/>
+  </g>
+  <!-- Title – Inter, same as site -->
+  <text x="600" y="360" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="300" fill="#e4e4e9" text-anchor="middle" letter-spacing="-0.02em">Chinotto</text>
+  <!-- Subtitle – Inter, one line -->
+  <text x="600" y="400" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="300" fill="#9b9fa9" text-anchor="middle" letter-spacing="-0.01em">Capture first. Revisit later.</text>
+</svg>
