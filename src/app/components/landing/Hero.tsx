@@ -29,7 +29,7 @@ export function Hero() {
         <div className="flex justify-center mb-8">
           <button
             type="button"
-            className="rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg touch-manipulation"
+            className="placeholder-logo-wrap rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg touch-manipulation"
             onPointerDown={onPointerDown}
             onPointerUp={clearTimer}
             onPointerLeave={clearTimer}
