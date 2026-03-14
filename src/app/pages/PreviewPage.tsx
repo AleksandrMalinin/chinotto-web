@@ -30,7 +30,8 @@ export function PreviewPage() {
           >
             <ChinottoLogo size={32} className="text-landing-accent" />
             <span className="text-lg font-light text-landing-foreground">
-              Chinotto
+              Chinotto{" "}
+              <span className="text-sm opacity-60 align-baseline">β</span>
             </span>
           </Link>
         </nav>
@@ -45,7 +46,8 @@ export function PreviewPage() {
             <ChinottoLogo size={64} className="text-landing-foreground" />
             <div>
               <h1 className="text-3xl font-semibold tracking-tight text-landing-foreground">
-                Chinotto
+                Chinotto{" "}
+                <span className="text-xl opacity-60">β</span>
               </h1>
               <p className="mt-2 text-base font-normal text-landing-muted neon-text">
                 Capture first. Understand later.

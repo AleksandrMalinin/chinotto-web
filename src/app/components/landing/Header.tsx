@@ -19,14 +19,16 @@ export function Header({ logoHref }: HeaderProps) {
             >
               <ChinottoLogo size={32} className="text-landing-accent" />
               <span className="text-lg font-light text-landing-foreground">
-                Chinotto
+                Chinotto{" "}
+                <span className="text-sm opacity-60 align-baseline">β</span>
               </span>
             </Link>
           ) : (
             <>
               <ChinottoLogo size={32} className="text-landing-accent" />
               <span className="text-lg font-light text-landing-foreground">
-                Chinotto
+                Chinotto{" "}
+                <span className="text-sm opacity-60 align-baseline">β</span>
               </span>
             </>
           )}

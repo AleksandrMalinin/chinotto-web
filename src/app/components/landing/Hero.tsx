@@ -54,7 +54,8 @@ export function Hero() {
             href="#download"
             className="btn-landing-primary px-8 py-3 text-lg inline-block"
           >
-            Download for macOS
+            Download Chinotto{" "}
+            <span className="text-base opacity-80">β</span>
           </a>
           <a
             href="#principles"

@@ -12,7 +12,8 @@ export function CTASection() {
           href="#"
           className="btn-landing-primary px-10 py-4 text-lg inline-block"
         >
-          Download for macOS
+          Download Chinotto{" "}
+          <span className="opacity-80">β</span>
         </a>
         <p className="mt-4 text-sm text-landing-muted">
           Windows · Linux — coming soon
