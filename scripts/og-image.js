@@ -30,7 +30,6 @@ async function main() {
   const pngData = resvg.render();
   const pngBuffer = pngData.asPng();
   await writeFile(OUT_PATH, pngBuffer);
-  console.log("Wrote", OUT_PATH);
 }
 
 main().catch((err) => {

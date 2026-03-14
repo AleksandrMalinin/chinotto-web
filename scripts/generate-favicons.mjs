@@ -115,11 +115,9 @@ function encodePNG(size, white = true) {
 for (const size of [32, 16]) {
   const outPath = join(outDir, `favicon-${size}.png`);
   writeFileSync(outPath, encodePNG(size, true));
-  console.log(`Wrote ${outPath}`);
 }
 // Dark on transparent — for light browser tabs
 for (const size of [32, 16]) {
   const outPath = join(outDir, `favicon-light-${size}.png`);
   writeFileSync(outPath, encodePNG(size, false));
-  console.log(`Wrote ${outPath}`);
 }
