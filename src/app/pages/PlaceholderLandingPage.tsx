@@ -33,7 +33,7 @@ export function PlaceholderLandingPage() {
       {/* Centered content */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 py-24 relative z-10">
         <div className="placeholder-logo-wrap mb-20">
-          <ChinottoLogo size={96} className="text-landing-accent" />
+          <ChinottoLogo size={120} className="text-landing-accent" />
         </div>
         <h1 className="text-5xl sm:text-6xl font-light tracking-tight text-landing-foreground mb-16 text-center">
           Chinotto
