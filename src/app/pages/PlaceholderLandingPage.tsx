@@ -35,11 +35,13 @@ export function PlaceholderLandingPage() {
         <div className="placeholder-logo-wrap mb-20">
           <ChinottoLogo size={120} className="text-landing-accent" />
         </div>
-        <h1 className="text-5xl sm:text-6xl font-light tracking-tight text-landing-foreground mb-16 text-center">
-          Chinotto
+        <h1 className="text-5xl sm:text-6xl font-light tracking-tight text-landing-foreground mb-6 text-center leading-[1.08]">
+          Capture first.
+          <br />
+          <span className="opacity-[0.85]">Revisit later.</span>
         </h1>
-        <p className="text-[13px] sm:text-sm text-landing-muted font-light leading-relaxed tracking-[0.08em] text-center flex items-baseline justify-center gap-0.5">
-          Still thinking.
+        <p className="text-[13px] sm:text-sm text-landing-muted font-light leading-relaxed tracking-[0.08em] text-center mb-16">
+          A minimal desktop thinking tool.
           <span className="placeholder-cursor ml-0.5" aria-hidden />
         </p>
       </main>
