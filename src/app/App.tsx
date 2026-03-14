@@ -13,6 +13,7 @@ import {
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { ManifestoPage } from "./pages/ManifestoPage";
 import { PreviewPage } from "./pages/PreviewPage";
+import { PlaceholderLandingPage } from "./pages/PlaceholderLandingPage";
 
 function LandingPage() {
   const location = useLocation();
@@ -40,7 +41,8 @@ function LandingPage() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" element={<PlaceholderLandingPage />} />
+      <Route path="/full" element={<LandingPage />} />
       <Route path="/showcase" element={<LogoShowcasePage />} />
       <Route path="/preview" element={<PreviewPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />

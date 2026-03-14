@@ -241,3 +241,55 @@
     text-shadow: 0 0 20px rgba(138, 148, 200, 0.4);
   }
 }
+
+/* Placeholder landing: very slow blob movement, cursor, logo breath */
+@keyframes placeholder-blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(2%, -3%) scale(1.02);
+  }
+  66% {
+    transform: translate(-2%, 2%) scale(0.99);
+  }
+}
+
+@keyframes placeholder-cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes placeholder-logo-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+}
+
+.placeholder-blob {
+  will-change: transform;
+}
+
+.placeholder-cursor {
+  display: inline-block;
+  width: 0.12em;
+  height: 1.05em;
+  background-color: var(--landing-muted);
+  vertical-align: -0.2em;
+  animation: placeholder-cursor-blink 2s step-end infinite;
+}
+
+.placeholder-logo-wrap {
+  animation: placeholder-logo-breathe 5s ease-in-out infinite;
+}

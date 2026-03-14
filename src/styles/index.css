@@ -1,3 +1,22 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+/* Studio signature – quiet mark, centered */
+.app-studio-signature {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(160, 170, 255, 0.35);
+  opacity: 0.8;
+  text-shadow:
+    0 0 6px rgba(120, 140, 255, 0.25),
+    0 0 14px rgba(90, 110, 255, 0.15);
+  pointer-events: none;
+}
