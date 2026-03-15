@@ -37,5 +37,3 @@ pnpm build
 ```
 
 **Desktop app:** https://github.com/AleksandrMalinin/chinotto
-
-**License:** Proprietary. All rights reserved.
