@@ -36,4 +36,6 @@ Build the site:
 pnpm build
 ```
 
-**Desktop app:** https://github.com/AleksandrMalinin/chinotto
+## Related
+
+- [Chinotto](https://github.com/AleksandrMalinin/chinotto) — desktop app

@@ -26,7 +26,7 @@ export function PrivacyPage() {
           <h2 className="text-xl font-light text-landing-foreground">
             Local storage
           </h2>
-          <p>All data remains on your machine.</p>
+          <p>All data remains on your machine. Entry content never leaves your device.</p>
         </section>
 
         <section className="space-y-4">

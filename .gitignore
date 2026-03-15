@@ -29,3 +29,6 @@ Thumbs.db
 # Optional
 coverage/
 .cache/
+
+# Local-only (not in repo)
+docs/pre-release-checklist.md
