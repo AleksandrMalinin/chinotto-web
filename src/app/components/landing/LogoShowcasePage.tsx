@@ -3,27 +3,26 @@ import { ChinottoLogo } from "../ChinottoLogo";
 
 export function LogoShowcasePage() {
   return (
-    <div className="min-h-screen bg-landing-bg">
+    <div className="min-h-screen bg-landing-bg flex flex-col">
       <Header logoHref="/" />
 
-      <main className="size-full flex items-center justify-center py-20 px-8">
-        <div className="flex flex-col items-center gap-8">
+      <main className="flex-1 flex flex-col items-center pt-20 pb-20 px-8 min-h-0 overflow-auto">
+        <div className="flex flex-col items-center gap-5">
           {/* Logo showcase */}
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-2">
             <ChinottoLogo size={120} className="text-landing-accent" />
             <h1 className="text-4xl font-light tracking-tight text-landing-foreground">
               Chinotto
             </h1>
-            <p className="text-center max-w-md text-landing-muted">
-              A minimal desktop thinking tool for instantly capturing thoughts
-              and recovering context later
-            </p>
+            <span className="text-xs font-light text-landing-muted opacity-70">
+              Icon study
+            </span>
           </div>
 
           {/* Size variations */}
-          <div className="flex items-center gap-8 pt-8 border-t border-landing-border-subtle w-full justify-center">
-            {[80, 64, 48, 32].map((size) => (
-              <div key={size} className="flex flex-col items-center gap-2">
+          <div className="flex items-center gap-6 pt-5 border-t border-landing-border-subtle w-full justify-center">
+            {[56, 44, 36, 28].map((size) => (
+              <div key={size} className="flex flex-col items-center gap-1">
                 <ChinottoLogo size={size} className="text-landing-accent" />
                 <span className="text-xs text-landing-border">{size}px</span>
               </div>
@@ -31,44 +30,44 @@ export function LogoShowcasePage() {
           </div>
 
           {/* Color variations */}
-          <div className="flex items-center gap-8 pt-8 border-t border-landing-border-subtle w-full justify-center flex-wrap">
-            <div className="flex flex-col items-center gap-2">
-              <div className="p-4 rounded-xl bg-landing-border-subtle">
-                <ChinottoLogo size={64} className="text-landing-foreground" />
+          <div className="flex items-center gap-6 pt-5 border-t border-landing-border-subtle w-full justify-center flex-wrap">
+            <div className="flex flex-col items-center gap-1">
+              <div className="p-3 rounded-lg bg-landing-border-subtle">
+                <ChinottoLogo size={44} className="text-landing-foreground" />
               </div>
               <span className="text-xs text-landing-border">Light</span>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="p-4 rounded-xl bg-[#7C3AED]">
-                <ChinottoLogo size={64} className="text-landing-foreground" />
+            <div className="flex flex-col items-center gap-1">
+              <div className="p-3 rounded-lg bg-[#7C3AED]">
+                <ChinottoLogo size={44} className="text-landing-foreground" />
               </div>
               <span className="text-xs text-landing-border">Violet</span>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="p-4 rounded-xl bg-[#06B6D4]">
-                <ChinottoLogo size={64} className="text-landing-bg" />
+            <div className="flex flex-col items-center gap-1">
+              <div className="p-3 rounded-lg bg-[#06B6D4]">
+                <ChinottoLogo size={44} className="text-landing-bg" />
               </div>
               <span className="text-xs text-landing-border">Cyan</span>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="p-4 rounded-xl bg-[#F97316]">
-                <ChinottoLogo size={64} className="text-landing-bg" />
+            <div className="flex flex-col items-center gap-1">
+              <div className="p-3 rounded-lg bg-[#F97316]">
+                <ChinottoLogo size={44} className="text-landing-bg" />
               </div>
               <span className="text-xs text-landing-border">Orange</span>
             </div>
           </div>
 
           {/* Gradient variation */}
-          <div className="flex items-center gap-8 pt-8 border-t border-landing-border-subtle w-full justify-center">
-            <div className="flex flex-col items-center gap-2">
+          <div className="flex items-center gap-6 pt-5 border-t border-landing-border-subtle w-full justify-center">
+            <div className="flex flex-col items-center gap-1">
               <div
-                className="p-6 rounded-xl landing-card"
+                className="p-4 rounded-lg landing-card"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(100,120,180,0.3), rgba(80,100,150,0.3))",
                 }}
               >
-                <ChinottoLogo size={80} className="text-landing-foreground" />
+                <ChinottoLogo size={52} className="text-landing-foreground" />
               </div>
               <span className="text-xs text-landing-border">Gradient</span>
             </div>
