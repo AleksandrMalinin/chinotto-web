@@ -34,7 +34,7 @@ export function Header({ logoHref }: HeaderProps) {
           )}
         </div>
         <a
-          href="/#download"
+          href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto.dmg"
           className="btn-landing-primary px-6 py-2 inline-block"
         >
           Get the app

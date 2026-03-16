@@ -51,7 +51,7 @@ export function Hero() {
         </p>
         <div className="flex items-center justify-center gap-4">
           <a
-            href="#download"
+            href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto.dmg"
             className="btn-landing-primary px-8 py-3 text-lg inline-block"
           >
             Download Chinotto{" "}
