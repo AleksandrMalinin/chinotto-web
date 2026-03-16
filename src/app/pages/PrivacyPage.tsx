@@ -13,12 +13,16 @@ export function PrivacyPage() {
           <h2 className="text-xl font-light text-landing-foreground">
             Data collection
           </h2>
-          <p>We do not collect:</p>
+          <p>
+            Chinotto collects minimal anonymous usage analytics to understand
+            how the product is used and improve the experience.
+          </p>
+          <p>We never collect:</p>
           <ul className="list-disc list-inside space-y-2 pl-2">
-            <li>personal data</li>
-            <li>analytics</li>
-            <li>cloud backups</li>
-            <li>tracking information</li>
+            <li>the content of your thoughts</li>
+            <li>personal information</li>
+            <li>search queries</li>
+            <li>identifiable data</li>
           </ul>
         </section>
 
@@ -26,7 +30,10 @@ export function PrivacyPage() {
           <h2 className="text-xl font-light text-landing-foreground">
             Local storage
           </h2>
-          <p>All data remains on your machine. Entry content never leaves your device.</p>
+          <p>
+            Entry content never leaves your device. All data remains on your
+            machine.
+          </p>
         </section>
 
         <section className="space-y-4">
