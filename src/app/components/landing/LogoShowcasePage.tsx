@@ -1,25 +1,12 @@
-import { Link } from "react-router";
+import { Header } from "./Header";
 import { ChinottoLogo } from "../ChinottoLogo";
 
 export function LogoShowcasePage() {
   return (
     <div className="min-h-screen bg-landing-bg">
-      <header className="py-6 px-8 border-b border-landing-border-subtle">
-        <nav className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link
-            to="/"
-            className="flex items-center gap-3 rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
-            aria-label="Back to home"
-          >
-            <ChinottoLogo size={32} className="text-landing-accent" />
-            <span className="text-lg font-light text-landing-foreground">
-              Chinotto
-            </span>
-          </Link>
-        </nav>
-      </header>
+      <Header logoHref="/" />
 
-      <main className="size-full flex items-center justify-center py-16 px-8">
+      <main className="size-full flex items-center justify-center py-20 px-8">
         <div className="flex flex-col items-center gap-8">
           {/* Logo showcase */}
           <div className="flex flex-col items-center gap-6">
