@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import type { MouseEvent } from "react";
 import { ChinottoLogo } from "../components/ChinottoLogo";
 import { FloatingBlobs } from "../components/landing";
 import type { PlaceholderMousePos } from "../components/landing/FloatingBlobs";
@@ -6,7 +7,7 @@ import type { PlaceholderMousePos } from "../components/landing/FloatingBlobs";
 export function PlaceholderLandingPage() {
   const [mouse, setMouse] = useState<PlaceholderMousePos | null>(null);
 
-  const onMouseMove = useCallback((e: React.MouseEvent) => {
+  const onMouseMove = useCallback((e: MouseEvent<HTMLDivElement>) => {
     setMouse({
       x: e.clientX / window.innerWidth,
       y: e.clientY / window.innerHeight,
