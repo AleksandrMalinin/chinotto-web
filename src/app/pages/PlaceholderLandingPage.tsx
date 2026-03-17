@@ -44,7 +44,7 @@ export function PlaceholderLandingPage() {
       <Header logoHref="/" hideDownloadButton />
 
       {/* Mobile landing: logo 100px, space below header */}
-      <main className="flex-1 flex flex-col items-center pt-20 px-6 pb-16 relative z-10">
+      <main className="flex-1 flex flex-col items-center pt-[70px] px-6 pb-16 relative z-10">
         <a
           href="/showcase"
           className="placeholder-logo-wrap mb-14 block rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"

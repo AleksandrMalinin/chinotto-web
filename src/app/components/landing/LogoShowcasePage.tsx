@@ -19,7 +19,7 @@ export function LogoShowcasePage() {
     <div className="min-h-screen bg-landing-bg flex flex-col">
       <Header logoHref="/" hideDownloadButton={hideDownload} />
 
-      <main className="flex-1 flex flex-col items-center pt-20 pb-20 px-8 min-h-0 overflow-auto">
+      <main className="flex-1 flex flex-col items-center pt-[70px] md:pt-20 pb-20 px-8 min-h-0 overflow-auto">
         <div className="flex flex-col items-center gap-5">
           {/* Logo showcase: 100px on mobile, 120px on desktop */}
           <div className="flex flex-col items-center gap-2">
