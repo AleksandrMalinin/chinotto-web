@@ -3,6 +3,6 @@
     { "source": "/privacy", "destination": "/index.html" },
     { "source": "/manifesto", "destination": "/index.html" },
     { "source": "/showcase", "destination": "/index.html" },
-    { "source": "/((?!og-image\\.png|favicon\\.ico|robots\\.txt|apple-touch-icon\\.png|favicon-32x32\\.png|favicon-16\\.png|favicon-32\\.png|favicon-light-16\\.png|favicon-light-32\\.png|favicon\\.svg).*)", "destination": "/index.html" }
+    { "source": "/((?!og-image\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml|apple-touch-icon\\.png|favicon-32x32\\.png|favicon-16\\.png|favicon-32\\.png|favicon-light-16\\.png|favicon-light-32\\.png|favicon\\.svg).*)", "destination": "/index.html" }
   ]
 }
