@@ -4,8 +4,6 @@ import { ChinottoLogo } from "../components/ChinottoLogo";
 import { FloatingBlobs, Header } from "../components/landing";
 import type { PlaceholderMousePos } from "../components/landing/FloatingBlobs";
 
-const GITHUB_URL = "https://github.com/AleksandrMalinin/chinotto";
-
 export function PlaceholderLandingPage() {
   const [mouse, setMouse] = useState<PlaceholderMousePos | null>(null);
   const [desktopModalOpen, setDesktopModalOpen] = useState(false);
@@ -120,14 +118,13 @@ export function PlaceholderLandingPage() {
               >
                 {copied ? "Copied" : "Copy page link"}
               </button>
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-landing-secondary w-full px-4 py-2.5 text-sm text-center"
+              <span
+                className="btn-landing-secondary w-full px-4 py-2.5 text-sm text-center inline-flex items-center justify-center gap-1.5 opacity-60 cursor-not-allowed pointer-events-none"
+                aria-disabled="true"
               >
                 View on GitHub
-              </a>
+                <span className="text-[10px] opacity-80">soon</span>
+              </span>
               <button
                 type="button"
                 onClick={() => setDesktopModalOpen(false)}
