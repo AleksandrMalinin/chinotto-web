@@ -20,8 +20,8 @@
     </filter>
   </defs>
   <ellipse cx="600" cy="284" rx="500" ry="280" fill="url(#glow)"/>
-  <!-- Real Chinotto logo (from ChinottoLogo.tsx): 120px equivalent, scale(120/64)=1.875 -->
-  <g transform="translate(600,200) scale(1.875) translate(-32,-32)">
+  <!-- Real Chinotto logo: ~15% larger for OG preview -->
+  <g transform="translate(600,200) scale(2.16) translate(-32,-32)">
     <circle cx="32" cy="32" r="28" stroke="#8a94c8" stroke-width="2" fill="none"/>
     <circle cx="32" cy="20" r="6" fill="#8a94c8"/>
     <circle cx="22" cy="34" r="5" fill="#8a94c8"/>
