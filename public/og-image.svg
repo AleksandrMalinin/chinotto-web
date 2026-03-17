@@ -8,6 +8,16 @@
       <stop offset="50%" stop-color="rgba(138,148,200,0.04)"/>
       <stop offset="100%" stop-color="rgba(138,148,200,0)"/>
     </radialGradient>
+    <!-- Subtle glow behind tagline for readability at small sizes -->
+    <filter id="textglow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.2" result="blur"/>
+      <feFlood flood-color="#fff" flood-opacity="0.08" result="flood"/>
+      <feComposite in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
   <ellipse cx="600" cy="284" rx="500" ry="280" fill="url(#glow)"/>
   <!-- Real Chinotto logo (from ChinottoLogo.tsx): 120px equivalent, scale(120/64)=1.875 -->
@@ -20,6 +30,6 @@
   </g>
   <!-- Title – Inter, same as site -->
   <text x="600" y="360" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="300" fill="#e4e4e9" text-anchor="middle" letter-spacing="-0.02em">Chinotto</text>
-  <!-- Subtitle – Inter, one line -->
-  <text x="600" y="400" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="300" fill="#9b9fa9" text-anchor="middle" letter-spacing="-0.01em">Capture first. Revisit later.</text>
+  <!-- Subtitle – larger, brighter, subtle glow for readability in previews -->
+  <text x="600" y="408" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="300" fill="#c2c6d0" text-anchor="middle" letter-spacing="-0.01em" filter="url(#textglow)">Capture first. Revisit later.</text>
 </svg>
