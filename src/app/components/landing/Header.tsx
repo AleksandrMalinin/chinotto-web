@@ -4,9 +4,11 @@ import { ChinottoLogo } from "../ChinottoLogo";
 interface HeaderProps {
   /** When set, logo and name link to this path (e.g. /showcase). */
   logoHref?: string;
+  /** When true, hide the "Get the app" / download button (e.g. on mobile showcase). */
+  hideDownloadButton?: boolean;
 }
 
-export function Header({ logoHref }: HeaderProps) {
+export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
   return (
     <header className="py-6 px-8">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
@@ -33,12 +35,14 @@ export function Header({ logoHref }: HeaderProps) {
             </>
           )}
         </div>
-        <a
-          href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto.dmg"
-          className="btn-landing-primary px-6 py-2 inline-block"
-        >
-          Get the app
-        </a>
+        {!hideDownloadButton && (
+          <a
+            href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto.dmg"
+            className="btn-landing-primary px-6 py-2 inline-block"
+          >
+            Get the app
+          </a>
+        )}
       </nav>
     </header>
   );
