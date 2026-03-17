@@ -49,6 +49,7 @@ export function PlaceholderLandingPage() {
           href="/showcase"
           className="placeholder-logo-wrap mb-14 block rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
           aria-label="Logo showcase"
+          data-umami-event="logo-showcase-placeholder"
         >
           <ChinottoLogo size={100} className="text-landing-accent" />
         </a>
@@ -66,12 +67,14 @@ export function PlaceholderLandingPage() {
             type="button"
             onClick={() => setDesktopModalOpen(true)}
             className="btn-landing-primary w-full px-6 py-3 text-base text-center"
+            data-umami-event="download-placeholder"
           >
             Download Chinotto <span className="opacity-80">β</span>
           </button>
           <a
             href="/manifesto"
             className="btn-landing-secondary w-full px-6 py-3 text-base text-center inline-block"
+            data-umami-event="learn-more-placeholder"
           >
             Learn More
           </a>

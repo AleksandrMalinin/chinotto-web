@@ -45,6 +45,7 @@ export function PrivacyPage() {
             <a
               href="mailto:hello@chinotto.app"
               className="text-landing-foreground hover:underline"
+              data-umami-event="contact-email"
             >
               hello@chinotto.app
             </a>

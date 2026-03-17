@@ -25,6 +25,7 @@ export function ContentPageLayout({ title, children }: ContentPageLayoutProps) {
             href="/"
             className="inline-flex rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
             aria-label="Home"
+            data-umami-event="home-logo-mobile"
           >
             <ChinottoLogo size={36} className="text-landing-accent" />
           </a>

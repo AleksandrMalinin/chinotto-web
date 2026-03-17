@@ -18,6 +18,7 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
               to={logoHref}
               className="flex items-center gap-3 rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
               aria-label="Logo and icon showcase"
+              data-umami-event="header-logo"
             >
               <ChinottoLogo size={32} className="text-landing-accent" />
               <span className="text-lg font-light text-landing-foreground">
@@ -39,6 +40,7 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
           <a
             href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_0.1.0_aarch64.dmg"
             className="btn-landing-primary px-6 py-2 inline-block"
+            data-umami-event="get-app-header"
           >
             Get the app
           </a>

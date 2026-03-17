@@ -53,6 +53,7 @@ export function Hero() {
           <a
             href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_0.1.0_aarch64.dmg"
             className="btn-landing-primary px-8 py-3 text-lg inline-block"
+            data-umami-event="download-hero"
           >
             Download Chinotto{" "}
             <span className="text-base opacity-80">β</span>
@@ -60,6 +61,7 @@ export function Hero() {
           <a
             href="#principles"
             className="btn-landing-secondary px-8 py-3 text-lg inline-block"
+            data-umami-event="learn-more-hero"
           >
             Learn More
           </a>

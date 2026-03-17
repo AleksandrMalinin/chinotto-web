@@ -14,10 +14,10 @@ export function Footer() {
           </span>
         </div>
         <div className="flex gap-6 text-sm">
-          <a href="/manifesto" className="text-landing-muted hover:underline">
+          <a href="/manifesto" className="text-landing-muted hover:underline" data-umami-event="footer-manifesto">
             Manifesto
           </a>
-          <a href="/privacy" className="text-landing-muted hover:underline">
+          <a href="/privacy" className="text-landing-muted hover:underline" data-umami-event="footer-privacy">
             Privacy
           </a>
           <span className="inline-flex items-baseline gap-1 text-landing-muted text-sm">
