@@ -1,16 +1,30 @@
+import { useState, useEffect } from "react";
 import { Header } from "./Header";
 import { ChinottoLogo } from "../ChinottoLogo";
 
+const MOBILE_MEDIA = "(max-width: 767px)";
+
 export function LogoShowcasePage() {
+  const [hideDownload, setHideDownload] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia(MOBILE_MEDIA);
+    const update = () => setHideDownload(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+
   return (
     <div className="min-h-screen bg-landing-bg flex flex-col">
-      <Header logoHref="/" />
+      <Header logoHref="/" hideDownloadButton={hideDownload} />
 
       <main className="flex-1 flex flex-col items-center pt-20 pb-20 px-8 min-h-0 overflow-auto">
         <div className="flex flex-col items-center gap-5">
-          {/* Logo showcase */}
+          {/* Logo showcase: 100px on mobile, 120px on desktop */}
           <div className="flex flex-col items-center gap-2">
-            <ChinottoLogo size={120} className="text-landing-accent" />
+            <ChinottoLogo size={100} className="text-landing-accent md:hidden" />
+            <ChinottoLogo size={120} className="text-landing-accent hidden md:block" />
             <h1 className="text-4xl font-light tracking-tight text-landing-foreground">
               Chinotto
             </h1>
