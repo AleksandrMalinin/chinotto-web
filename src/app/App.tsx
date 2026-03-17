@@ -15,7 +15,7 @@ import { ManifestoPage } from "./pages/ManifestoPage";
 import { PlaceholderLandingPage } from "./pages/PlaceholderLandingPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
-function LandingPage() {
+function DesktopLandingPage() {
   const location = useLocation();
 
   useEffect(() => {
@@ -38,11 +38,24 @@ function LandingPage() {
   );
 }
 
+/** Main route: mobile = PlaceholderLandingPage, desktop = full landing */
+function MainLandingPage() {
+  return (
+    <>
+      <div className="md:hidden">
+        <PlaceholderLandingPage />
+      </div>
+      <div className="hidden md:block">
+        <DesktopLandingPage />
+      </div>
+    </>
+  );
+}
+
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<PlaceholderLandingPage />} />
-      <Route path="/full" element={<LandingPage />} />
+      <Route path="/" element={<MainLandingPage />} />
       <Route path="/showcase" element={<LogoShowcasePage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/manifesto" element={<ManifestoPage />} />
