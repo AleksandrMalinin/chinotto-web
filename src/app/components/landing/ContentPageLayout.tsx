@@ -44,9 +44,9 @@ export function ContentPageLayout({ title, children }: ContentPageLayoutProps) {
       </div>
 
       {/* Desktop: header + main + footer */}
-      <div className="hidden md:block">
+      <div className="hidden min-h-screen md:flex md:flex-col">
         <Header logoHref="/" />
-        <main className="py-16 px-8">
+        <main className="flex-1 py-16 px-8">
           <Container size="3xl">
             <h1 className="text-3xl font-light text-landing-foreground mb-8">
               {title}
