@@ -12,6 +12,7 @@ import {
 } from "./components/landing";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { ManifestoPage } from "./pages/ManifestoPage";
+import { NotesPage } from "./pages/UpdatesPage";
 import { PlaceholderLandingPage } from "./pages/PlaceholderLandingPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
@@ -59,6 +60,9 @@ export default function App() {
       <Route path="/showcase" element={<LogoShowcasePage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/manifesto" element={<ManifestoPage />} />
+      <Route path="/changelog" element={<NotesPage />} />
+      <Route path="/notes" element={<NotesPage />} />
+      <Route path="/updates" element={<NotesPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
