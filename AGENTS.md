@@ -40,6 +40,7 @@ The repo contains many Radix/shadcn-style UI components; the landing and content
 - `/showcase` — logo showcase (dev/design)
 - `/privacy` — privacy policy (content page)
 - `/manifesto` — manifesto (content page)
+- `/changelog` — Notes (product updates; title in UI is “Notes”)
 
 Content pages use `ContentPageLayout` (shared header/footer, main content area). Footer links point to these paths; production needs rewrites so these URLs serve `index.html` (see `vercel.json`).
 
@@ -127,6 +128,78 @@ Avoid phrases like:
 - organize your life
 - unlock your potential
 
+## Changelog writing (Notes / `/changelog`)
+
+Chinotto uses a minimal, calm, and structured changelog style. All updates in `src/app/content/updates.ts` must follow these rules.
+
+### Format
+
+Each release must follow:
+
+```
+vX.Y.Z
+
+Title (1 short line)
+
+* bullet
+* bullet
+* bullet
+```
+
+### Title
+
+- **3–5 words**
+- Describes the change in a calm, product-oriented way
+
+**Good:** Quick capture is here · Search feels instant
+
+**Bad:** Added new feature for capturing thoughts
+
+### Bullet points
+
+Use **noun-based, short phrases**:
+
+- Thought capture
+- Full-text search
+- Pin thoughts
+- UI polish
+
+### Constraints
+
+- **3–5** bullet points per release
+- Each bullet: **2–4 words** (shortcut glyphs like `⌘ ⇧ K` are allowed when needed)
+- **No sentences**
+- **No punctuation** at the end of bullets
+
+### Do NOT use
+
+- “Added”, “Improved”, “Fixed”
+- “You can now…”
+- Technical implementation details
+- Long descriptions
+
+### Include only
+
+- New core capabilities
+- Meaningful UX improvements
+- Visible product changes
+
+### Exclude
+
+- Minor fixes
+- Internal refactors
+- Non-user-facing changes
+
+### Tone
+
+- Calm
+- Minimal
+- Product-focused
+- No marketing language
+- No poetic language
+
+**Goal:** Changelog should be instantly scannable and feel like part of the product — clean, precise, and consistent.
+
 ## Expected behavior from coding agents
 
 When making changes:
@@ -137,6 +210,7 @@ When making changes:
 5. keep the site coherent with the Chinotto brand
 6. if a feature feels like marketing fluff, challenge it
 7. if a dependency is avoidable, avoid it
+8. when editing Notes / changelog data (`src/app/content/updates.ts`), follow **Changelog writing** above
 
 ## Output expectations
 
