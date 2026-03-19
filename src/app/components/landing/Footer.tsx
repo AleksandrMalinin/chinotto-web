@@ -20,10 +20,15 @@ export function Footer() {
           <a href="/privacy" className="text-landing-muted hover:underline" data-umami-event="footer-privacy">
             Privacy
           </a>
-          <span className="inline-flex items-baseline gap-1 text-landing-muted text-sm">
-            <span className="opacity-60">GitHub ↗</span>
-            <span className="text-xs opacity-60">· soon</span>
-          </span>
+          <a
+            href="https://github.com/AleksandrMalinin/chinotto"
+            target="_blank"
+            rel="noreferrer"
+            className="text-landing-muted hover:underline"
+            data-umami-event="footer-github"
+          >
+            GitHub ↗
+          </a>
         </div>
       </div>
     </footer>

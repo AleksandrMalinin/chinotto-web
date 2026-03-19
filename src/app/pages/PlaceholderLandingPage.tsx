@@ -121,13 +121,15 @@ export function PlaceholderLandingPage() {
               >
                 {copied ? "Copied" : "Copy page link"}
               </button>
-              <span
-                className="btn-landing-secondary w-full px-4 py-2.5 text-sm text-center inline-flex items-center justify-center gap-1.5 opacity-60 cursor-not-allowed pointer-events-none"
-                aria-disabled="true"
+              <a
+                href="https://github.com/AleksandrMalinin/chinotto"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-landing-secondary w-full px-4 py-2.5 text-sm text-center inline-flex items-center justify-center gap-1.5"
+                data-umami-event="mobile-github"
               >
-                View on GitHub
-                <span className="text-[10px] opacity-80">soon</span>
-              </span>
+                View on GitHub ↗
+              </a>
               <button
                 type="button"
                 onClick={() => setDesktopModalOpen(false)}
