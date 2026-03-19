@@ -9,6 +9,8 @@
   --landing-muted: #9b9fa9;
   --landing-accent: #6e7392;
   --landing-accent-hover: #7e839e;
+  /* Notes / changelog: muted desaturated violet (near-neutral on dark UI) */
+  --landing-note-violet: #8b87a2;
   --landing-border: #5d6068;
   --landing-border-subtle: #0f0f14;
   --landing-card-border: rgba(139, 148, 200, 0.1);
@@ -135,6 +137,7 @@
   --color-landing-muted: var(--landing-muted);
   --color-landing-accent: var(--landing-accent);
   --color-landing-accent-hover: var(--landing-accent-hover);
+  --color-landing-note-violet: var(--landing-note-violet);
   --color-landing-border: var(--landing-border);
   --color-landing-border-subtle: var(--landing-border-subtle);
 }
@@ -242,6 +245,132 @@
   }
   .neon-text {
     text-shadow: 0 0 20px rgba(138, 148, 200, 0.4);
+  }
+
+  /**
+   * Notes / changelog — depth via layered outlines only (no glow, shadow, or
+   * gradients). Violet only on frame borders; body fill stays near-neutral.
+   */
+  .notes-release-shell {
+    position: relative;
+    border-radius: 1rem;
+  }
+
+  .notes-release-shell--collapsed {
+    transition: transform 130ms ease-out;
+  }
+
+  .notes-release-shell--collapsed:hover {
+    transform: translateY(-1px);
+  }
+
+  .notes-release-shell--collapsed:hover .notes-release-body--collapsed {
+    border-color: rgba(139, 148, 200, 0.16);
+  }
+
+  .notes-release-body--collapsed {
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    transition: border-color 130ms ease-out;
+  }
+
+  /* Behind main border: offset outline layers (preview-style frames) */
+  .notes-release-outline {
+    position: absolute;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transition: border-color 130ms ease-out;
+  }
+
+  .notes-release-outline--furthest {
+    inset: -6px;
+    border-color: rgba(139, 148, 200, 0.07);
+    border-radius: 1.375rem;
+    z-index: 0;
+  }
+
+  .notes-release-outline--mid {
+    inset: -3px;
+    border-color: rgba(139, 148, 200, 0.11);
+    border-radius: 1.1875rem;
+    z-index: 1;
+  }
+
+  .notes-release-shell--expanded {
+    transition: transform 130ms ease-out;
+  }
+
+  .notes-release-shell--expanded:hover {
+    transform: translateY(-1px);
+  }
+
+  .notes-release-body--expanded {
+    position: relative;
+    z-index: 2;
+    border-radius: 1rem;
+    border: 1px solid rgba(139, 148, 200, 0.2);
+    background-color: color-mix(in srgb, var(--landing-note-violet) 5%, var(--landing-bg));
+    transition: border-color 130ms ease-out;
+  }
+
+  .notes-release-shell--expanded:hover .notes-release-body--expanded {
+    border-color: rgba(139, 148, 200, 0.26);
+  }
+
+  .notes-release-shell--expanded:hover .notes-release-outline--mid {
+    border-color: rgba(139, 148, 200, 0.15);
+  }
+
+  .notes-release-shell--expanded:hover .notes-release-outline--furthest {
+    border-color: rgba(139, 148, 200, 0.1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .notes-release-shell--collapsed:hover,
+    .notes-release-shell--expanded:hover {
+      transform: none;
+    }
+  }
+
+  /* Footer nav — typography + whisper of depth (no bg, underline, or chrome) */
+  .footer-nav-link {
+    padding: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    transition: color 180ms ease-out, opacity 180ms ease-out, text-shadow 180ms ease-out;
+  }
+
+  .footer-nav-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--landing-note-violet) 20%, transparent);
+  }
+
+  .footer-nav-link--active {
+    font-weight: 500;
+    color: var(--landing-foreground-strong);
+    opacity: 1;
+    text-shadow:
+      0 0 20px rgba(139, 148, 200, 0.07),
+      0 0 42px rgba(139, 148, 200, 0.035);
+  }
+
+  .footer-nav-link--inactive {
+    font-weight: 400;
+    color: var(--landing-muted);
+    opacity: 0.55;
+    text-shadow: none;
+  }
+
+  .footer-nav-link--inactive:hover {
+    opacity: 0.92;
+    color: color-mix(in srgb, var(--landing-foreground) 42%, var(--landing-muted));
+    text-shadow:
+      0 0 16px rgba(139, 148, 200, 0.045),
+      0 0 32px rgba(139, 148, 200, 0.022);
   }
 }
 
