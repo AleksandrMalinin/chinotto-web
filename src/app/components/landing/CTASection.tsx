@@ -9,7 +9,7 @@ export function CTASection() {
           Get the app
         </h2>
         <a
-          href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_0.2.0_aarch64.dmg"
+          href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_0.2.1_aarch64.dmg"
           className="btn-landing-primary px-10 py-4 text-lg inline-block"
           data-umami-event="download-cta"
         >
