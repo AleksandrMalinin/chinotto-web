@@ -15,6 +15,14 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
+    version: "0.2.1",
+    title: "In-app updates",
+    items: [
+      "Manual upgrade from v0.2.0",
+      "Future updates from inside Chinotto",
+    ],
+  },
+  {
     version: "0.2.0",
     title: "Quick capture is here",
     date: "2026-03-19",
