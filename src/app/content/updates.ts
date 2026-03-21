@@ -11,9 +11,19 @@ export interface ProductUpdate {
  * Keep newest entries first.
  * Adding a release should be a single object inserted at the top.
  *
- * Writing rules: see **Changelog writing (Notes / `/changelog`)** in AGENTS.md.
+ * Writing rules: see **Changelog writing (Updates / `/changelog`)** in AGENTS.md.
  */
 export const productUpdates: ProductUpdate[] = [
+  {
+    version: "1.0.0",
+    title: "The first complete version",
+    items: [
+      "A clearer starting point",
+      "Search feels more natural",
+      "Thoughts come back more reliably",
+      "A smoother overall flow",
+    ],
+  },
   {
     version: "0.2.1",
     title: "In-app updates",

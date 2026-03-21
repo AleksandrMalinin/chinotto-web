@@ -40,7 +40,7 @@ The repo contains many Radix/shadcn-style UI components; the landing and content
 - `/showcase` — logo showcase (dev/design)
 - `/privacy` — privacy policy (content page)
 - `/manifesto` — manifesto (content page)
-- `/changelog` — Notes (product updates; title in UI is “Notes”)
+- `/changelog` — Updates (product changelog; title in UI is “Updates”; aliases `/notes`, `/updates`)
 
 Content pages use `ContentPageLayout` (shared header/footer, main content area). Footer links point to these paths; production needs rewrites so these URLs serve `index.html` (see `vercel.json`).
 
@@ -128,7 +128,7 @@ Avoid phrases like:
 - organize your life
 - unlock your potential
 
-## Changelog writing (Notes / `/changelog`)
+## Changelog writing (Updates / `/changelog`)
 
 Chinotto uses a minimal, calm, and structured changelog style. All updates in `src/app/content/updates.ts` must follow these rules.
 
@@ -210,7 +210,7 @@ When making changes:
 5. keep the site coherent with the Chinotto brand
 6. if a feature feels like marketing fluff, challenge it
 7. if a dependency is avoidable, avoid it
-8. when editing Notes / changelog data (`src/app/content/updates.ts`), follow **Changelog writing** above
+8. when editing Updates / changelog data (`src/app/content/updates.ts`), follow **Changelog writing** above
 
 ## Output expectations
 

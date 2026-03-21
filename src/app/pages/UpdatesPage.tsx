@@ -23,9 +23,9 @@ export function NotesPage() {
   };
 
   return (
-    <ContentPageLayout title="Notes">
+    <ContentPageLayout title="Updates">
       <div className="mx-auto max-w-2xl">
-        <p className="mb-12 text-sm font-light tracking-[0.02em] text-landing-muted/90">
+        <p className="mb-10 text-sm font-light tracking-[0.02em] text-landing-muted/90">
           Chinotto is slowly taking shape.
         </p>
 
@@ -34,9 +34,9 @@ export function NotesPage() {
             const isOpen = openVersion === update.version;
 
             return (
-              <li key={update.version} className="pt-7 first:pt-0">
+              <li key={update.version} className="pt-5 first:pt-0">
                 {index > 0 && (
-                  <div className="mb-7 h-px w-full bg-landing-border-subtle" />
+                  <div className="mb-5 h-px w-full bg-landing-border-subtle" />
                 )}
 
                 <div
@@ -63,8 +63,8 @@ export function NotesPage() {
                     className={cn(
                       "px-3",
                       isOpen
-                        ? "notes-release-body notes-release-body--expanded py-3.5"
-                        : "notes-release-body notes-release-body--collapsed py-2",
+                        ? "notes-release-body notes-release-body--expanded py-3"
+                        : "notes-release-body notes-release-body--collapsed py-1.5",
                     )}
                   >
                     <button
@@ -117,7 +117,7 @@ export function NotesPage() {
                       aria-hidden={!isOpen}
                     >
                       <div className="overflow-hidden">
-                        <ul className="mb-0 mt-3 list-disc space-y-2 pl-5 text-[0.9375rem] font-normal leading-relaxed text-landing-foreground/65 [&_li::marker]:text-landing-foreground/35">
+                        <ul className="mb-0 mt-2.5 list-disc space-y-1.5 pl-5 text-[0.9375rem] font-normal leading-relaxed text-landing-foreground/65 [&_li::marker]:text-landing-foreground/35">
                           {update.items.map((item) => (
                             <li key={item}>{item}</li>
                           ))}

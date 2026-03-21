@@ -33,12 +33,12 @@ export function Footer() {
         </div>
         <nav className="flex gap-6" aria-label="Footer">
           <Link
-            to="/changelog"
+            to="/updates"
             className={footerNavClasses(isChangelog)}
             aria-current={isChangelog ? "page" : undefined}
-            data-umami-event="footer-changelog"
+            data-umami-event="footer-updates"
           >
-            Notes
+            Updates
           </Link>
           <Link
             to="/manifesto"

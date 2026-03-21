@@ -9,7 +9,7 @@
   --landing-muted: #9b9fa9;
   --landing-accent: #6e7392;
   --landing-accent-hover: #7e839e;
-  /* Notes / changelog: muted desaturated violet (near-neutral on dark UI) */
+  /* Updates / changelog: muted desaturated violet (near-neutral on dark UI) */
   --landing-note-violet: #8b87a2;
   --landing-border: #5d6068;
   --landing-border-subtle: #0f0f14;
@@ -248,7 +248,7 @@
   }
 
   /**
-   * Notes / changelog — depth via layered outlines only (no glow, shadow, or
+   * Updates / changelog — depth via layered outlines only (no glow, shadow, or
    * gradients). Violet only on frame borders; body fill stays near-neutral.
    */
   .notes-release-shell {
