@@ -2,7 +2,7 @@ import { Section } from "./Section";
 import { Container } from "./Container";
 
 import mainMockupImg from "@/assets/chinotto-main.png";
-import welcomeMockupImg from "@/assets/chinotto-welcome.png";
+import previewMockupImg from "@/assets/chinotto-preview.png";
 
 const screenshotCardClass =
   "rounded-2xl overflow-hidden border border-landing-card-border shadow-[0_20px_40px_-10px_rgba(0,0,0,0.25),0_0_0_1px_rgba(139,148,200,0.08)]";
@@ -24,8 +24,8 @@ export function ProductMockup() {
             className={`relative z-0 order-2 lg:order-none w-full max-w-xl lg:w-[562px] lg:max-w-none opacity-100 lg:opacity-[0.95] ${cardMotion} ${screenshotCardClass}`}
           >
             <img
-              src={welcomeMockupImg}
-              alt="Chinotto settings — privacy and customization"
+              src={previewMockupImg}
+              alt="Chinotto — current interface preview"
               className="block h-auto w-full"
             />
           </div>
