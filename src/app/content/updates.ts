@@ -5,6 +5,8 @@ export interface ProductUpdate {
   title?: string;
   date?: string;
   items: string[];
+  /** Optional one-line aside, shown below bullets with separate styling (e.g. version requirements). */
+  note?: string;
 }
 
 /**
@@ -23,6 +25,8 @@ export const productUpdates: ProductUpdate[] = [
       "Thoughts come back more reliably",
       "A smoother overall flow",
     ],
+    note:
+      "In-app updates require v0.2.1 or later — upgrade once if you’re still on a lower version.",
   },
   {
     version: "0.2.1",

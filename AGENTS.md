@@ -144,6 +144,8 @@ Title (1 short line)
 * bullet
 * bullet
 * bullet
+
+(optional note — one short sentence, separate styling on the page; for factual asides that don’t fit bullets, e.g. minimum app version for updates)
 ```
 
 ### Title

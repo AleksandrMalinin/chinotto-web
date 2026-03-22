@@ -122,6 +122,14 @@ export function NotesPage() {
                             <li key={item}>{item}</li>
                           ))}
                         </ul>
+                        {update.note && (
+                          <p
+                            className="mt-4 border-t border-landing-border-subtle pt-3.5 text-[0.8125rem] font-light leading-relaxed tracking-[0.02em] text-landing-muted/78"
+                            role="note"
+                          >
+                            {update.note}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
