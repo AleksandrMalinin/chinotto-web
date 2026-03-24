@@ -17,6 +17,15 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
+    version: "1.1.0",
+    title: "Capture got faster",
+    items: [
+      "Quick capture from the menu bar",
+      "A lighter, single-line input",
+      "Jump into the app when needed",
+    ],
+  },
+  {
     version: "1.0.0",
     title: "The first complete version",
     items: [
