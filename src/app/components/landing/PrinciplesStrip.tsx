@@ -1,9 +1,11 @@
 import { Section } from "./Section";
 
+/** Strip: upfront capture, no forced structure, local-first, optional sync—scannable tags, no SaaS cadence. */
 const PRINCIPLES = [
   "Capture first",
-  "Structure later",
+  "No structure upfront",
   "Local-first",
+  "Sync when you choose",
   "No workspace overhead",
 ];
 

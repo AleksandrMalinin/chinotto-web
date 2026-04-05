@@ -7,6 +7,7 @@ import {
   Header,
   Hero,
   LogoShowcasePage,
+  OptionalSyncSection,
   PrinciplesStrip,
   ProductMockup,
 } from "./components/landing";
@@ -32,6 +33,7 @@ function DesktopLandingPage() {
       <Hero />
       <FloatingBlobs />
       <PrinciplesStrip />
+      <OptionalSyncSection />
       <ProductMockup />
       <CTASection />
       <Footer />
