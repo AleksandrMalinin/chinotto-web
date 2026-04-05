@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 import { ChinottoLogo } from "../components/ChinottoLogo";
 import { FloatingBlobs, Header } from "../components/landing";
+import { CHINOTTO_GITHUB_REPO } from "../content/links";
 import type { PlaceholderMousePos } from "../components/landing/FloatingBlobs";
 
 export function PlaceholderLandingPage() {
@@ -58,8 +59,9 @@ export function PlaceholderLandingPage() {
           <br />
           <span className="opacity-[0.85]">Revisit later.</span>
         </h1>
-        <p className="text-[13px] text-landing-muted font-light leading-relaxed tracking-[0.08em] text-center mb-10">
-          A minimal desktop thinking tool.
+        <p className="text-[13px] text-landing-muted font-light leading-relaxed tracking-[0.08em] text-center mb-10 max-w-[320px]">
+          Local-first for Mac and iPhone. Your thoughts stay with you—across
+          devices, when you choose.
           <span className="placeholder-cursor ml-0.5" aria-hidden />
         </p>
         <div className="flex flex-col items-center gap-3 w-full max-w-[280px]">
@@ -79,8 +81,8 @@ export function PlaceholderLandingPage() {
             Learn More
           </a>
         </div>
-        <p className="mt-10 text-xs text-landing-muted opacity-70">
-          Desktop only
+        <p className="mt-10 text-xs text-landing-muted opacity-70 text-center max-w-[280px] leading-relaxed">
+          Mac download opens here on desktop. iPhone: App Store.
         </p>
       </main>
 
@@ -106,12 +108,13 @@ export function PlaceholderLandingPage() {
               id="desktop-modal-title"
               className="text-lg font-light text-landing-foreground mb-2"
             >
-              Desktop app
+              Mac download
             </h2>
             <p className="text-sm text-landing-muted font-light leading-relaxed mb-6">
-              Chinotto is currently available for macOS.
+              The Mac app downloads from this site on a desktop browser.
               <br />
-              Open this page on your Mac to download it.
+              On iPhone, install Chinotto from the App Store to capture and
+              enable optional sync.
             </p>
             <div className="flex flex-col gap-2">
               <button
@@ -122,7 +125,7 @@ export function PlaceholderLandingPage() {
                 {copied ? "Copied" : "Copy page link"}
               </button>
               <a
-                href="https://github.com/AleksandrMalinin/chinotto"
+                href={CHINOTTO_GITHUB_REPO}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-landing-secondary w-full px-4 py-2.5 text-sm text-center inline-flex items-center justify-center gap-1.5"

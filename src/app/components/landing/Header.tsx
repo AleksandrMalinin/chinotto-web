@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { ChinottoLogo } from "../ChinottoLogo";
+import { CHINOTTO_MAC_DOWNLOAD_URL } from "../../content/links";
 
 interface HeaderProps {
   /** When set, logo and name link to this path (e.g. /showcase). */
@@ -38,7 +39,7 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
         </div>
         {!hideDownloadButton && (
           <a
-            href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_1.2.0_aarch64.dmg"
+            href={CHINOTTO_MAC_DOWNLOAD_URL}
             className="btn-landing-primary px-6 py-2 inline-block"
             data-umami-event="get-app-header"
           >

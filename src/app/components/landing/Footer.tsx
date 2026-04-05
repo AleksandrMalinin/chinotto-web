@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { ChinottoLogo } from "../ChinottoLogo";
 import { cn } from "../ui/utils";
+import { CHINOTTO_GITHUB_REPO } from "../../content/links";
 
 function footerNavClasses(active: boolean) {
   return cn(
@@ -57,7 +58,7 @@ export function Footer() {
             Privacy
           </Link>
           <a
-            href="https://github.com/AleksandrMalinin/chinotto"
+            href={CHINOTTO_GITHUB_REPO}
             target="_blank"
             rel="noreferrer"
             className={footerNavClasses(false)}
