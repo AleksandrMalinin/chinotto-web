@@ -1,9 +1,8 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
-        "appID": "PQC9LY4W26.com.chinotto.mobile",
+        "appIDs": ["PQC9LY4W26.com.chinotto.mobile"],
         "paths": ["/sync", "/sync/*"]
       }
     ]
