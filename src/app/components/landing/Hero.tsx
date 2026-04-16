@@ -51,12 +51,11 @@ export function Hero() {
         </p>
         <div className="flex items-center justify-center gap-4">
           <a
-            href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_1.2.0_aarch64.dmg"
+            href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_1.3.0_aarch64.dmg"
             className="btn-landing-primary px-8 py-3 text-lg inline-block"
             data-umami-event="download-hero"
           >
-            Download Chinotto{" "}
-            <span className="text-base opacity-80">β</span>
+            Download Chinotto
           </a>
           <a
             href="#principles"

@@ -69,7 +69,7 @@ export function PlaceholderLandingPage() {
             className="btn-landing-primary w-full px-6 py-3 text-base text-center"
             data-umami-event="download-placeholder"
           >
-            Download Chinotto <span className="opacity-80">β</span>
+            Download Chinotto
           </button>
           <a
             href="/manifesto"

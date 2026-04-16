@@ -26,10 +26,7 @@ export function Footer() {
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <ChinottoLogo size={24} className="text-landing-border" />
-          <span className="text-sm text-landing-border">
-            © 2026 Chinotto{" "}
-            <span className="text-xs opacity-60">β</span>
-          </span>
+          <span className="text-sm text-landing-border">© 2026 Chinotto</span>
         </div>
         <nav className="flex gap-6" aria-label="Footer">
           <Link

@@ -22,23 +22,21 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
             >
               <ChinottoLogo size={32} className="text-landing-accent" />
               <span className="text-lg font-light text-landing-foreground">
-                Chinotto{" "}
-                <span className="text-sm opacity-60 align-baseline">β</span>
+                Chinotto
               </span>
             </Link>
           ) : (
             <>
               <ChinottoLogo size={32} className="text-landing-accent" />
               <span className="text-lg font-light text-landing-foreground">
-                Chinotto{" "}
-                <span className="text-sm opacity-60 align-baseline">β</span>
+                Chinotto
               </span>
             </>
           )}
         </div>
         {!hideDownloadButton && (
           <a
-            href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_1.2.0_aarch64.dmg"
+            href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_1.3.0_aarch64.dmg"
             className="btn-landing-primary px-6 py-2 inline-block"
             data-umami-event="get-app-header"
           >
