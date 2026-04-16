@@ -18,7 +18,7 @@ export interface ProductUpdate {
 export const productUpdates: ProductUpdate[] = [
   {
     version: "1.3.0",
-    title: "A thought can keep going.",
+    title: "A thought can keep going",
     date: "2026-04-16",
     items: [
       "Continue writing in detail",
