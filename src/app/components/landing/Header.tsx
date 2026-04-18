@@ -36,7 +36,7 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
         </div>
         {!hideDownloadButton && (
           <a
-            href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_1.3.0_aarch64.dmg"
+            href="https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_1.3.1_aarch64.dmg"
             className="btn-landing-primary px-6 py-2 inline-block"
             data-umami-event="get-app-header"
           >

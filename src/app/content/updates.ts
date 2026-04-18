@@ -17,6 +17,15 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
+    version: "1.3.1",
+    title: "Capture stays available",
+    date: "2026-04-18",
+    items: [
+      "Closing the app doesn't stop capture",
+      "Thoughts read better",
+    ],
+  },
+  {
     version: "1.3.0",
     title: "A thought can keep going",
     date: "2026-04-16",
