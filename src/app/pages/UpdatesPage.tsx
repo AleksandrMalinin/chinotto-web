@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ContentPageLayout } from "../components/landing/ContentPageLayout";
 import { cn } from "../components/ui/utils";
 import { productUpdates } from "../content/updates";
+import { markUpdatesSeen } from "../content/updatesSeen";
 
 const releaseDateFormatter = new Intl.DateTimeFormat("en", {
   year: "numeric",
@@ -17,6 +18,11 @@ export function NotesPage() {
   const [openVersion, setOpenVersion] = useState<string | null>(
     productUpdates[0]?.version ?? null,
   );
+
+  useEffect(() => {
+    const v = productUpdates[0]?.version;
+    if (v) markUpdatesSeen(v);
+  }, []);
 
   const toggleVersion = (version: string) => {
     setOpenVersion((current) => (current === version ? null : version));

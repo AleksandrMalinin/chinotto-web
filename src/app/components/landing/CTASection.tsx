@@ -20,8 +20,7 @@ export function CTASection() {
             className="btn-landing-primary px-10 py-4 text-lg inline-block"
             data-umami-event="download-cta"
           >
-            Download for Mac{" "}
-            <span className="opacity-80">β</span>
+            Download for Mac
           </a>
           {iosStoreUrl ? (
             <a
@@ -39,11 +38,6 @@ export function CTASection() {
             </span>
           )}
         </div>
-        {!iosStoreUrl ? (
-          <p className="mt-4 text-sm text-landing-muted max-w-sm mx-auto leading-relaxed">
-            iPhone: Chinotto on the App Store.
-          </p>
-        ) : null}
         <p className="mt-4 text-sm text-landing-muted">
           Windows · Linux — coming soon
         </p>

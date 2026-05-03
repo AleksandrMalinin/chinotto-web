@@ -2,10 +2,14 @@ import { useCallback, useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 import { ChinottoLogo } from "../components/ChinottoLogo";
 import { FloatingBlobs, Header } from "../components/landing";
-import { CHINOTTO_GITHUB_REPO } from "../content/links";
+import {
+  CHINOTTO_GITHUB_REPO,
+  CHINOTTO_IOS_APP_STORE_URL,
+} from "../content/links";
 import type { PlaceholderMousePos } from "../components/landing/FloatingBlobs";
 
 export function PlaceholderLandingPage() {
+  const iosStoreUrl = CHINOTTO_IOS_APP_STORE_URL.trim();
   const [mouse, setMouse] = useState<PlaceholderMousePos | null>(null);
   const [desktopModalOpen, setDesktopModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -65,13 +69,28 @@ export function PlaceholderLandingPage() {
           <span className="placeholder-cursor ml-0.5" aria-hidden />
         </p>
         <div className="flex flex-col items-center gap-3 w-full max-w-[280px]">
+          {iosStoreUrl ? (
+            <a
+              href={iosStoreUrl}
+              className="btn-landing-primary w-full px-6 py-3 text-base text-center inline-block"
+              data-umami-event="app-store-placeholder"
+              rel="noreferrer"
+              target="_blank"
+            >
+              App Store — iPhone
+            </a>
+          ) : null}
           <button
             type="button"
             onClick={() => setDesktopModalOpen(true)}
-            className="btn-landing-primary w-full px-6 py-3 text-base text-center"
+            className={
+              iosStoreUrl
+                ? "btn-landing-secondary w-full px-6 py-3 text-base text-center"
+                : "btn-landing-primary w-full px-6 py-3 text-base text-center"
+            }
             data-umami-event="download-placeholder"
           >
-            Download Chinotto <span className="opacity-80">β</span>
+            Download for Mac
           </button>
           <a
             href="/manifesto"
@@ -82,7 +101,8 @@ export function PlaceholderLandingPage() {
           </a>
         </div>
         <p className="mt-10 text-xs text-landing-muted opacity-70 text-center max-w-[280px] leading-relaxed">
-          Mac download opens here on desktop. iPhone: App Store.
+          Mac installer opens from this site on desktop. iPhone: App Store
+          above.
         </p>
       </main>
 
@@ -113,10 +133,21 @@ export function PlaceholderLandingPage() {
             <p className="text-sm text-landing-muted font-light leading-relaxed mb-6">
               The Mac app downloads from this site on a desktop browser.
               <br />
-              On iPhone, install Chinotto from the App Store to capture and
-              enable optional sync.
+              On iPhone, use the App Store button on this page to install
+              Chinotto and enable optional sync.
             </p>
             <div className="flex flex-col gap-2">
+              {iosStoreUrl ? (
+                <a
+                  href={iosStoreUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-landing-primary w-full px-4 py-2.5 text-sm text-center inline-flex items-center justify-center"
+                  data-umami-event="modal-app-store"
+                >
+                  Open App Store ↗
+                </a>
+              ) : null}
               <button
                 type="button"
                 onClick={copyPageLink}

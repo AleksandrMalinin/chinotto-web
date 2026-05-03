@@ -1,11 +1,15 @@
 /**
  * Canonical outbound links for marketing CTAs.
- * Set `VITE_IOS_APP_STORE_URL` in env for a live App Store button when the listing is public.
+ * Override iOS via `VITE_IOS_APP_STORE_URL` if needed (e.g. another region or TestFlight).
  */
 export const CHINOTTO_MAC_DOWNLOAD_URL =
-  "https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_1.2.0_aarch64.dmg";
+  "https://github.com/AleksandrMalinin/chinotto/releases/latest/download/Chinotto_1.3.1_aarch64.dmg";
+
+const DEFAULT_IOS_APP_STORE_URL =
+  "https://apps.apple.com/us/app/chinotto/id6761345307";
 
 export const CHINOTTO_IOS_APP_STORE_URL: string =
-  import.meta.env.VITE_IOS_APP_STORE_URL ?? "";
+  import.meta.env.VITE_IOS_APP_STORE_URL ?? DEFAULT_IOS_APP_STORE_URL;
 
-export const CHINOTTO_GITHUB_REPO = "https://github.com/AleksandrMalinin/chinotto";
+export const CHINOTTO_GITHUB_REPO =
+  "https://github.com/AleksandrMalinin/chinotto";

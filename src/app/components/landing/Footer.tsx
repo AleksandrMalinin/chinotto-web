@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { ChinottoLogo } from "../ChinottoLogo";
 import { cn } from "../ui/utils";
-import { CHINOTTO_GITHUB_REPO } from "../../content/links";
+import { CHINOTTO_GITHUB_REPO, CHINOTTO_IOS_APP_STORE_URL } from "../../content/links";
 
 function footerNavClasses(active: boolean) {
   return cn(
@@ -11,6 +11,7 @@ function footerNavClasses(active: boolean) {
 }
 
 export function Footer() {
+  const appStoreUrl = CHINOTTO_IOS_APP_STORE_URL.trim();
   const { pathname } = useLocation();
 
   const isChangelog =
@@ -27,10 +28,7 @@ export function Footer() {
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <ChinottoLogo size={24} className="text-landing-border" />
-          <span className="text-sm text-landing-border">
-            © 2026 Chinotto{" "}
-            <span className="text-xs opacity-60">β</span>
-          </span>
+          <span className="text-sm text-landing-border">© 2026 Chinotto</span>
         </div>
         <nav className="flex gap-6" aria-label="Footer">
           <Link
@@ -57,6 +55,17 @@ export function Footer() {
           >
             Privacy
           </Link>
+          {appStoreUrl ? (
+            <a
+              href={appStoreUrl}
+              target="_blank"
+              rel="noreferrer"
+              className={footerNavClasses(false)}
+              data-umami-event="footer-app-store"
+            >
+              App Store ↗
+            </a>
+          ) : null}
           <a
             href={CHINOTTO_GITHUB_REPO}
             target="_blank"

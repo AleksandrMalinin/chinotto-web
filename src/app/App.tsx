@@ -59,7 +59,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLandingPage />} />
-      {/* Same UI as / — Universal Link host path; avoids 404 and redirect chains for /sync */}
+      {/* Universal Link path; same UI as / — no 404 for /sync */}
       <Route path="/sync" element={<MainLandingPage />} />
       <Route path="/showcase" element={<LogoShowcasePage />} />
       <Route path="/privacy" element={<PrivacyPage />} />

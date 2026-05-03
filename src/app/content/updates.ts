@@ -17,8 +17,28 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
+    version: "1.3.1",
+    title: "Capture stays available",
+    date: "2026-04-18",
+    items: [
+      "Closing the app doesn't stop capture",
+      "Thoughts read better",
+    ],
+  },
+  {
+    version: "1.3.0",
+    title: "A thought can keep going",
+    date: "2026-04-16",
+    items: [
+      "Continue writing in detail",
+      "Save as you go",
+      "Cleaner stream",
+    ],
+  },
+  {
     version: "1.2.0",
     title: "Returning got easier",
+    date: "2026-03-27",
     items: [
       "Jump to a date — and back",
       "Thoughts grouped by day",
@@ -28,6 +48,7 @@ export const productUpdates: ProductUpdate[] = [
   {
     version: "1.1.0",
     title: "Capture got faster",
+    date: "2026-03-24",
     items: [
       "Quick capture from the menu bar",
       "A lighter, single-line input",
@@ -37,6 +58,7 @@ export const productUpdates: ProductUpdate[] = [
   {
     version: "1.0.0",
     title: "The first complete version",
+    date: "2026-03-21",
     items: [
       "A clearer starting point",
       "Search feels more natural",
@@ -49,6 +71,7 @@ export const productUpdates: ProductUpdate[] = [
   {
     version: "0.2.1",
     title: "In-app updates",
+    date: "2026-03-20",
     items: [
       "Manual upgrade from v0.2.0",
       "Future updates from inside Chinotto",
@@ -68,7 +91,7 @@ export const productUpdates: ProductUpdate[] = [
   {
     version: "0.1.0",
     title: "Chinotto is live",
-    date: "2026-03-16",
+    date: "2026-03-17",
     items: [
       "Thought capture",
       "Full-text search",

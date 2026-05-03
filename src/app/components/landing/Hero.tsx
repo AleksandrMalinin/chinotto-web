@@ -1,7 +1,10 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router";
 import { ChinottoLogo } from "../ChinottoLogo";
-import { CHINOTTO_MAC_DOWNLOAD_URL } from "../../content/links";
+import {
+  CHINOTTO_IOS_APP_STORE_URL,
+  CHINOTTO_MAC_DOWNLOAD_URL,
+} from "../../content/links";
 
 const LONG_PRESS_MS = 600;
 
@@ -9,6 +12,7 @@ const LONG_PRESS_MS = 600;
 export function Hero() {
   const navigate = useNavigate();
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const iosStoreUrl = CHINOTTO_IOS_APP_STORE_URL.trim();
 
   const clearTimer = () => {
     if (longPressTimer.current) {
@@ -47,20 +51,34 @@ export function Hero() {
           <span className="opacity-[0.85]">Revisit later.</span>
         </h1>
         <p className="text-xl font-light mb-12 max-w-2xl mx-auto text-[#A7AEC4] opacity-80 leading-relaxed">
-          <span className="block">A local-first thinking tool for Mac and iPhone.</span>
+          <span className="block">
+            A local-first thinking tool for Mac and iPhone.
+          </span>
           <span className="block mt-5 text-lg opacity-90">
             Your thoughts stay with you—across devices, when you choose.
           </span>
         </p>
-        <div className="flex items-center justify-center gap-4">
-          <a
-            href={CHINOTTO_MAC_DOWNLOAD_URL}
-            className="btn-landing-primary px-8 py-3 text-lg inline-block"
-            data-umami-event="download-hero"
-          >
-            Download Chinotto{" "}
-            <span className="text-base opacity-80">β</span>
-          </a>
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={CHINOTTO_MAC_DOWNLOAD_URL}
+              className="btn-landing-primary px-8 py-3 text-lg inline-block"
+              data-umami-event="download-hero"
+            >
+              Download for Mac
+            </a>
+            {iosStoreUrl ? (
+              <a
+                href={iosStoreUrl}
+                className="btn-landing-secondary px-8 py-3 text-lg inline-block"
+                data-umami-event="download-hero-ios"
+                rel="noreferrer"
+                target="_blank"
+              >
+                App Store — iPhone
+              </a>
+            ) : null}
+          </div>
           <a
             href="#principles"
             className="btn-landing-secondary px-8 py-3 text-lg inline-block"
