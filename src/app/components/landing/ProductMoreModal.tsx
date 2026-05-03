@@ -1,6 +1,6 @@
 /**
  * Extra screenshot gallery modal — not mounted on the landing page until we have
- * more assets. To enable: import `ProductMoreModal` in `ProductMockup` below the
+ * more assets. To enable: import `ProductMoreModal` in `OptionalSyncSection` / visuals below the
  * mockup stack.
  */
 import {

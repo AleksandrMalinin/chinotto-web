@@ -1,7 +1,7 @@
 export { Container } from "./Container";
 export { CTASection } from "./CTASection";
 export { PrinciplesStrip } from "./PrinciplesStrip";
-export { ProductMockup } from "./ProductMockup";
+export { ProductMockup, ProductMockupVisuals } from "./ProductMockup";
 export { FloatingBlobs } from "./FloatingBlobs";
 export { Footer } from "./Footer";
 export { Header } from "./Header";
