@@ -256,6 +256,21 @@
     border-radius: 1rem;
   }
 
+  /** Milestone releases — slightly stronger frame when collapsed (still outline-only). */
+  .notes-release-shell--milestone.notes-release-shell--collapsed
+    .notes-release-body--collapsed {
+    border-color: rgba(139, 148, 200, 0.1);
+  }
+
+  .notes-release-shell--milestone.notes-release-shell--expanded .notes-release-body--expanded {
+    border-color: rgba(139, 148, 200, 0.24);
+    background-color: color-mix(in srgb, var(--landing-note-violet) 6.5%, var(--landing-bg));
+  }
+
+  .notes-release-shell--milestone.notes-release-shell--expanded:hover .notes-release-body--expanded {
+    border-color: rgba(139, 148, 200, 0.3);
+  }
+
   .notes-release-shell--collapsed {
     transition: transform 130ms ease-out;
   }

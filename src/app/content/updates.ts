@@ -1,4 +1,5 @@
 import { MACOS_QUICK_CAPTURE } from "./macosShortcuts";
+import { CHINOTTO_IOS_APP_STORE_URL } from "./links";
 
 export interface ProductUpdate {
   version: string;
@@ -7,6 +8,8 @@ export interface ProductUpdate {
   items: string[];
   /** Optional one-line aside, shown below bullets with separate styling (e.g. version requirements). */
   note?: string;
+  /** Short kicker above the version for major platform / ideological milestones. */
+  milestone?: string;
 }
 
 /**
@@ -17,13 +20,15 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
-    version: "1.3.1",
-    title: "Capture stays available",
-    date: "2026-04-18",
+    version: "2.0.0",
+    milestone: "Major release — Mac & iPhone",
+    title: "Thoughts don't belong to one device anymore",
+    date: "2026-05-04",
     items: [
-      "Closing the app doesn't stop capture",
-      "Thoughts read better",
+      "Optional sync — Mac and iPhone",
+      "Local-first by default",
     ],
+    note: `App Store — ${CHINOTTO_IOS_APP_STORE_URL.trim()}`,
   },
   {
     version: "1.3.0",

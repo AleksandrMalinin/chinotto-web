@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 import { ChinottoLogo } from "../components/ChinottoLogo";
-import { FloatingBlobs, Header } from "../components/landing";
+import { FloatingBlobs, Header, MobileMockupFlip } from "../components/landing";
 import {
   CHINOTTO_GITHUB_REPO,
   CHINOTTO_IOS_APP_STORE_URL,
@@ -63,12 +63,15 @@ export function PlaceholderLandingPage() {
           <br />
           <span className="opacity-[0.85]">Revisit later.</span>
         </h1>
-        <p className="text-[13px] text-landing-muted font-light leading-relaxed tracking-[0.06em] text-center mb-9 max-w-[340px]">
+        <p className="text-[13px] text-landing-muted font-light leading-relaxed tracking-[0.06em] text-center mb-8 max-w-[340px]">
           Local-first space for your thoughts.
           <br />
           Sync your Mac and iPhone when you want.
           <span className="placeholder-cursor ml-0.5" aria-hidden />
         </p>
+        <div className="mb-10 w-full px-1">
+          <MobileMockupFlip />
+        </div>
         <div className="flex flex-col items-center gap-3 w-full max-w-[280px]">
           {iosStoreUrl ? (
             <a

@@ -1,6 +1,12 @@
 export { Container } from "./Container";
 export { CTASection } from "./CTASection";
-export { ProductMockup, ProductMockupVisuals } from "./ProductMockup";
+export {
+  MobileMockupFlip,
+  MobileMockupPair,
+  MobilePhoneMockup,
+  ProductMockup,
+  ProductMockupVisuals,
+} from "./ProductMockup";
 export { FloatingBlobs } from "./FloatingBlobs";
 export { Footer } from "./Footer";
 export { Header } from "./Header";
