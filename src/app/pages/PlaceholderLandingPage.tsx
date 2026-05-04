@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
-import type { MouseEvent } from "react";
+import { useCallback, useState } from "react";
 import { Link } from "react-router";
 import { ChinottoLogo } from "../components/ChinottoLogo";
 import { FloatingBlobs, Header, MobileMockupFlip } from "../components/landing";
@@ -7,11 +6,9 @@ import {
   CHINOTTO_GITHUB_REPO,
   CHINOTTO_IOS_APP_STORE_URL,
 } from "../content/links";
-import type { PlaceholderMousePos } from "../components/landing/FloatingBlobs";
 
 export function PlaceholderLandingPage() {
   const iosStoreUrl = CHINOTTO_IOS_APP_STORE_URL.trim();
-  const [mouse, setMouse] = useState<PlaceholderMousePos | null>(null);
   const [desktopModalOpen, setDesktopModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -23,29 +20,9 @@ export function PlaceholderLandingPage() {
     });
   }, []);
 
-  const onMouseMove = useCallback((e: MouseEvent<HTMLDivElement>) => {
-    setMouse({
-      x: e.clientX / window.innerWidth,
-      y: e.clientY / window.innerHeight,
-    });
-  }, []);
-
-  const onMouseLeave = useCallback(() => {
-    setMouse(null);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("mouseleave", onMouseLeave);
-    return () => window.removeEventListener("mouseleave", onMouseLeave);
-  }, [onMouseLeave]);
-
   return (
-    <div
-      className="min-h-screen bg-landing-bg relative overflow-hidden flex flex-col"
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-    >
-      <FloatingBlobs variant="background" mouse={mouse} />
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-landing-bg">
+      <FloatingBlobs variant="background" />
 
       <Header logoHref="/" hideDownloadButton />
 

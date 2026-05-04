@@ -12,7 +12,7 @@ interface ContentPageLayoutProps {
 
 /**
  * Shared layout for static content pages (privacy, manifesto).
- * Desktop: header, main, footer. Mobile: same Header as home (logo + nav), FloatingBlobs, signature.
+ * Desktop: header, main, footer. Mobile: same Header as home, static ambient bg (no blur), signature.
  */
 export function ContentPageLayout({ title, children }: ContentPageLayoutProps) {
   const isDesktop = useMinMd();
@@ -38,7 +38,7 @@ export function ContentPageLayout({ title, children }: ContentPageLayoutProps) {
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden bg-landing-bg">
-      <FloatingBlobs variant="background" mouse={null} />
+      <FloatingBlobs variant="background" />
       <Header logoHref="/" hideDownloadButton />
       <main className="relative z-10 flex-1 px-8 pt-8 pb-24">
         <h1 className="mb-6 text-2xl font-light text-landing-foreground">
