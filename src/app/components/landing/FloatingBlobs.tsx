@@ -24,15 +24,16 @@ export function FloatingBlobs({ variant = "default", mouse = null }: FloatingBlo
           style={{ transform: `translate(${dx}px, ${dy}px)` }}
         >
           <div
-            className="placeholder-blob w-[min(90vw,36rem)] h-[min(90vw,36rem)] rounded-full blur-[140px] opacity-[0.09]"
+            className="placeholder-blob h-[min(70vw,18rem)] w-[min(70vw,18rem)] rounded-full opacity-[0.09] max-md:blur-3xl md:h-[min(90vw,36rem)] md:w-[min(90vw,36rem)] md:blur-[140px]"
             style={{
               backgroundColor: "#3b0764",
               animation: "placeholder-blob-float 60s cubic-bezier(0.4, 0, 0.6, 1) infinite",
             }}
           />
         </div>
+        {/* Extra blobs are desktop-only: three stacked blurs + motion tank mobile GPUs */}
         <div
-          className="placeholder-blob absolute w-[min(85vw,34rem)] h-[min(85vw,34rem)] rounded-full blur-[130px] opacity-[0.08]"
+          className="placeholder-blob absolute hidden w-[min(85vw,34rem)] h-[min(85vw,34rem)] rounded-full blur-[130px] opacity-[0.08] md:block"
           style={{
             backgroundColor: "#0f172a",
             top: "45%",
@@ -42,7 +43,7 @@ export function FloatingBlobs({ variant = "default", mouse = null }: FloatingBlo
           }}
         />
         <div
-          className="placeholder-blob absolute w-[min(80vw,30rem)] h-[min(80vw,30rem)] rounded-full blur-[120px] opacity-[0.07]"
+          className="placeholder-blob absolute hidden w-[min(80vw,30rem)] h-[min(80vw,30rem)] rounded-full blur-[120px] opacity-[0.07] md:block"
           style={{
             backgroundColor: "#431407",
             bottom: "15%",

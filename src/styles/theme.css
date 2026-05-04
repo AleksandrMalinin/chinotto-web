@@ -447,6 +447,21 @@
   will-change: transform;
 }
 
+/* Background blobs: mobile Safari struggles with multiple huge filters + motion */
+@media (max-width: 767px) {
+  .placeholder-blob {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .placeholder-blob {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
 .placeholder-blob--mouse {
   transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
@@ -466,6 +481,16 @@
 
 .placeholder-logo-wrap svg circle[fill="currentColor"] {
   animation: placeholder-logo-dots-pulse 4s ease-in-out infinite;
+}
+
+@media (max-width: 767px) {
+  .placeholder-logo-wrap {
+    animation: none;
+  }
+
+  .placeholder-logo-wrap svg circle[fill="currentColor"] {
+    animation: none;
+  }
 }
 
 /* 404 page: subtle motion */
