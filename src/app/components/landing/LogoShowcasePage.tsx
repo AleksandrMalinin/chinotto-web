@@ -1,19 +1,10 @@
-import { useState, useEffect } from "react";
 import { Header } from "./Header";
 import { ChinottoLogo } from "../ChinottoLogo";
-
-const MOBILE_MEDIA = "(max-width: 767px)";
+import { useMinMd } from "../../hooks/useMinMd";
 
 export function LogoShowcasePage() {
-  const [hideDownload, setHideDownload] = useState(false);
-
-  useEffect(() => {
-    const mql = window.matchMedia(MOBILE_MEDIA);
-    const update = () => setHideDownload(mql.matches);
-    update();
-    mql.addEventListener("change", update);
-    return () => mql.removeEventListener("change", update);
-  }, []);
+  const isDesktop = useMinMd();
+  const hideDownload = !isDesktop;
 
   return (
     <div className="min-h-screen bg-landing-bg flex flex-col">

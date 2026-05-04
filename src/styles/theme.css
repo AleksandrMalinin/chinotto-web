@@ -398,20 +398,19 @@
   }
 }
 
-/* Placeholder landing: slow blob movement, cursor, logo breath */
-@keyframes placeholder-blob-float {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(2%, -3%) scale(1.02);
-  }
-  66% {
-    transform: translate(-2%, 2%) scale(0.99);
-  }
+/* Mobile / narrow: CPU-only ambient wash — no filter: blur (avoids Safari GPU stalls) */
+.landing-mobile-ambient-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 85% at 12% 12%, rgba(59, 7, 100, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 75% at 88% 48%, rgba(15, 23, 42, 0.16) 0%, transparent 52%),
+    radial-gradient(ellipse 90% 70% at 25% 88%, rgba(67, 20, 7, 0.1) 0%, transparent 48%);
 }
 
+/* Placeholder landing: cursor, logo breath */
 @keyframes placeholder-cursor-blink {
   0%,
   49% {
@@ -441,29 +440,6 @@
   50% {
     opacity: 0.82;
   }
-}
-
-.placeholder-blob {
-  will-change: transform;
-}
-
-/* Background blobs: mobile Safari struggles with multiple huge filters + motion */
-@media (max-width: 767px) {
-  .placeholder-blob {
-    animation: none !important;
-    will-change: auto;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .placeholder-blob {
-    animation: none !important;
-    will-change: auto;
-  }
-}
-
-.placeholder-blob--mouse {
-  transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .placeholder-cursor {
