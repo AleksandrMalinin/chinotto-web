@@ -42,8 +42,30 @@
   </head>
 
   <body>
-    <!-- Empty root: avoid “Loading…” flash; body background shows until JS mounts. -->
-    <div id="root"></div>
+    <!-- Static shell until React loads (in-app browsers often show this for many seconds). -->
+    <div id="root">
+      <div
+        id="pre-react-shell"
+        style="
+          min-height: 100vh;
+          min-height: 100dvh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: max(28px, env(safe-area-inset-top)) 24px 24px;
+          box-sizing: border-box;
+          text-align: center;
+        "
+      >
+        <p style="margin: 0; font-size: 13px; font-weight: 300; letter-spacing: 0.06em; color: #9b9fa9">
+          Chinotto
+        </p>
+        <p style="margin: 14px 0 0; font-size: 1.75rem; font-weight: 300; line-height: 1.12; color: #e4e4e9">
+          Capture first.<br />
+          <span style="opacity: 0.85">Revisit later.</span>
+        </p>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

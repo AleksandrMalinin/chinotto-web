@@ -1,6 +1,11 @@
+import { lazy, Suspense } from "react";
 import { Section } from "./Section";
 import { Container } from "./Container";
-import { ProductMockupVisuals } from "./ProductMockup";
+
+/** Split: Mac + stage mockups (~1.4MB PNG refs) load only when this section mounts (desktop landing). */
+const ProductMockupVisuals = lazy(() =>
+  import("./ProductMockup").then((m) => ({ default: m.ProductMockupVisuals })),
+);
 
 const PRINCIPLES = [
   "Capture first",
@@ -60,7 +65,16 @@ export function OptionalSyncSection() {
         size="6xl"
         className="mt-24 overflow-visible md:mt-28 lg:mt-32"
       >
-        <ProductMockupVisuals />
+        <Suspense
+          fallback={
+            <div
+              className="min-h-[min(70vh,36rem)] w-full md:min-h-[40rem]"
+              aria-hidden
+            />
+          }
+        >
+          <ProductMockupVisuals />
+        </Suspense>
       </Container>
     </Section>
   );

@@ -4,9 +4,8 @@ export {
   MobileMockupFlip,
   MobileMockupPair,
   MobilePhoneMockup,
-  ProductMockup,
-  ProductMockupVisuals,
-} from "./ProductMockup";
+} from "./MobileDeviceMockup";
+export { ProductMockup, ProductMockupVisuals } from "./ProductMockup";
 export { FloatingBlobs } from "./FloatingBlobs";
 export { Footer } from "./Footer";
 export { Header } from "./Header";

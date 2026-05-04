@@ -1,5 +1,5 @@
-import mainImg from "@/assets/chinotto-main.png";
-import welcomeImg from "@/assets/chinotto-welcome.png";
+import mainImg from "@/assets/chinotto-main.webp";
+import welcomeImg from "@/assets/chinotto-welcome.webp";
 
 /** Shown in the product gallery modal (two-up row on larger screens). */
 export const PRODUCT_MODAL_GALLERY = [
