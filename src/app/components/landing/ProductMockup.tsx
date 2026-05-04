@@ -50,6 +50,7 @@ export function ProductMockupVisuals({
                   src={previewMockupImg}
                   alt="Chinotto — list and preview column"
                   className="pointer-events-none block h-auto w-full select-none"
+                  decoding="async"
                   draggable={false}
                 />
               </figure>
@@ -61,6 +62,7 @@ export function ProductMockupVisuals({
                   src={mainMockupImg}
                   alt="Chinotto — capture field and stream"
                   className="pointer-events-none block h-auto w-full select-none"
+                  decoding="async"
                   draggable={false}
                 />
               </figure>

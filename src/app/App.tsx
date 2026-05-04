@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import {
   CTASection,
   FloatingBlobs,
@@ -44,9 +44,20 @@ function MainLandingPage() {
   return isDesktop ? <DesktopLandingPage /> : <PlaceholderLandingPage />;
 }
 
+/** Reset scroll on SPA navigations so new routes paint from the top (esp. mobile). */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       <Route path="/" element={<MainLandingPage />} />
       {/* Universal Link path; same UI as / — no 404 for /sync */}
       <Route path="/sync" element={<MainLandingPage />} />
@@ -58,5 +69,6 @@ export default function App() {
       <Route path="/updates" element={<NotesPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
+    </>
   );
 }

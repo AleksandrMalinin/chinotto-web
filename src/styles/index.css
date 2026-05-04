@@ -2,6 +2,17 @@
 @import './tailwind.css';
 @import './theme.css';
 
+/* Mobile: snappier taps — avoids double-tap-to-zoom delay on many browsers */
+@media (max-width: 767px) {
+  a[href],
+  button,
+  input[type='button'],
+  input[type='submit'],
+  [role='button'] {
+    touch-action: manipulation;
+  }
+}
+
 /* Studio signature – quiet mark, centered */
 .app-studio-signature {
   position: absolute;
