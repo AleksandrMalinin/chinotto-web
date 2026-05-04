@@ -59,7 +59,7 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
   const logoClassName =
     "flex items-center gap-3 rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg";
 
-  /** Same-route logo tap must not run a real navigation — on mobile Safari it can full-reload the document and flash the static `index.html` shell until JS boots again. */
+  /** Same-route logo tap must not run a real navigation — on mobile Safari it can full-reload the document until JS boots again. */
   const logoLinkIsCurrent = Boolean(logoHref && pathname === logoHref);
 
   const updatesMark = (
