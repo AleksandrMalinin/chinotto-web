@@ -47,68 +47,111 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
 
   const highlightUnreadDot = updatesUnread && !isUpdates;
 
+  const logoMark = (
+    <>
+      <ChinottoLogo size={32} className="text-landing-accent" />
+      <span className="text-lg font-light text-landing-foreground">
+        Chinotto
+      </span>
+    </>
+  );
+
+  const logoClassName =
+    "flex items-center gap-3 rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg";
+
+  /** Same-route logo tap must not run a real navigation — on mobile Safari it can full-reload the document and flash the static `index.html` shell until JS boots again. */
+  const logoLinkIsCurrent = Boolean(logoHref && pathname === logoHref);
+
+  const updatesMark = (
+    <>
+      <span
+        className={cn(
+          "transition-[opacity,color,text-shadow] duration-[180ms] ease-out",
+          !isUpdates &&
+            "font-normal text-landing-muted opacity-[0.55] group-hover:opacity-[0.92] group-hover:text-[color-mix(in_srgb,var(--landing-foreground)_42%,var(--landing-muted))] group-hover:[text-shadow:0_0_16px_rgba(139,148,200,0.045),0_0_32px_rgba(139,148,200,0.022)]",
+        )}
+      >
+        Updates
+      </span>
+      <span
+        aria-hidden
+        className={cn(
+          "size-[5px] shrink-0 rounded-full transition-[color,box-shadow] duration-[180ms] ease-out",
+          isUpdates && "bg-landing-accent",
+          !isUpdates &&
+            highlightUnreadDot &&
+            "bg-[#cab4ff] shadow-[inset_0_0_2px_rgba(248,244,255,1),0_0_5px_rgba(210,195,255,1),0_0_11px_rgba(175,155,245,1),0_0_22px_rgba(139,148,200,0.95),0_0_34px_rgba(110,98,185,0.65)]",
+          !isUpdates &&
+            !highlightUnreadDot &&
+            "bg-landing-accent/45 group-hover:bg-landing-accent/80",
+        )}
+      />
+    </>
+  );
+
+  const updatesNavClassName = cn(
+    "header-nav-link footer-nav-link group inline-flex items-center gap-2 rounded-md",
+    isUpdates && "footer-nav-link--active",
+  );
+
   return (
-    <header className="py-6 px-8">
+    <header className="relative z-20 py-6 px-8">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           {logoHref ? (
-            <Link
-              to={logoHref}
-              className="flex items-center gap-3 rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
-              aria-label="Logo and icon showcase"
-              data-umami-event="header-logo"
-            >
-              <ChinottoLogo size={32} className="text-landing-accent" />
-              <span className="text-lg font-light text-landing-foreground">
-                Chinotto
-              </span>
-            </Link>
+            logoLinkIsCurrent ? (
+              <button
+                type="button"
+                className={logoClassName}
+                aria-label="Top of page"
+                aria-current="page"
+                data-umami-event="header-logo"
+                onClick={() =>
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }
+              >
+                {logoMark}
+              </button>
+            ) : (
+              <Link
+                to={logoHref}
+                className={logoClassName}
+                aria-label="Logo and icon showcase"
+                data-umami-event="header-logo"
+              >
+                {logoMark}
+              </Link>
+            )
           ) : (
-            <>
-              <ChinottoLogo size={32} className="text-landing-accent" />
-              <span className="text-lg font-light text-landing-foreground">
-                Chinotto
-              </span>
-            </>
+            <span className="flex items-center gap-3">{logoMark}</span>
           )}
         </div>
         <div className="flex items-center gap-6">
-          <Link
-            to="/updates"
-            className={cn(
-              /* Opacity lives on the label span only — dot stays full strength */
-              "footer-nav-link group inline-flex items-center gap-2 rounded-md px-0.5 py-0.5",
-              isUpdates && "footer-nav-link--active",
-            )}
-            aria-current={isUpdates ? "page" : undefined}
-            aria-label={
-              highlightUnreadDot ? "Updates — new release" : "Updates"
-            }
-            data-umami-event="header-updates"
-          >
-            <span
-              className={cn(
-                "transition-[opacity,color,text-shadow] duration-[180ms] ease-out",
-                !isUpdates &&
-                  "font-normal text-landing-muted opacity-[0.55] group-hover:opacity-[0.92] group-hover:text-[color-mix(in_srgb,var(--landing-foreground)_42%,var(--landing-muted))] group-hover:[text-shadow:0_0_16px_rgba(139,148,200,0.045),0_0_32px_rgba(139,148,200,0.022)]",
-              )}
+          {isUpdates ? (
+            <button
+              type="button"
+              className={updatesNavClassName}
+              aria-label="Top of page"
+              aria-current="page"
+              data-umami-event="header-updates"
+              onClick={() =>
+                window.scrollTo({ top: 0, behavior: "smooth" })
+              }
             >
-              Updates
-            </span>
-            <span
-              aria-hidden
-              className={cn(
-                "size-[5px] shrink-0 rounded-full transition-[color,box-shadow] duration-[180ms] ease-out",
-                isUpdates && "bg-landing-accent",
-                !isUpdates &&
-                  highlightUnreadDot &&
-                  "bg-[#cab4ff] shadow-[inset_0_0_2px_rgba(248,244,255,1),0_0_5px_rgba(210,195,255,1),0_0_11px_rgba(175,155,245,1),0_0_22px_rgba(139,148,200,0.95),0_0_34px_rgba(110,98,185,0.65)]",
-                !isUpdates &&
-                  !highlightUnreadDot &&
-                  "bg-landing-accent/45 group-hover:bg-landing-accent/80",
-              )}
-            />
-          </Link>
+              {updatesMark}
+            </button>
+          ) : (
+            <Link
+              to="/updates"
+              className={updatesNavClassName}
+              aria-label={
+                highlightUnreadDot ? "Updates — new release" : "Updates"
+              }
+              data-umami-event="header-updates"
+            >
+              {updatesMark}
+            </Link>
+          )}
           {!hideDownloadButton && (
             <Link
               to="/#download"

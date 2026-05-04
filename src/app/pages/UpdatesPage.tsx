@@ -14,6 +14,9 @@ function formatReleaseDate(date: string) {
   return releaseDateFormatter.format(new Date(`${date}T00:00:00`));
 }
 
+const noteOutboundLinkClass =
+  "text-landing-accent underline decoration-landing-accent/35 underline-offset-[0.18em] transition-colors hover:text-landing-accent-hover hover:decoration-landing-accent-hover/50";
+
 /** Renders `https://…` segments as outbound links (changelog bullets / notes). */
 function LinkifiedText({ text }: { text: string }) {
   const segments = text.split(/(https?:\/\/\S+)/g);
@@ -26,7 +29,7 @@ function LinkifiedText({ text }: { text: string }) {
             href={segment}
             target="_blank"
             rel="noreferrer"
-            className="text-landing-accent underline decoration-landing-accent/35 underline-offset-[0.18em] transition-colors hover:text-landing-accent-hover hover:decoration-landing-accent-hover/50"
+            className={noteOutboundLinkClass}
           >
             {segment}
           </a>
@@ -160,12 +163,25 @@ export function NotesPage() {
                             </li>
                           ))}
                         </ul>
-                        {update.note && (
+                        {(update.note || update.noteLink) && (
                           <p
                             className="mt-4 border-t border-landing-border-subtle pt-3.5 text-[0.8125rem] font-light leading-relaxed tracking-[0.02em] text-landing-muted/78"
                             role="note"
                           >
-                            <LinkifiedText text={update.note} />
+                            {update.note ? (
+                              <LinkifiedText text={update.note} />
+                            ) : null}
+                            {update.note && update.noteLink ? " " : null}
+                            {update.noteLink ? (
+                              <a
+                                href={update.noteLink.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className={noteOutboundLinkClass}
+                              >
+                                {update.noteLink.label}
+                              </a>
+                            ) : null}
                           </p>
                         )}
                       </div>

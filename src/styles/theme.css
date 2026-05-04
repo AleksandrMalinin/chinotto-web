@@ -387,6 +387,15 @@
       0 0 16px rgba(139, 148, 200, 0.045),
       0 0 32px rgba(139, 148, 200, 0.022);
   }
+
+  /* Header reuses .footer-nav-link, which sets padding:0 — restore ≥44px tap targets on touch */
+  .header-nav-link.footer-nav-link {
+    box-sizing: border-box;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    margin: -0.5rem -0.75rem;
+    touch-action: manipulation;
+  }
 }
 
 /* Placeholder landing: slow blob movement, cursor, logo breath */

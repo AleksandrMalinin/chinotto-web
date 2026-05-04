@@ -8,6 +8,8 @@ export interface ProductUpdate {
   items: string[];
   /** Optional one-line aside, shown below bullets with separate styling (e.g. version requirements). */
   note?: string;
+  /** Optional outbound link after `note` (e.g. “App Store” — avoids raw URLs in copy). */
+  noteLink?: { label: string; href: string };
   /** Short kicker above the version for major platform / ideological milestones. */
   milestone?: string;
 }
@@ -21,14 +23,24 @@ export interface ProductUpdate {
 export const productUpdates: ProductUpdate[] = [
   {
     version: "2.0.0",
-    milestone: "Major release — Mac & iPhone",
-    title: "Thoughts don't belong to one device anymore",
+    milestone: "Major release — Device sync",
+    title: "Sync across Mac and iPhone",
     date: "2026-05-04",
     items: [
       "Optional sync — Mac and iPhone",
       "Local-first by default",
     ],
-    note: `App Store — ${CHINOTTO_IOS_APP_STORE_URL.trim()}`,
+    note: "Chinotto for iPhone on the",
+    noteLink: {
+      label: "App Store",
+      href: CHINOTTO_IOS_APP_STORE_URL.trim(),
+    },
+  },
+  {
+    version: "1.3.1",
+    title: "Capture stays available",
+    date: "2026-04-18",
+    items: ["Runs when closed", "Thoughts read better"],
   },
   {
     version: "1.3.0",
