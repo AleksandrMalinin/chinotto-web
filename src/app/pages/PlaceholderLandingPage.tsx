@@ -1,14 +1,17 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import type { MouseEvent } from "react";
 import { Link } from "react-router";
 import { ChinottoLogo } from "../components/ChinottoLogo";
-import { Header, MobileMockupFlip } from "../components/landing";
+import { FloatingBlobs, Header, MobileMockupFlip } from "../components/landing";
 import {
   CHINOTTO_GITHUB_REPO,
   CHINOTTO_IOS_APP_STORE_URL,
 } from "../content/links";
+import type { PlaceholderMousePos } from "../components/landing/FloatingBlobs";
 
 export function PlaceholderLandingPage() {
   const iosStoreUrl = CHINOTTO_IOS_APP_STORE_URL.trim();
+  const [mouse, setMouse] = useState<PlaceholderMousePos | null>(null);
   const [desktopModalOpen, setDesktopModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -20,14 +23,34 @@ export function PlaceholderLandingPage() {
     });
   }, []);
 
+  const onMouseMove = useCallback((e: MouseEvent<HTMLDivElement>) => {
+    setMouse({
+      x: e.clientX / window.innerWidth,
+      y: e.clientY / window.innerHeight,
+    });
+  }, []);
+
+  const onMouseLeave = useCallback(() => {
+    setMouse(null);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("mouseleave", onMouseLeave);
+    return () => window.removeEventListener("mouseleave", onMouseLeave);
+  }, [onMouseLeave]);
+
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden bg-landing-bg">
-      <div className="landing-mobile-ambient-bg" aria-hidden />
+    <div
+      className="min-h-screen bg-landing-bg relative overflow-hidden flex flex-col"
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+    >
+      <FloatingBlobs variant="background" mouse={mouse} />
 
       <Header logoHref="/" hideDownloadButton />
 
       {/* Mobile landing: logo 100px, space below header */}
-      <main className="flex-1 flex flex-col items-center pt-[70px] px-6 pb-16 relative z-10">
+      <main className="relative z-10 flex flex-1 flex-col items-center px-8 pb-16 pt-[70px]">
         <Link
           to="/showcase"
           className="placeholder-logo-wrap mb-14 block rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"

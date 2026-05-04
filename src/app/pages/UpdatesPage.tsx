@@ -74,7 +74,7 @@ export function NotesPage() {
 
                 <div
                   className={cn(
-                    "notes-release-shell group -mx-3",
+                    "notes-release-shell group -mx-3 max-md:mx-0",
                     update.milestone && "notes-release-shell--milestone",
                     isOpen
                       ? "notes-release-shell--expanded"
@@ -95,7 +95,7 @@ export function NotesPage() {
                   )}
                   <div
                     className={cn(
-                      "px-3",
+                      "px-3 max-md:px-4",
                       isOpen
                         ? "notes-release-body notes-release-body--expanded py-3"
                         : "notes-release-body notes-release-body--collapsed py-1.5",
