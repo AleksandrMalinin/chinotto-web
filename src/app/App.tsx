@@ -8,8 +8,6 @@ import {
   Hero,
   LogoShowcasePage,
   OptionalSyncSection,
-  PrinciplesStrip,
-  ProductMockup,
 } from "./components/landing";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { ManifestoPage } from "./pages/ManifestoPage";
@@ -32,9 +30,7 @@ function DesktopLandingPage() {
       <Header />
       <Hero />
       <FloatingBlobs />
-      <PrinciplesStrip />
       <OptionalSyncSection />
-      <ProductMockup />
       <CTASection />
       <Footer />
     </div>
