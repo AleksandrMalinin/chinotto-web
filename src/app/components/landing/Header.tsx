@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 import { ChinottoLogo } from "../ChinottoLogo";
-import { CHINOTTO_MAC_DOWNLOAD_URL } from "../../content/links";
 import { productUpdates } from "../../content/updates";
 import {
   UPDATES_SEEN_EVENT,
@@ -111,13 +110,13 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
             />
           </Link>
           {!hideDownloadButton && (
-            <a
-              href={CHINOTTO_MAC_DOWNLOAD_URL}
+            <Link
+              to="/#download"
               className="btn-landing-primary px-6 py-2 inline-block"
               data-umami-event="get-app-header"
             >
               Get the app
-            </a>
+            </Link>
           )}
         </div>
       </nav>
