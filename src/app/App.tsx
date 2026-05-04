@@ -9,11 +9,12 @@ import {
   LogoShowcasePage,
   OptionalSyncSection,
 } from "./components/landing";
-import { PrivacyPage } from "./pages/PrivacyPage";
+import { useMinMd } from "./hooks/useMinMd";
 import { ManifestoPage } from "./pages/ManifestoPage";
-import { NotesPage } from "./pages/UpdatesPage";
-import { PlaceholderLandingPage } from "./pages/PlaceholderLandingPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { PlaceholderLandingPage } from "./pages/PlaceholderLandingPage";
+import { PrivacyPage } from "./pages/PrivacyPage";
+import { NotesPage } from "./pages/UpdatesPage";
 
 function DesktopLandingPage() {
   const location = useLocation();
@@ -37,18 +38,10 @@ function DesktopLandingPage() {
   );
 }
 
-/** Main route: mobile = PlaceholderLandingPage, desktop = full landing */
+/** Main route: one viewport branch only — avoids double layout + mockup work. */
 function MainLandingPage() {
-  return (
-    <>
-      <div className="md:hidden">
-        <PlaceholderLandingPage />
-      </div>
-      <div className="hidden md:block">
-        <DesktopLandingPage />
-      </div>
-    </>
-  );
+  const isDesktop = useMinMd();
+  return isDesktop ? <DesktopLandingPage /> : <PlaceholderLandingPage />;
 }
 
 export default function App() {

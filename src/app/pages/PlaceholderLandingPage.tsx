@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import type { MouseEvent } from "react";
+import { Link } from "react-router";
 import { ChinottoLogo } from "../components/ChinottoLogo";
 import { FloatingBlobs, Header, MobileMockupFlip } from "../components/landing";
 import {
@@ -50,14 +51,14 @@ export function PlaceholderLandingPage() {
 
       {/* Mobile landing: logo 100px, space below header */}
       <main className="flex-1 flex flex-col items-center pt-[70px] px-6 pb-16 relative z-10">
-        <a
-          href="/showcase"
+        <Link
+          to="/showcase"
           className="placeholder-logo-wrap mb-14 block rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
           aria-label="Logo showcase"
           data-umami-event="logo-showcase-placeholder"
         >
           <ChinottoLogo size={100} className="text-landing-accent" />
-        </a>
+        </Link>
         <h1 className="text-4xl font-light tracking-tight text-landing-foreground mb-4 text-center leading-[1.08]">
           Capture first.
           <br />
@@ -97,13 +98,13 @@ export function PlaceholderLandingPage() {
             Download for Mac
           </button>
         </div>
-        <a
-          href="/manifesto"
+        <Link
+          to="/manifesto"
           className="mt-6 text-[13px] font-light text-landing-muted/70 underline-offset-[6px] transition-colors hover:text-landing-muted hover:underline"
           data-umami-event="learn-more-placeholder"
         >
           Learn more
-        </a>
+        </Link>
       </main>
 
       <div className="app-studio-signature" aria-hidden="true">

@@ -74,6 +74,8 @@ It is not "organize your life" software.
 
 ## Engineering principles
 
+- **Marketing site = one JS bundle, no route-level `lazy`/`Suspense` fallbacks** — full reloads are avoided with `<Link>`; avoid async route chunks that flash an empty screen.
+- **One responsive branch in the tree** — do not mount both `md:` and mobile layouts hidden with CSS; use a `matchMedia` hook (`useMinMd`) so only the active layout runs (fewer effects, no duplicate `FloatingBlobs` / mockup work).
 - Prefer static pages and static content
 - Prefer simple React components and clear JSX over heavy abstraction
 - Add client-side JavaScript only when clearly necessary

@@ -37,29 +37,13 @@
         font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       }
 
-      #boot-splash {
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-      }
-
-      #boot-splash-text {
-        font-size: 14px;
-        font-weight: 300;
-        letter-spacing: 0.02em;
-        color: #9b9fa9;
-      }
     </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="50ebccdf-5180-47f4-8463-5e0d01969f63"></script>
   </head>
 
   <body>
-    <div id="root">
-      <div id="boot-splash" aria-hidden="true">
-        <div id="boot-splash-text">Loading Chinotto…</div>
-      </div>
-    </div>
+    <!-- Empty root: avoid “Loading…” flash; body background shows until JS mounts. -->
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
