@@ -23,6 +23,7 @@ export interface ProductUpdate {
 export const productUpdates: ProductUpdate[] = [
   {
     version: "2.1.0",
+    milestone: "Mac release — Spaces",
     title: "Spaces on Mac",
     date: "2026-05-18",
     items: [

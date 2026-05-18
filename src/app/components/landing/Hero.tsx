@@ -44,7 +44,7 @@ export function Hero() {
             <p className="text-center text-[13px] font-light leading-relaxed tracking-[0.02em]">
               <span className="tabular-nums tracking-tight text-landing-note-violet">{`v${latestUpdate.version}`}</span>
               <span className="text-landing-muted/88">
-                {" — Mac and iPhone, sync optional · "}
+                {latestUpdate.title ? ` — ${latestUpdate.title} · ` : " · "}
               </span>
               <Link
                 to="/changelog"
