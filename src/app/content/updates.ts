@@ -22,6 +22,17 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
+    version: "2.1.0",
+    title: "Spaces on Mac",
+    date: "2026-05-18",
+    items: [
+      "Capture into current space",
+      "Move between spaces",
+      "Per-space ambience",
+    ],
+    note: "iPhone stays one continuous stream.",
+  },
+  {
     version: "2.0.0",
     milestone: "Major release — Device sync",
     title: "Sync across Mac and iPhone",

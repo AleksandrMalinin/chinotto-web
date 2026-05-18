@@ -2,7 +2,7 @@ import { ContentPageLayout } from "../components/landing/ContentPageLayout";
 
 /**
  * Same arc as the homepage: capture first, local-first, sync only when chosen—
- * thoughts/stream wording matches in-app language; no feature list.
+ * thoughts/stream wording matches in-app language; optional Mac lenses named once.
  */
 export function ManifestoPage() {
   return (
@@ -26,13 +26,17 @@ export function ManifestoPage() {
         </p>
         <p>
           Structure can come later—when you actually need it, when the thought
-          has had time to settle. Not before.
+          has had time to settle. Not before. On Mac, optional context lenses—Inbox,
+          Work, Personal—separate threads when you want to, without folders or a
+          workspace to set up first. One timeline; a filter, not a second system.
         </p>
         <p>
           Your thoughts stay local-first on your devices until you choose
           otherwise. Sync is optional and intentional: Sign in with Apple when you
-          want the same stream on Mac and iPhone. There is no Chinotto
-          account—only that link, when you ask for it.
+          want the same entries on Mac and iPhone. iPhone stays one chronological
+          capture stream; Mac can use those lenses on desktop when you want that
+          separation. There is no Chinotto account—only that link, when you ask for
+          it.
         </p>
         <p>
           The premise is not cloud by default. It is capture without ceremony:
