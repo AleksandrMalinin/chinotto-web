@@ -22,12 +22,6 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
-    version: "2.1.1",
-    title: "Enable sync on Mac",
-    date: "2026-05-23",
-    items: ["Continue with Apple", "Mac and iPhone sync"],
-  },
-  {
     version: "2.1.0",
     milestone: "Mac release — Spaces",
     title: "Spaces on Mac",
