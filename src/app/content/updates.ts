@@ -23,10 +23,15 @@ export interface ProductUpdate {
 export const productUpdates: ProductUpdate[] = [
   {
     version: "2.1.1",
-    title: "Device sync fix",
+    milestone: "Patch — Sync improvements",
+    title: "Sync improvements",
     date: "2026-05-23",
-    items: [],
-    note: "Sync was broken in some Mac builds; now fixed.",
+    items: [
+      "More reliable device sync",
+      "Desktop thoughts now upload on first sign-in",
+      "Improved Continue with Apple flow on Mac",
+      "Clearer sync error messages",
+    ],
   },
   {
     version: "2.1.0",
