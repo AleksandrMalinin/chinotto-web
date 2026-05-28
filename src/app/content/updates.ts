@@ -22,6 +22,18 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
+    version: "2.2.1",
+    milestone: "Patch — Related thoughts improvements",
+    title: "Related thoughts improvements",
+    date: "2026-05-28",
+    items: [
+      "Older thoughts now appear in related trails",
+      "Related thoughts indexing happens automatically",
+      "Delete confirmation before removing a thought",
+      "UI zoom is now supported and remembered",
+    ],
+  },
+  {
     version: "2.1.1",
     milestone: "Patch — Sync improvements",
     title: "Sync improvements",
