@@ -22,6 +22,16 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
+    version: "2.2.2",
+    milestone: "Patch",
+    title: "Stronger trail links",
+    date: "2026-05-31",
+    items: [
+      "Trails connect more notes with overlapping terms",
+      "Short acronyms count when you repeat them",
+    ],
+  },
+  {
     version: "2.2.1",
     milestone: "Patch — Related thoughts improvements",
     title: "Related thoughts improvements",
