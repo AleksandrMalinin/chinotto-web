@@ -1,7 +1,11 @@
 import { Link, useLocation } from "react-router";
 import { ChinottoLogo } from "../ChinottoLogo";
 import { cn } from "../ui/utils";
-import { CHINOTTO_GITHUB_REPO, CHINOTTO_IOS_APP_STORE_URL } from "../../content/links";
+import {
+  CHINOTTO_GITHUB_REPO,
+  CHINOTTO_IOS_APP_STORE_URL,
+  CHINOTTO_MOBILE_GITHUB_REPO,
+} from "../../content/links";
 
 function footerNavClasses(active: boolean) {
   return cn(
@@ -25,12 +29,15 @@ export function Footer() {
     <footer
       className="py-12 px-8 border-t border-landing-border-subtle"
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
+      <div className="max-w-6xl mx-auto flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <ChinottoLogo size={24} className="text-landing-border" />
           <span className="text-sm text-landing-border">© 2026 Chinotto</span>
         </div>
-        <nav className="flex gap-6" aria-label="Footer">
+        <nav
+          className="flex flex-wrap items-center gap-x-6 gap-y-2 sm:justify-end"
+          aria-label="Footer"
+        >
           <Link
             to="/updates"
             className={footerNavClasses(isChangelog)}
@@ -71,9 +78,18 @@ export function Footer() {
             target="_blank"
             rel="noreferrer"
             className={footerNavClasses(false)}
-            data-umami-event="footer-github"
+            data-umami-event="footer-github-mac"
           >
-            GitHub ↗
+            GitHub · Mac ↗
+          </a>
+          <a
+            href={CHINOTTO_MOBILE_GITHUB_REPO}
+            target="_blank"
+            rel="noreferrer"
+            className={footerNavClasses(false)}
+            data-umami-event="footer-github-ios"
+          >
+            GitHub · iOS ↗
           </a>
         </nav>
       </div>

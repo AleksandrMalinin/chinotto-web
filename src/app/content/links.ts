@@ -13,3 +13,6 @@ export const CHINOTTO_IOS_APP_STORE_URL: string =
 
 export const CHINOTTO_GITHUB_REPO =
   "https://github.com/AleksandrMalinin/chinotto";
+
+export const CHINOTTO_MOBILE_GITHUB_REPO =
+  "https://github.com/AleksandrMalinin/chinotto-mobile";

@@ -4,38 +4,31 @@
 
 # Chinotto
 
-Capture first.  
-Revisit later.
+*Capture first.  
+Revisit later.*
 
-Chinotto is a minimal desktop thinking tool built for the moment a thought appears.  
-Capture it instantly — without projects, folders, or workspaces.
+Marketing website for Chinotto — the local-first thinking tool for Mac and iPhone.
 
-Structure can come later, when you revisit.
+Static landing, product updates, manifesto, and privacy policy. Deployed at [getchinotto.app](https://getchinotto.app).
 
 **Stack:** React · Vite · TypeScript · Tailwind CSS
 
 ## Development
 
-Run the website locally.
-
-Install dependencies:
-
 ```bash
 pnpm install
-```
-
-Start the dev server:
-
-```bash
 pnpm dev
 ```
 
-Build the site:
+Build for production:
 
 ```bash
 pnpm build
 ```
 
+Site routes and copy conventions: [`AGENTS.md`](AGENTS.md).
+
 ## Related
 
-- [Chinotto](https://github.com/AleksandrMalinin/chinotto) — desktop app
+- [Chinotto desktop](https://github.com/AleksandrMalinin/chinotto) — Mac app
+- [Chinotto mobile](https://github.com/AleksandrMalinin/chinotto-mobile) — iOS companion
