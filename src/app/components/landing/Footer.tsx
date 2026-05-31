@@ -73,24 +73,38 @@ export function Footer() {
               App Store ↗
             </a>
           ) : null}
-          <a
-            href={CHINOTTO_GITHUB_REPO}
-            target="_blank"
-            rel="noreferrer"
-            className={footerNavClasses(false)}
-            data-umami-event="footer-github-mac"
+          <span
+            className="inline-flex flex-wrap items-center gap-x-1.5 text-sm leading-normal"
+            aria-label="Chinotto on GitHub"
           >
-            GitHub · Mac ↗
-          </a>
-          <a
-            href={CHINOTTO_MOBILE_GITHUB_REPO}
-            target="_blank"
-            rel="noreferrer"
-            className={footerNavClasses(false)}
-            data-umami-event="footer-github-ios"
-          >
-            GitHub · iOS ↗
-          </a>
+            <span className="font-normal text-landing-muted opacity-[0.55]">
+              GitHub
+            </span>
+            <a
+              href={CHINOTTO_GITHUB_REPO}
+              target="_blank"
+              rel="noreferrer"
+              className={footerNavClasses(false)}
+              data-umami-event="footer-github-mac"
+            >
+              Mac ↗
+            </a>
+            <span
+              className="select-none text-landing-muted/40"
+              aria-hidden
+            >
+              ·
+            </span>
+            <a
+              href={CHINOTTO_MOBILE_GITHUB_REPO}
+              target="_blank"
+              rel="noreferrer"
+              className={footerNavClasses(false)}
+              data-umami-event="footer-github-ios"
+            >
+              iOS ↗
+            </a>
+          </span>
         </nav>
       </div>
     </footer>
