@@ -2,12 +2,13 @@ import { Routes, Route, useLocation } from "react-router";
 import { useEffect, useLayoutEffect } from "react";
 import {
   CTASection,
+  FaqSection,
   FloatingBlobs,
   Footer,
   Header,
   Hero,
+  LandingStorySections,
   LogoShowcasePage,
-  OptionalSyncSection,
 } from "./components/landing";
 import { useMinMd } from "./hooks/useMinMd";
 import { ManifestoPage } from "./pages/ManifestoPage";
@@ -16,22 +17,34 @@ import { PlaceholderLandingPage } from "./pages/PlaceholderLandingPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { NotesPage } from "./pages/UpdatesPage";
 
-function DesktopLandingPage() {
-  const location = useLocation();
+const LANDING_HASH_TARGETS = new Set([
+  "#download",
+  "#how-it-works",
+  "#connected",
+  "#local-first",
+  "#platforms",
+  "#positioning",
+  "#faq",
+]);
+
+function useLandingHashScroll() {
+  const { hash } = useLocation();
 
   useEffect(() => {
-    const hash = location.hash;
-    if (hash === "#download" || hash === "#principles") {
+    if (LANDING_HASH_TARGETS.has(hash)) {
       document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [location.hash]);
+  }, [hash]);
+}
 
+function DesktopLandingPage() {
   return (
     <div className="min-h-screen bg-landing-bg">
       <Header />
       <Hero />
       <FloatingBlobs />
-      <OptionalSyncSection />
+      <LandingStorySections />
+      <FaqSection />
       <CTASection />
       <Footer />
     </div>
@@ -41,6 +54,7 @@ function DesktopLandingPage() {
 /** Main route: one viewport branch only — avoids double layout + mockup work. */
 function MainLandingPage() {
   const isDesktop = useMinMd();
+  useLandingHashScroll();
   return isDesktop ? <DesktopLandingPage /> : <PlaceholderLandingPage />;
 }
 
