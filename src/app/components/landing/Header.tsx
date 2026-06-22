@@ -6,7 +6,15 @@ import {
   UPDATES_SEEN_EVENT,
   hasUnreadUpdates,
 } from "../../content/updatesSeen";
+import { CHINOTTO_IOS_APP_STORE_URL } from "../../content/links";
+import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
+
+const LANDING_SECTION_LINKS = [
+  { label: "Desktop & mobile", hash: "#platforms" },
+  { label: "Trails & Spaces", hash: "#connected" },
+  { label: "How it works", hash: "#how-it-works" },
+] as const;
 
 interface HeaderProps {
   /** When set, logo and name link to this path (e.g. /showcase). */
@@ -17,6 +25,9 @@ interface HeaderProps {
 
 export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
   const { pathname } = useLocation();
+  const isDesktop = useMinMd();
+  const iosStoreUrl = CHINOTTO_IOS_APP_STORE_URL.trim();
+  const isLanding = pathname === "/" || pathname === "/sync";
   const isUpdates =
     pathname === "/changelog" ||
     pathname === "/notes" ||
@@ -29,6 +40,41 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
       ? hasUnreadUpdates(latestUpdatesVersion)
       : false,
   );
+
+  const [showSectionNav, setShowSectionNav] = useState(false);
+
+  useEffect(() => {
+    if (!isLanding) {
+      setShowSectionNav(false);
+      return;
+    }
+
+    const hero = document.getElementById("hero");
+    if (!hero || typeof IntersectionObserver === "undefined") {
+      setShowSectionNav(false);
+      return;
+    }
+
+    let show = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        const ratio = entry.intersectionRatio;
+        if (ratio > 0.35) {
+          show = false;
+        } else if (ratio < 0.12) {
+          show = true;
+        }
+        setShowSectionNav((prev) => (prev === show ? prev : show));
+      },
+      { threshold: [0, 0.12, 0.35, 0.5, 0.75, 1] },
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, [isLanding]);
 
   useEffect(() => {
     if (!latestUpdatesVersion) return;
@@ -94,10 +140,14 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
     isUpdates && "footer-nav-link--active",
   );
 
+  const sectionNavClassName =
+    "header-nav-link footer-nav-link footer-nav-link--inactive text-[13px] tracking-[0.02em]";
+
   return (
     <header className="relative z-20 py-6 px-8">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-3">
+      <nav className="relative mx-auto max-w-7xl">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex min-w-0 items-center gap-3">
           {logoHref ? (
             logoLinkIsCurrent ? (
               <button
@@ -125,8 +175,9 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
           ) : (
             <span className="flex items-center gap-3">{logoMark}</span>
           )}
-        </div>
-        <div className="flex items-center gap-6">
+          </div>
+
+          <div className="flex items-center gap-6">
           {isUpdates ? (
             <button
               type="button"
@@ -152,16 +203,52 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
               {updatesMark}
             </Link>
           )}
-          {!hideDownloadButton && (
-            <Link
-              to="/#download"
-              className="btn-landing-primary px-6 py-2 inline-block"
-              data-umami-event="get-app-header"
-            >
-              Get the app
-            </Link>
-          )}
+          {!hideDownloadButton &&
+            (isDesktop || !iosStoreUrl ? (
+              <Link
+                to="/#download"
+                className="btn-landing-primary px-6 py-2 inline-block"
+                data-umami-event="get-app-header"
+              >
+                Get the app
+              </Link>
+            ) : (
+              <a
+                href={iosStoreUrl}
+                className="btn-landing-primary px-6 py-2 inline-block"
+                data-umami-event="get-app-header-ios"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Get on iPhone
+              </a>
+            ))}
+          </div>
         </div>
+
+        {isLanding ? (
+          <ul
+            className={cn(
+              "pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 lg:flex",
+              showSectionNav && "pointer-events-auto visible",
+              !showSectionNav && "invisible",
+            )}
+            aria-label="Page sections"
+            aria-hidden={!showSectionNav}
+          >
+            {LANDING_SECTION_LINKS.map((link) => (
+              <li key={link.hash}>
+                <Link
+                  to={{ hash: link.hash.slice(1) }}
+                  className={sectionNavClassName}
+                  data-umami-event={`header-section-${link.hash.slice(1)}`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </nav>
     </header>
   );
