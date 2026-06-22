@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { useMinMd } from "../../hooks/useMinMd";
+import { useDocumentMeta } from "../../hooks/useDocumentMeta";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { Container } from "./Container";
@@ -7,6 +8,7 @@ import { FloatingBlobs } from "./FloatingBlobs";
 
 interface ContentPageLayoutProps {
   title: string;
+  description?: string;
   children: ReactNode;
 }
 
@@ -14,8 +16,14 @@ interface ContentPageLayoutProps {
  * Shared layout for static content pages (privacy, manifesto).
  * Desktop: header, main, footer. Mobile: same Header as home, static ambient bg (no blur), signature.
  */
-export function ContentPageLayout({ title, children }: ContentPageLayoutProps) {
+export function ContentPageLayout({
+  title,
+  description,
+  children,
+}: ContentPageLayoutProps) {
   const isDesktop = useMinMd();
+
+  useDocumentMeta({ title, description });
 
   if (isDesktop) {
     return (

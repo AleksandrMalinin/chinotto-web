@@ -6,7 +6,10 @@ import { ContentPageLayout } from "../components/landing/ContentPageLayout";
  */
 export function PrivacyPage() {
   return (
-    <ContentPageLayout title="Privacy">
+    <ContentPageLayout
+      title="Privacy"
+      description="How Chinotto handles your thoughts — local by default, optional sync with Sign in with Apple, no Chinotto account."
+    >
       <div className="max-w-2xl mx-auto space-y-10 text-landing-muted">
         <p>
           Chinotto is local-first. Unless you enable sync, your thoughts stay on

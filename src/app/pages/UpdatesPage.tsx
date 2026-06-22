@@ -56,7 +56,10 @@ export function NotesPage() {
   };
 
   return (
-    <ContentPageLayout title="Updates">
+    <ContentPageLayout
+      title="Updates"
+      description="Chinotto release notes — new capabilities and product changes across desktop and mobile."
+    >
       <div className="mx-auto max-w-2xl">
         <p className="mb-10 text-sm font-light tracking-[0.02em] text-landing-muted/90">
           Chinotto is evolving.

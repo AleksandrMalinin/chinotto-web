@@ -32,4 +32,5 @@
   <text x="600" y="360" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="300" fill="#e4e4e9" text-anchor="middle" letter-spacing="-0.02em">Chinotto</text>
   <!-- Subtitle – larger, brighter, subtle glow for readability in previews -->
   <text x="600" y="408" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="300" fill="#c2c6d0" text-anchor="middle" letter-spacing="-0.01em" filter="url(#textglow)">Capture first. Revisit later.</text>
+  <text x="600" y="452" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="300" fill="#9b9fa9" text-anchor="middle" letter-spacing="0.02em">Local-first · Desktop &amp; mobile</text>
 </svg>
