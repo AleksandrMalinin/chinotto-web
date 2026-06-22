@@ -1,3 +1,4 @@
+export { BogartLabsSignature } from "./BogartLabsSignature";
 export { Container } from "./Container";
 export { CTASection } from "./CTASection";
 export { LandingStorySections } from "./LandingStorySections";

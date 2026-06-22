@@ -3,6 +3,7 @@ import { useMinMd } from "../../hooks/useMinMd";
 import { useDocumentMeta } from "../../hooks/useDocumentMeta";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { BogartLabsSignature } from "./BogartLabsSignature";
 import { Container } from "./Container";
 import { FloatingBlobs } from "./FloatingBlobs";
 
@@ -56,9 +57,7 @@ export function ContentPageLayout({
           {children}
         </div>
       </main>
-      <div className="app-studio-signature" aria-hidden="true">
-        <span>Bogart Labs</span>
-      </div>
+      <BogartLabsSignature variant="floating" />
     </div>
   );
 }

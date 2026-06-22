@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router";
 import { ChinottoLogo } from "../ChinottoLogo";
+import { BogartLabsSignature } from "./BogartLabsSignature";
 import { cn } from "../ui/utils";
 import {
   CHINOTTO_GITHUB_REPO,
@@ -29,7 +30,7 @@ export function Footer() {
     <footer
       className="py-12 px-8 border-t border-landing-border-subtle"
     >
-      <div className="max-w-6xl mx-auto flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+      <div className="max-w-6xl mx-auto flex flex-col gap-6 sm:grid sm:grid-cols-[1fr_auto] sm:items-center sm:gap-x-8 sm:gap-y-4">
         <div className="flex items-center gap-3">
           <ChinottoLogo size={24} className="text-landing-border" />
           <span className="text-sm text-landing-border">© 2026 Chinotto</span>
@@ -106,6 +107,7 @@ export function Footer() {
             </a>
           </span>
         </nav>
+        <BogartLabsSignature className="sm:col-span-2 sm:justify-self-center sm:pt-1" />
       </div>
     </footer>
   );

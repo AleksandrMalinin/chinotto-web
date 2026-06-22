@@ -13,13 +13,8 @@
   }
 }
 
-/* Studio signature – quiet mark, centered */
-.app-studio-signature {
-  position: absolute;
-  left: 50%;
-  bottom: 2rem;
-  transform: translateX(-50%);
-  z-index: 1;
+/* Studio signature – quiet mark (Chinotto / Chinotto mobile settings) */
+.bogart-labs-signature {
   font-family: inherit;
   font-size: 10px;
   font-weight: 400;
@@ -30,4 +25,12 @@
     0 0 6px rgba(120, 140, 255, 0.25),
     0 0 14px rgba(90, 110, 255, 0.15);
   pointer-events: none;
+}
+
+.app-studio-signature {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 1;
 }
