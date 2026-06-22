@@ -16,6 +16,7 @@
   --landing-card-border: rgba(139, 148, 200, 0.1);
   --landing-card-bg: linear-gradient(135deg, rgba(100, 120, 180, 0.1), rgba(80, 100, 150, 0.1));
   --landing-icon-bg: rgba(138, 148, 200, 0.15);
+  --landing-subhead: #a7aec4;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
@@ -140,6 +141,7 @@
   --color-landing-note-violet: var(--landing-note-violet);
   --color-landing-border: var(--landing-border);
   --color-landing-border-subtle: var(--landing-border-subtle);
+  --color-landing-subhead: var(--landing-subhead);
 }
 
 @layer base {
@@ -395,6 +397,115 @@
     padding: 0.5rem 0.75rem;
     margin: -0.5rem -0.75rem;
     touch-action: manipulation;
+  }
+
+  /* Section eyebrow — quiet uppercase kicker above section headings */
+  .landing-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--landing-note-violet) 70%, var(--landing-muted));
+    opacity: 0.7;
+  }
+
+  /* Landing type scale — one system for hero, sections, CTA */
+  .landing-display {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--landing-foreground);
+  }
+
+  .landing-heading {
+    font-size: 1.875rem;
+    font-weight: 300;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    color: var(--landing-foreground-strong);
+  }
+
+  @media (min-width: 768px) {
+    .landing-heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .landing-heading {
+      font-size: 2.5rem;
+    }
+  }
+
+  .landing-subhead {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--landing-subhead);
+  }
+
+  @media (min-width: 768px) {
+    .landing-subhead {
+      font-size: 1.25rem;
+      line-height: 1.6;
+    }
+  }
+
+  .landing-body {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--landing-muted);
+  }
+
+  .landing-caption {
+    font-size: 0.8125rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--landing-muted) 72%, transparent);
+  }
+
+  .landing-step-title {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--landing-foreground);
+  }
+
+  .landing-principles {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.04em;
+    color: color-mix(in srgb, var(--landing-foreground) 65%, var(--landing-muted));
+  }
+
+  @media (min-width: 768px) {
+    .landing-principles {
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+/* Scroll reveal — fade + lift once in view. Fully inert under reduced motion. */
+.reveal {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 620ms cubic-bezier(0.33, 1, 0.32, 1),
+      transform 620ms cubic-bezier(0.33, 1, 0.32, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal[data-reveal="in"] {
+    opacity: 1;
+    transform: none;
   }
 }
 
