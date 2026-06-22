@@ -96,7 +96,7 @@ export function ScrollThread() {
     >
       <div className="scroll-thread-track absolute inset-x-0 top-0 bottom-0 w-px bg-[rgba(139,148,200,0.14)]" />
       <div
-        className="scroll-thread-fill absolute left-0 top-0 w-px origin-top bg-gradient-to-b from-[rgba(139,148,200,0.55)] to-[rgba(139,148,200,0.28)] motion-safe:transition-[height] motion-safe:duration-150 motion-reduce:transition-none"
+        className="scroll-thread-fill absolute left-0 top-0 w-px origin-top bg-gradient-to-b from-[rgba(139,148,200,0.55)] to-[rgba(139,148,200,0.28)]"
         style={{ height: fillPx }}
       />
       {layout.markers.map((ratio, i) => {
