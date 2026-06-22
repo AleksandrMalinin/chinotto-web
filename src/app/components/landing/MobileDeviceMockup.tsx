@@ -1,53 +1,9 @@
 import { useState } from "react";
 import mobileMainImg from "@/assets/chinotto-mobile-main.webp";
 import mobilePreviewImg from "@/assets/chinotto-mobile-preview.webp";
+import { MobilePhoneMockup, PHONE_MOCKUP_CLASS } from "./DeviceMockup";
 
-const phoneBezel =
-  "rounded-[2.75rem] border border-landing-card-border bg-[#101014] p-[10px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.25),0_0_0_1px_rgba(139,148,200,0.08)]";
-
-const phoneScreen =
-  "relative overflow-hidden rounded-[2.35rem] aspect-[9/19] w-full bg-gradient-to-b from-white/[0.08] to-white/[0.02]";
-
-type MobilePhoneMockupProps = {
-  className?: string;
-  screenshotSrc?: string;
-  screenshotAlt?: string;
-};
-
-/**
- * Device frame; pass `screenshotSrc` for the in-screen capture (`chinotto-mobile-preview` / `chinotto-mobile-main`).
- */
-export function MobilePhoneMockup({
-  className = "",
-  screenshotSrc,
-  screenshotAlt = "Chinotto on iPhone",
-}: MobilePhoneMockupProps) {
-  return (
-    <figure
-      className={`mx-auto w-full max-w-[260px] ${className}`.trim()}
-      aria-hidden={screenshotSrc ? undefined : true}
-    >
-      <div className={phoneBezel}>
-        <div className={phoneScreen}>
-          {screenshotSrc ? (
-            <img
-              src={screenshotSrc}
-              alt={screenshotAlt}
-              className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover object-top"
-              decoding="async"
-              draggable={false}
-            />
-          ) : (
-            <div className="absolute inset-0" role="presentation" />
-          )}
-        </div>
-      </div>
-    </figure>
-  );
-}
-
-const placeholderFlipPhoneClass =
-  "w-full max-w-[min(260px,88vw)] sm:max-w-[240px] lg:max-w-[260px]";
+export { MacWindowMockup, MobilePhoneMockup, PHONE_MOCKUP_CLASS } from "./DeviceMockup";
 
 /**
  * One phone on the mobile placeholder landing; tap swaps preview screenshot ↔ main.
@@ -64,13 +20,12 @@ export function MobileMockupFlip({ className = "" }: { className?: string }) {
           ? "Show list and preview screen"
           : "Show capture and stream screen"
       }
-      className={`mx-auto block w-full max-w-[min(260px,88vw)] cursor-pointer rounded-[3rem] border-0 bg-transparent p-0 text-left shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg sm:max-w-[240px] ${className}`.trim()}
+      className={`mx-auto block ${PHONE_MOCKUP_CLASS} cursor-pointer rounded-[3rem] border-0 bg-transparent p-0 text-left shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg ${className}`.trim()}
       data-umami-event="mobile-mockup-flip"
     >
       <MobilePhoneMockup
         screenshotSrc={showMain ? mobileMainImg : mobilePreviewImg}
         screenshotAlt=""
-        className={placeholderFlipPhoneClass}
       />
     </button>
   );
@@ -86,8 +41,7 @@ export function MobileMockupPair({
   className?: string;
   showDivider?: boolean;
 }) {
-  const phoneClass =
-    "w-full max-w-[min(260px,88vw)] sm:max-w-[240px] lg:max-w-[260px]";
+  const phoneClass = PHONE_MOCKUP_CLASS;
 
   return (
     <div
