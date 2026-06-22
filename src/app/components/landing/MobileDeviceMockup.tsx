@@ -20,7 +20,7 @@ export function MobileMockupFlip({ className = "" }: { className?: string }) {
           ? "Show list and preview screen"
           : "Show capture and stream screen"
       }
-      className={`mx-auto block ${PHONE_MOCKUP_CLASS} cursor-pointer rounded-[3rem] border-0 bg-transparent p-0 text-left shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg ${className}`.trim()}
+      className={`mx-auto block w-fit cursor-pointer rounded-[3rem] border-0 bg-transparent p-0 text-left shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg ${className}`.trim()}
       data-umami-event="mobile-mockup-flip"
     >
       <MobilePhoneMockup
@@ -41,8 +41,6 @@ export function MobileMockupPair({
   className?: string;
   showDivider?: boolean;
 }) {
-  const phoneClass = PHONE_MOCKUP_CLASS;
-
   return (
     <div
       role="group"
@@ -53,7 +51,6 @@ export function MobileMockupPair({
         <MobilePhoneMockup
           screenshotSrc={mobilePreviewImg}
           screenshotAlt="Chinotto on iPhone — list and preview"
-          className={phoneClass}
         />
 
         {showDivider ? (
@@ -66,7 +63,6 @@ export function MobileMockupPair({
         <MobilePhoneMockup
           screenshotSrc={mobileMainImg}
           screenshotAlt="Chinotto on iPhone — capture and stream"
-          className={phoneClass}
         />
       </div>
     </div>

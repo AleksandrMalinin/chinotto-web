@@ -1,6 +1,5 @@
 export { Container } from "./Container";
 export { CTASection } from "./CTASection";
-export { FaqSection } from "./FaqSection";
 export { LandingStorySections } from "./LandingStorySections";
 export { NotForSection } from "./NotForSection";
 export {

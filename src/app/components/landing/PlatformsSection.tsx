@@ -5,7 +5,6 @@ import { productScreenshots } from "../../content/productScreenshots";
 import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
 import {
-  continuityClose,
   continuityThreads,
   manifestoPlatformRoles,
   platformRoles,
@@ -87,12 +86,6 @@ export function PlatformsSection() {
             );
           })}
         </div>
-
-        <Reveal className="mt-14 text-center" delay={120}>
-          <p className="landing-body mx-auto max-w-[34rem] text-landing-muted/90">
-            {continuityClose}
-          </p>
-        </Reveal>
       </div>
     </Section>
   );

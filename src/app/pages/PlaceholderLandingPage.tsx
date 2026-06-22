@@ -2,7 +2,6 @@ import { useState } from "react";
 import { ChinottoLogo } from "../components/ChinottoLogo";
 import {
   CTASection,
-  FaqSection,
   FloatingBlobs,
   Footer,
   Header,
@@ -86,7 +85,6 @@ export function PlaceholderLandingPage() {
         </div>
 
         <LandingStorySections />
-        <FaqSection />
         <CTASection />
       </main>
 

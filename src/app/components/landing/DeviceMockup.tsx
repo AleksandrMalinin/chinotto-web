@@ -4,6 +4,7 @@
  */
 import { useId } from "react";
 import { cn } from "../ui/utils";
+import { screenshotCardClass } from "./ScreenshotFrame";
 
 const PHONE_WIDTH = 433;
 const PHONE_HEIGHT = 882;
@@ -27,9 +28,9 @@ const INNER = "#141418";
 const ISLAND = "#050507";
 const ISLAND_LENS = "#101016";
 
-/** Default max width for phone mockups across the landing. */
+/** Default width for phone mockups across the landing. */
 export const PHONE_MOCKUP_CLASS =
-  "w-full max-w-[min(240px,85vw)] sm:max-w-[230px] lg:max-w-[250px]";
+  "w-[min(240px,85vw)] sm:w-[230px] lg:w-[250px]";
 
 const OUTER_BODY =
   "M2 73C2 32.6832 34.6832 0 75 0H357C397.317 0 430 32.6832 430 73V809C430 849.317 397.317 882 357 882H75C34.6832 882 2 849.317 2 809V73Z";
@@ -184,20 +185,14 @@ export function MobilePhoneMockup({
 
   if (Wrapper === "div") {
     return (
-      <div
-        className={wrapperClass}
-        aria-hidden={screenshotSrc ? undefined : true}
-      >
+      <div className={wrapperClass} aria-hidden={screenshotSrc ? undefined : true}>
         {device}
       </div>
     );
   }
 
   return (
-    <figure
-      className={wrapperClass}
-      aria-hidden={screenshotSrc ? undefined : true}
-    >
+    <figure className={wrapperClass} aria-hidden={screenshotSrc ? undefined : true}>
       {device}
     </figure>
   );
@@ -213,13 +208,7 @@ type MacWindowMockupProps = {
 export function MacWindowMockup({ src, alt, className }: MacWindowMockupProps) {
   return (
     <figure className={cn("mx-auto w-full", className)}>
-      <div
-        className={cn(
-          "overflow-hidden rounded-xl",
-          "border border-landing-card-border",
-          "shadow-[0_20px_40px_-10px_rgba(0,0,0,0.25),0_0_0_1px_rgba(139,148,200,0.08)]",
-        )}
-      >
+      <div className={screenshotCardClass}>
         <img
           src={src}
           alt={alt}

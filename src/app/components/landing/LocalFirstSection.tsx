@@ -2,8 +2,6 @@ import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { ScreenshotFrame } from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
-import { optionalSyncBody } from "../../content/continuity";
-
 const VALUES = [
   {
     title: "Yours by default",
@@ -29,9 +27,6 @@ export function LocalFirstSection() {
             Local-first isn&rsquo;t a feature.
             <br className="hidden sm:block" /> It&rsquo;s the whole point.
           </h2>
-          <p className="landing-body mx-auto mt-6 max-w-[34rem]">
-            {optionalSyncBody}
-          </p>
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-landing-card-border bg-landing-card-border sm:grid-cols-3">

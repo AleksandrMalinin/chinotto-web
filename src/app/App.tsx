@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from "react-router";
 import { useEffect, useLayoutEffect } from "react";
 import {
   CTASection,
-  FaqSection,
   FloatingBlobs,
   Footer,
   Header,
@@ -24,7 +23,6 @@ const LANDING_HASH_TARGETS = new Set([
   "#local-first",
   "#platforms",
   "#positioning",
-  "#faq",
 ]);
 
 function useLandingHashScroll() {
@@ -44,7 +42,6 @@ function DesktopLandingPage() {
       <Hero />
       <FloatingBlobs />
       <LandingStorySections />
-      <FaqSection />
       <CTASection />
       <Footer />
     </div>
