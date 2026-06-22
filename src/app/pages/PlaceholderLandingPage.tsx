@@ -6,6 +6,7 @@ import {
   Footer,
   Header,
   HeroTrustLine,
+  LandingEnhancements,
   LandingStorySections,
   MacDownloadMobileDialog,
   MobileMockupFlip,
@@ -94,6 +95,8 @@ export function PlaceholderLandingPage() {
         open={desktopModalOpen}
         onClose={() => setDesktopModalOpen(false)}
       />
+
+      <LandingEnhancements />
     </div>
   );
 }

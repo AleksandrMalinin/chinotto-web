@@ -6,6 +6,7 @@ import {
   Footer,
   Header,
   Hero,
+  LandingEnhancements,
   LandingStorySections,
   LogoShowcasePage,
 } from "./components/landing";
@@ -44,6 +45,7 @@ function DesktopLandingPage() {
       <LandingStorySections />
       <CTASection />
       <Footer />
+      <LandingEnhancements />
     </div>
   );
 }
