@@ -627,3 +627,35 @@
     transform: translateX(3px);
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .quick-capture-overlay {
+    animation: notfound-fade-in 220ms ease-out both;
+  }
+
+  .quick-capture-panel {
+    animation: notfound-fade-in 280ms ease-out 40ms both;
+  }
+}
+
+/* Product mockups — barely-there lift on hover (pointer devices only). */
+.mockup-card-hover {
+  transition: transform 320ms ease-out;
+}
+
+.mockup-phone-hover {
+  transition:
+    transform 320ms ease-out,
+    filter 320ms ease-out;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .mockup-card-hover:hover {
+    transform: translateY(-2px);
+  }
+
+  .mockup-phone-hover:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.2));
+  }
+}

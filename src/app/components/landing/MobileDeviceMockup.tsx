@@ -1,7 +1,9 @@
 import { useState } from "react";
 import mobileMainImg from "@/assets/chinotto-mobile-main.webp";
 import mobilePreviewImg from "@/assets/chinotto-mobile-preview.webp";
-import { MobilePhoneMockup, PHONE_MOCKUP_CLASS } from "./DeviceMockup";
+import { MobilePhoneMockup } from "./DeviceMockup";
+import { mockupPhoneHoverClass } from "./ScreenshotFrame";
+import { cn } from "../ui/utils";
 
 export { MacWindowMockup, MobilePhoneMockup, PHONE_MOCKUP_CLASS } from "./DeviceMockup";
 
@@ -23,10 +25,34 @@ export function MobileMockupFlip({ className = "" }: { className?: string }) {
       className={`mx-auto block w-fit cursor-pointer rounded-[3rem] border-0 bg-transparent p-0 text-left shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg ${className}`.trim()}
       data-umami-event="mobile-mockup-flip"
     >
-      <MobilePhoneMockup
-        screenshotSrc={showMain ? mobileMainImg : mobilePreviewImg}
-        screenshotAlt=""
-      />
+      <div className={cn("relative", mockupPhoneHoverClass)}>
+        <div
+          className={cn(
+            "motion-safe:transition-opacity motion-safe:duration-200 motion-reduce:transition-none",
+            showMain ? "pointer-events-none opacity-0" : "opacity-100",
+          )}
+          aria-hidden={showMain}
+        >
+          <MobilePhoneMockup
+            screenshotSrc={mobilePreviewImg}
+            screenshotAlt="Chinotto on iPhone — list and preview"
+            hoverable={false}
+          />
+        </div>
+        <div
+          className={cn(
+            "absolute inset-0 flex justify-center motion-safe:transition-opacity motion-safe:duration-200 motion-reduce:transition-none",
+            showMain ? "opacity-100" : "pointer-events-none opacity-0",
+          )}
+          aria-hidden={!showMain}
+        >
+          <MobilePhoneMockup
+            screenshotSrc={mobileMainImg}
+            screenshotAlt="Chinotto on iPhone — capture and stream"
+            hoverable={false}
+          />
+        </div>
+      </div>
     </button>
   );
 }

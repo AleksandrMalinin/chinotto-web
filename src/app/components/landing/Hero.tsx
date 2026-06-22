@@ -10,7 +10,6 @@ import {
   CHINOTTO_MAC_DOWNLOAD_URL,
 } from "../../content/links";
 import { HeroTrustLine } from "./HeroTrustLine";
-import { cn } from "../ui/utils";
 
 /** Lean copy — logo, slogan, continuity line, CTAs, trust note. */
 export function Hero() {
@@ -36,9 +35,7 @@ export function Hero() {
           <span className="opacity-[0.85]">{heroSloganLine2}</span>
         </h1>
         <p className="landing-subhead mx-auto max-w-2xl">{heroSubhead}</p>
-        <p className={cn("landing-body mx-auto mt-3 mb-10 max-w-xl")}>
-          {heroBody}
-        </p>
+        <p className="landing-body mx-auto mt-3 mb-10 max-w-xl">{heroBody}</p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <a
             href={CHINOTTO_MAC_DOWNLOAD_URL}

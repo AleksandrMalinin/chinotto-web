@@ -4,7 +4,7 @@
  */
 import { useId } from "react";
 import { cn } from "../ui/utils";
-import { screenshotCardClass } from "./ScreenshotFrame";
+import { screenshotCardClass, mockupCardHoverClass, mockupPhoneHoverClass } from "./ScreenshotFrame";
 
 const PHONE_WIDTH = 433;
 const PHONE_HEIGHT = 882;
@@ -43,6 +43,8 @@ type DeviceMockupProps = {
   screenshotAlt?: string;
   as?: "figure" | "div";
   fillHeight?: boolean;
+  /** Off when hover is handled by a parent (e.g. flip button). */
+  hoverable?: boolean;
 };
 
 function Iphone15ProFrame({
@@ -171,6 +173,7 @@ export function MobilePhoneMockup({
   screenshotAlt = "Chinotto on iPhone",
   as: Wrapper = "figure",
   fillHeight = false,
+  hoverable = true,
 }: DeviceMockupProps) {
   const uid = useId().replace(/:/g, "");
   const device = (
@@ -180,6 +183,7 @@ export function MobilePhoneMockup({
   const wrapperClass = cn(
     "mx-auto",
     fillHeight ? "h-full w-auto max-w-none" : PHONE_MOCKUP_CLASS,
+    hoverable && mockupPhoneHoverClass,
     className,
   );
 
@@ -208,7 +212,7 @@ type MacWindowMockupProps = {
 export function MacWindowMockup({ src, alt, className }: MacWindowMockupProps) {
   return (
     <figure className={cn("mx-auto w-full", className)}>
-      <div className={screenshotCardClass}>
+      <div className={cn(screenshotCardClass, mockupCardHoverClass)}>
         <img
           src={src}
           alt={alt}
