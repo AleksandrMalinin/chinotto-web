@@ -1,6 +1,9 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { MacWindowMockup, MobilePhoneMockup } from "./DeviceMockup";
+import {
+  showcaseGridClass,
+} from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
 import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
@@ -77,17 +80,22 @@ export function PlatformsSection() {
             return (
               <div
                 key={key}
-                className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
+                className={cn(
+                  "grid grid-cols-1 items-center gap-10 lg:gap-20",
+                  key === "desktop"
+                    ? showcaseGridClass(imageFirst)
+                    : "lg:grid-cols-2",
+                )}
               >
                 <Reveal
-                  className={cn(!imageFirst && "lg:order-2")}
+                  className={cn("min-w-0", !imageFirst && "lg:order-2")}
                   delay={i * 40}
                 >
                   <PlatformVisual platform={key} />
                 </Reveal>
 
                 <Reveal
-                  className={cn(!imageFirst && "lg:order-1")}
+                  className={cn("min-w-0", !imageFirst && "lg:order-1")}
                   delay={i * 40 + 60}
                 >
                   <div className="border-l border-landing-card-border pl-6 lg:max-w-md">

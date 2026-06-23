@@ -1,6 +1,9 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { ScreenshotFrame } from "./ScreenshotFrame";
+import {
+  ScreenshotFrame,
+  showcaseGridClass,
+} from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
 import { cn } from "../ui/utils";
 
@@ -35,10 +38,13 @@ export function TrailsSpacesSection() {
             return (
               <div
                 key={feature.title}
-                className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
+                className={cn(
+                  "grid grid-cols-1 items-center gap-10 lg:gap-20",
+                  showcaseGridClass(imageFirst),
+                )}
               >
                 <Reveal
-                  className={cn(!imageFirst && "lg:order-2")}
+                  className={cn("min-w-0", !imageFirst && "lg:order-2")}
                   delay={i * 40}
                 >
                   <ScreenshotFrame
@@ -48,7 +54,7 @@ export function TrailsSpacesSection() {
                 </Reveal>
 
                 <Reveal
-                  className={cn(!imageFirst && "lg:order-1")}
+                  className={cn("min-w-0", !imageFirst && "lg:order-1")}
                   delay={i * 40 + 60}
                 >
                   <div className="border-l border-landing-card-border pl-6 lg:max-w-md">

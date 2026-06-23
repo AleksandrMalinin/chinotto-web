@@ -9,6 +9,13 @@ export const mockupCardHoverClass = "mockup-card-hover";
 /** Phone frame lift — drop-shadow reads on SVG device chrome. */
 export const mockupPhoneHoverClass = "mockup-phone-hover";
 
+/** 60/40 media/copy split on lg — real column width, no transform bleed. */
+export function showcaseGridClass(imageFirst: boolean) {
+  return imageFirst
+    ? "lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]"
+    : "lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]";
+}
+
 interface ScreenshotFrameProps {
   src: string;
   alt: string;

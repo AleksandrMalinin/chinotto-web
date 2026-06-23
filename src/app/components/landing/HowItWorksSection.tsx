@@ -1,8 +1,10 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { ProductVideoFrame } from "./ProductVideoFrame";
+import { showcaseGridClass } from "./ScreenshotFrame";
 import { productVideos } from "../../content/productVideos";
 import { MACOS_QUICK_CAPTURE } from "../../content/macosShortcuts";
+import { cn } from "../ui/utils";
 
 const STEPS = [
   {
@@ -25,8 +27,13 @@ const STEPS = [
 export function HowItWorksSection() {
   return (
     <Section id="how-it-works" className="!py-20 md:!py-28 lg:!py-32">
-      <div className="mx-auto grid w-full max-w-[1100px] grid-cols-1 gap-14 px-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-start lg:gap-20">
-        <Reveal className="order-2 lg:order-1 lg:sticky lg:top-24">
+      <div
+        className={cn(
+          "mx-auto grid w-full max-w-[1100px] grid-cols-1 gap-14 px-2 lg:items-start lg:gap-20",
+          showcaseGridClass(true),
+        )}
+      >
+        <Reveal className="order-2 min-w-0 lg:order-1 lg:sticky lg:top-24">
           <ProductVideoFrame
             src={productVideos.howItWorks.src}
             poster={productVideos.howItWorks.poster}
@@ -34,7 +41,7 @@ export function HowItWorksSection() {
           />
         </Reveal>
 
-        <div className="order-1 lg:order-2 lg:py-6">
+        <div className="order-1 min-w-0 lg:order-2 lg:py-6">
           <Reveal>
             <p className="landing-eyebrow">How it works</p>
             <h2 className="landing-heading mt-4">From thought to stream.</h2>
