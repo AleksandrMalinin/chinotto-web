@@ -3,6 +3,7 @@ import { Section } from "./Section";
 import { Container } from "./Container";
 import { MacDownloadMobileDialog } from "./MacDownloadMobileDialog";
 import { useMinMd } from "../../hooks/useMinMd";
+import { ctaHeading } from "../../content/continuity";
 import {
   CHINOTTO_IOS_APP_STORE_URL,
   CHINOTTO_MAC_DOWNLOAD_URL,
@@ -57,10 +58,10 @@ export function CTASection() {
 
   return (
     <>
-      <Section id="download">
-        <Container size="3xl" className="text-center px-4">
-          <div className="mx-auto flex w-full max-w-[32rem] flex-col items-center">
-            <h2 className="landing-heading mb-3 md:mb-4">Get Chinotto</h2>
+      <Section id="download" className="!py-14 sm:!py-20">
+        <Container size="3xl" className="px-4 text-center">
+          <div className="mx-auto flex w-full max-w-[28rem] flex-col items-center sm:max-w-[32rem]">
+            <h2 className="landing-heading mb-4 md:mb-5">{ctaHeading}</h2>
 
             <div className="flex w-full max-w-md flex-col items-stretch gap-2 sm:mx-auto sm:flex-row sm:items-center sm:justify-center sm:gap-2.5">
               {isDesktop ? (
@@ -76,11 +77,9 @@ export function CTASection() {
               )}
             </div>
 
-            {isDesktop ? (
-              <p className="landing-caption mt-3">
-                Windows and Linux — coming soon
-              </p>
-            ) : null}
+            <p className="landing-caption mt-3">
+              Windows and Linux — coming soon
+            </p>
           </div>
         </Container>
       </Section>

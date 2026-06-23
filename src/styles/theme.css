@@ -411,44 +411,72 @@
 
   /* Landing type scale — one system for hero, sections, CTA */
   .landing-display {
-    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-size: clamp(1.875rem, 4vw, 3.25rem);
     font-weight: 300;
-    line-height: 1.08;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--landing-foreground);
+    text-wrap: balance;
   }
 
   .landing-heading {
-    font-size: 1.875rem;
+    font-size: 1.625rem;
     font-weight: 300;
-    line-height: 1.12;
-    letter-spacing: -0.035em;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
     color: var(--landing-foreground-strong);
+    text-wrap: balance;
   }
 
   @media (min-width: 768px) {
     .landing-heading {
-      font-size: 2.25rem;
+      font-size: 2rem;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
     }
   }
 
   @media (min-width: 1024px) {
     .landing-heading {
-      font-size: 2.5rem;
+      font-size: 2.125rem;
+    }
+  }
+
+  .landing-copy-narrow {
+    max-width: 34rem;
+    margin-inline: auto;
+  }
+
+  .landing-copy-medium {
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+
+  .landing-story-label {
+    font-size: 0.8125rem;
+    font-weight: 300;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    color: color-mix(in srgb, var(--landing-note-violet) 72%, var(--landing-muted));
+  }
+
+  @media (min-width: 640px) {
+    .landing-story-label {
+      font-size: 0.875rem;
     }
   }
 
   .landing-subhead {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     font-weight: 300;
-    line-height: 1.55;
+    line-height: 1.5;
     color: var(--landing-subhead);
   }
 
   @media (min-width: 768px) {
     .landing-subhead {
-      font-size: 1.25rem;
-      line-height: 1.6;
+      font-size: 1.125rem;
+      line-height: 1.55;
     }
   }
 
@@ -467,8 +495,8 @@
   }
 
   .landing-step-title {
-    font-size: 1.125rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 300;
     line-height: 1.35;
     color: var(--landing-foreground);
   }

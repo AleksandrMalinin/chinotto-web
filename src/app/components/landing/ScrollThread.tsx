@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { cn } from "../ui/utils";
 
 const THREAD_SECTIONS = [
-  "platforms",
-  "how-it-works",
-  "connected",
+  "resurfacing",
+  "capture",
+  "two-experiences",
 ] as const;
 const LG_MEDIA = "(min-width: 1024px)";
 const SHOWCASE_MAX_WIDTH = 1100;
@@ -62,7 +62,7 @@ function measureThread(): ThreadLayout {
   return { left, top, height, fill, markers, visible };
 }
 
-/** Desktop scroll thread — Platforms through Trails & Spaces. */
+/** Desktop scroll thread — resurfacing through two experiences. */
 export function ScrollThread() {
   const [layout, setLayout] = useState<ThreadLayout>(HIDDEN);
 

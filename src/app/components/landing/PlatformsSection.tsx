@@ -8,12 +8,15 @@ import { productScreenshots } from "../../content/productScreenshots";
 import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
 import {
-  continuityThreads,
+  desktopSpacesNote,
+  optionalSyncBody,
   platformLandingRoles,
   platformRoles,
   platformVisualCaptions,
   platformsEyebrow,
-  platformsHeading,
+  platformsHeadingLine1,
+  platformsHeadingLine2,
+  platformsIntro,
 } from "../../content/continuity";
 
 const PLATFORM_KEYS = ["desktop", "mobile"] as const;
@@ -25,7 +28,7 @@ function MobilePlatformVisual() {
   return (
     <div
       role="group"
-      aria-label="Chinotto on iPhone — in the app and medium home screen widget"
+      aria-label="Chinotto on mobile — in the app and home screen widget"
       className="flex flex-col items-center justify-center gap-8 sm:flex-row sm:items-end sm:gap-3 lg:gap-5"
     >
       <div className="flex flex-col items-center">
@@ -53,7 +56,7 @@ function PlatformVisual({ platform }: { platform: (typeof PLATFORM_KEYS)[number]
   return <MacWindowMockup src={src} alt={alt} />;
 }
 
-/** Desktop / mobile roles — full positioning copy with product shots. */
+/** Mobile pocket + desktop return — two experiences, one stream. */
 export function PlatformsSection() {
   const isDesktop = useMinMd();
   const platformKeys = isDesktop
@@ -61,19 +64,24 @@ export function PlatformsSection() {
     : ([...PLATFORM_KEYS].reverse() as typeof PLATFORM_KEYS);
 
   return (
-    <Section id="platforms" className="!py-20 md:!py-28 lg:!py-32">
-      <div className="mx-auto w-full max-w-[1100px] px-2">
+    <Section id="two-experiences" className="!py-12 md:!py-20 lg:!py-24">
+      <div className="mx-auto w-full max-w-[1100px] px-1">
         <Reveal className="text-center">
           <p className="landing-eyebrow">{platformsEyebrow}</p>
-          <h2 className="landing-heading mx-auto mt-4 max-w-[34rem]">
-            {platformsHeading}
+          <h2 className="landing-heading landing-copy-narrow mt-3 sm:mt-4">
+            {platformsHeadingLine1}
+            <br />
+            {platformsHeadingLine2}
           </h2>
-          <p className="landing-body mx-auto mt-6 max-w-[34rem]">
-            {continuityThreads}
+          <p className="landing-body landing-copy-narrow mx-auto mt-5 sm:mt-6">
+            {platformsIntro}
+          </p>
+          <p className="landing-caption landing-copy-narrow mx-auto mt-3 text-landing-muted/75">
+            {optionalSyncBody}
           </p>
         </Reveal>
 
-        <div className="mt-16 space-y-20 lg:space-y-24">
+        <div className="mt-12 space-y-16 sm:mt-16 lg:space-y-24">
           {platformKeys.map((key, i) => {
             const imageFirst = i % 2 === 0;
 
@@ -108,6 +116,11 @@ export function PlatformsSection() {
                     <p className="landing-body mt-3">
                       {platformLandingRoles[key]}
                     </p>
+                    {key === "desktop" ? (
+                      <p className="landing-caption mt-4 text-landing-muted/75">
+                        {desktopSpacesNote}
+                      </p>
+                    ) : null}
                   </div>
                 </Reveal>
               </div>

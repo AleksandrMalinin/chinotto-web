@@ -16,9 +16,9 @@ export function Hero() {
   const iosStoreUrl = CHINOTTO_IOS_APP_STORE_URL.trim();
 
   return (
-    <section id="hero" className="py-20 px-8">
-      <div className="mx-auto max-w-4xl text-center">
-        <div className="mb-8 flex justify-center">
+    <section id="hero" className="px-6 py-16 sm:px-8 sm:py-20">
+      <div className="mx-auto max-w-3xl text-center">
+        <div className="mb-7 flex justify-center sm:mb-8">
           <button
             type="button"
             className="placeholder-logo-wrap inline-flex rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
@@ -26,20 +26,22 @@ export function Hero() {
             data-umami-event="hero-logo"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <ChinottoLogo size={120} className="text-landing-accent" />
+            <ChinottoLogo size={112} className="text-landing-accent" />
           </button>
         </div>
-        <h1 className="landing-display mb-6">
+        <h1 className="landing-display mb-5">
           {heroSloganLine1}
           <br />
           <span className="opacity-[0.85]">{heroSloganLine2}</span>
         </h1>
-        <p className="landing-subhead mx-auto max-w-2xl">{heroSubhead}</p>
-        <p className="landing-body mx-auto mt-3 mb-10 max-w-xl">{heroBody}</p>
+        <p className="landing-subhead mx-auto max-w-xl">{heroSubhead}</p>
+        <p className="landing-body mx-auto mt-2 mb-9 max-w-md sm:mb-10">
+          {heroBody}
+        </p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <a
             href={CHINOTTO_MAC_DOWNLOAD_URL}
-            className="btn-landing-primary inline-block px-8 py-3 text-lg"
+            className="btn-landing-primary inline-block px-8 py-3 text-base"
             data-umami-event="download-hero"
           >
             Download for Mac
@@ -47,7 +49,7 @@ export function Hero() {
           {iosStoreUrl ? (
             <a
               href={iosStoreUrl}
-              className="btn-landing-secondary inline-block px-8 py-3 text-lg"
+              className="btn-landing-secondary inline-block px-8 py-3 text-base"
               data-umami-event="download-hero-ios"
               rel="noreferrer"
               target="_blank"
@@ -56,7 +58,7 @@ export function Hero() {
             </a>
           ) : null}
         </div>
-        <HeroTrustLine className="mt-7" />
+        <HeroTrustLine className="mt-6 sm:mt-7" />
       </div>
     </section>
   );

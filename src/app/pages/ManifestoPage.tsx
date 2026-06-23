@@ -14,7 +14,7 @@ export function ManifestoPage() {
   return (
     <ContentPageLayout
       title="Chinotto Manifesto"
-      description="Chinotto is a continuity system for personal thought — what helps thoughts continue across desktop and mobile."
+      description="Chinotto helps unfinished personal thought pick up where it left off — across desktop and mobile."
     >
       <div className="max-w-2xl mx-auto space-y-8 text-landing-muted">
         <p className="text-landing-foreground font-light">{continuityLead}</p>

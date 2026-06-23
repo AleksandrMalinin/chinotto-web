@@ -1,16 +1,18 @@
-import { HowItWorksSection } from "./HowItWorksSection";
-import { TrailsSpacesSection } from "./TrailsSpacesSection";
+import { CaptureSection } from "./CaptureSection";
+import { ProblemSection } from "./ProblemSection";
+import { ResurfacingStorySection } from "./ResurfacingStorySection";
 import { LocalFirstSection } from "./LocalFirstSection";
 import { NotForSection } from "./NotForSection";
 import { PlatformsSection } from "./PlatformsSection";
 
-/** Shared narrative blocks — roles, mechanics, differentiators, trust. */
+/** Narrative blocks — problem, proof, capture, two experiences, filter, trust. */
 export function LandingStorySections() {
   return (
     <>
+      <ProblemSection />
+      <ResurfacingStorySection />
+      <CaptureSection />
       <PlatformsSection />
-      <HowItWorksSection />
-      <TrailsSpacesSection />
       <NotForSection />
       <LocalFirstSection />
     </>

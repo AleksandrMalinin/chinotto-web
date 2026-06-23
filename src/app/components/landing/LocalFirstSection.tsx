@@ -1,3 +1,7 @@
+import {
+  localFirstHeadingLine1,
+  localFirstHeadingLine2,
+} from "../../content/continuity";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 
@@ -18,17 +22,18 @@ const VALUES = [
 
 export function LocalFirstSection() {
   return (
-    <Section id="local-first" className="!py-20 md:!py-28 lg:!py-32">
-      <div className="mx-auto w-full max-w-[1000px] px-2 text-center">
+    <Section id="local-first" className="!py-12 md:!py-20 lg:!py-24">
+      <div className="mx-auto w-full max-w-[1000px] px-1 text-center">
         <Reveal>
           <p className="landing-eyebrow">Local-first</p>
-          <h2 className="landing-heading mx-auto mt-4 max-w-[36rem]">
-            Local-first isn&rsquo;t a feature.
-            <br className="hidden sm:block" /> It&rsquo;s the whole point.
+          <h2 className="landing-heading landing-copy-narrow mx-auto mt-3 sm:mt-4">
+            {localFirstHeadingLine1}
+            <br />
+            {localFirstHeadingLine2}
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-landing-card-border bg-landing-card-border sm:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-landing-card-border bg-landing-card-border sm:grid-cols-3 sm:mt-14">
           {VALUES.map((value, i) => (
             <Reveal key={value.title} delay={i * 90}>
               <div className="h-full bg-landing-bg px-7 py-9 text-left">

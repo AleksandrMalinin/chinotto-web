@@ -19,10 +19,11 @@ import { NotesPage } from "./pages/UpdatesPage";
 
 const LANDING_HASH_TARGETS = new Set([
   "#download",
-  "#how-it-works",
-  "#connected",
+  "#problem",
+  "#resurfacing",
+  "#capture",
+  "#two-experiences",
   "#local-first",
-  "#platforms",
   "#positioning",
 ]);
 

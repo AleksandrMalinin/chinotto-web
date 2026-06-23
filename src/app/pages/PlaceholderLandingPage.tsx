@@ -11,9 +11,7 @@ import {
   MacDownloadMobileDialog,
   MobileMockupFlip,
 } from "../components/landing";
-import {
-  CHINOTTO_IOS_APP_STORE_URL,
-} from "../content/links";
+import { CHINOTTO_IOS_APP_STORE_URL } from "../content/links";
 import {
   heroBody,
   heroSloganLine1,
@@ -32,36 +30,38 @@ export function PlaceholderLandingPage() {
       <Header logoHref="/" />
 
       <main className="relative z-10 flex flex-1 flex-col">
-        {/* Mobile hero: logo, headline, mockup, CTAs */}
-        <div className="flex flex-col items-center px-8 pb-10 pt-[70px]">
+        <section
+          id="hero"
+          className="flex w-full flex-col items-center px-6 pb-8 pt-[4.25rem] text-center sm:px-8 sm:pb-10"
+        >
           <button
             type="button"
-            className="placeholder-logo-wrap mb-14 block rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
+            className="placeholder-logo-wrap mb-10 block rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
             aria-label="Top of page"
             data-umami-event="hero-logo-mobile"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <ChinottoLogo size={100} className="text-landing-accent" />
+            <ChinottoLogo size={96} className="text-landing-accent" />
           </button>
-          <h1 className="landing-display mb-5 text-center">
+          <h1 className="landing-display mb-4">
             {heroSloganLine1}
             <br />
             <span className="opacity-[0.85]">{heroSloganLine2}</span>
           </h1>
-          <p className="landing-subhead mx-auto mb-3 max-w-[340px] text-center">
+          <p className="landing-subhead mx-auto mb-2 max-w-[20rem] sm:max-w-xs">
             {heroSubhead}
           </p>
-          <p className="landing-body mx-auto mb-8 max-w-[340px] text-center">
+          <p className="landing-body mx-auto mb-8 max-w-[20rem] sm:max-w-xs">
             {heroBody}
           </p>
-          <div className="mb-10 w-full px-1">
+          <div className="mb-10 w-full max-w-[280px] px-1">
             <MobileMockupFlip />
           </div>
-          <div className="flex flex-col items-center gap-3 w-full max-w-[280px]">
+          <div className="flex w-full max-w-[280px] flex-col items-center gap-3">
             {iosStoreUrl ? (
               <a
                 href={iosStoreUrl}
-                className="btn-landing-primary w-full px-6 py-3 text-base text-center inline-block"
+                className="btn-landing-primary inline-block w-full px-6 py-3 text-center text-base"
                 data-umami-event="app-store-placeholder"
                 rel="noreferrer"
                 target="_blank"
@@ -82,8 +82,8 @@ export function PlaceholderLandingPage() {
               Download for Mac
             </button>
           </div>
-          <HeroTrustLine className="mt-7" />
-        </div>
+          <HeroTrustLine className="mt-6" />
+        </section>
 
         <LandingStorySections />
         <CTASection />

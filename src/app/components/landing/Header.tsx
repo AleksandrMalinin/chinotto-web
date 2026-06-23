@@ -11,9 +11,10 @@ import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
 
 const LANDING_SECTION_LINKS = [
-  { label: "Desktop & mobile", hash: "#platforms" },
-  { label: "How it works", hash: "#how-it-works" },
-  { label: "Trails & Spaces", hash: "#connected" },
+  { label: "Why", hash: "#problem" },
+  { label: "How it continues", hash: "#resurfacing" },
+  { label: "Two experiences", hash: "#two-experiences" },
+  { label: "Trust", hash: "#local-first" },
 ] as const;
 
 interface HeaderProps {
