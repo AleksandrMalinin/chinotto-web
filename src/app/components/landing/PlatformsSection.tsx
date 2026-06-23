@@ -6,7 +6,7 @@ import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
 import {
   continuityThreads,
-  manifestoPlatformRoles,
+  platformLandingRoles,
   platformRoles,
   platformVisualCaptions,
   platformsEyebrow,
@@ -15,15 +15,35 @@ import {
 
 const PLATFORM_KEYS = ["desktop", "mobile"] as const;
 
+function MobilePlatformVisual() {
+  const { src, alt } = productScreenshots.platformMobile;
+  const widget = productScreenshots.widgetMedium;
+
+  return (
+    <div
+      role="group"
+      aria-label="Chinotto on iPhone — in the app and medium home screen widget"
+      className="flex flex-col items-center justify-center gap-8 sm:flex-row sm:items-end sm:gap-3 lg:gap-5"
+    >
+      <div className="flex flex-col items-center">
+        <MobilePhoneMockup screenshotSrc={src} screenshotAlt={alt} />
+        <p className="landing-caption mt-3 text-center">In the app</p>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <MobilePhoneMockup
+          screenshotSrc={widget.src}
+          screenshotAlt={widget.alt}
+        />
+        <p className="landing-caption mt-3 text-center">Medium widget</p>
+      </div>
+    </div>
+  );
+}
+
 function PlatformVisual({ platform }: { platform: (typeof PLATFORM_KEYS)[number] }) {
   if (platform === "mobile") {
-    const { src, alt } = productScreenshots.platformMobile;
-    return (
-      <MobilePhoneMockup
-        screenshotSrc={src}
-        screenshotAlt={alt}
-      />
-    );
+    return <MobilePlatformVisual />;
   }
 
   const { src, alt } = productScreenshots.platformDesktop;
@@ -78,7 +98,7 @@ export function PlatformsSection() {
                       {platformRoles[key].title}
                     </h3>
                     <p className="landing-body mt-3">
-                      {manifestoPlatformRoles[key]}
+                      {platformLandingRoles[key]}
                     </p>
                   </div>
                 </Reveal>

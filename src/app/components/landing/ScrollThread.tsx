@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import { cn } from "../ui/utils";
 
-const THREAD_SECTIONS = ["platforms", "connected", "how-it-works"] as const;
+const THREAD_SECTIONS = [
+  "platforms",
+  "how-it-works",
+  "connected",
+] as const;
 const LG_MEDIA = "(min-width: 1024px)";
+const SHOWCASE_MAX_WIDTH = 1100;
 
 type ThreadLayout = {
   left: number;
@@ -37,7 +42,7 @@ function measureThread(): ThreadLayout {
 
   if (height < 120) return HIDDEN;
 
-  const contentWidth = Math.min(window.innerWidth, 1100);
+  const contentWidth = Math.min(window.innerWidth, SHOWCASE_MAX_WIDTH);
   const left = Math.max(20, (window.innerWidth - contentWidth) / 2 - 28);
 
   const docStart = top + window.scrollY;
@@ -57,7 +62,7 @@ function measureThread(): ThreadLayout {
   return { left, top, height, fill, markers, visible };
 }
 
-/** Desktop scroll thread linking Platforms → Trails → How it works. */
+/** Desktop scroll thread — Platforms through Trails & Spaces. */
 export function ScrollThread() {
   const [layout, setLayout] = useState<ThreadLayout>(HIDDEN);
 

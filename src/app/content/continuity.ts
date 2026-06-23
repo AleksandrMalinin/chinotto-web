@@ -44,6 +44,13 @@ export const manifestoPlatformRoles = {
     "On mobile, Chinotto becomes a calm mental pocket you carry with you — a quieter space where thoughts can be captured in the moment, gently resurfaced later, and continued when the time feels right.",
 } as const;
 
+/** Shorter platform copy for the landing — manifesto keeps the long form. */
+export const platformLandingRoles = {
+  desktop: manifestoPlatformRoles.desktop,
+  mobile:
+    "Capture in the moment — in the app or with a medium home screen widget. One tap opens Chinotto ready to capture. The same stream when you sync.",
+} as const;
+
 export const continuityClose =
   "The goal is not to build a better notes app. The goal is to help thoughts survive fragmentation and continue over time.";
 

@@ -12,8 +12,8 @@ import { cn } from "../ui/utils";
 
 const LANDING_SECTION_LINKS = [
   { label: "Desktop & mobile", hash: "#platforms" },
-  { label: "Trails & Spaces", hash: "#connected" },
   { label: "How it works", hash: "#how-it-works" },
+  { label: "Trails & Spaces", hash: "#connected" },
 ] as const;
 
 interface HeaderProps {

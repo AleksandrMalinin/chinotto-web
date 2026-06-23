@@ -1,14 +1,14 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { ScreenshotFrame } from "./ScreenshotFrame";
-import { productScreenshots } from "../../content/productScreenshots";
+import { ProductVideoFrame } from "./ProductVideoFrame";
+import { productVideos } from "../../content/productVideos";
 import { MACOS_QUICK_CAPTURE } from "../../content/macosShortcuts";
 
 const STEPS = [
   {
     index: "01",
     title: "Capture",
-    body: `Press ${MACOS_QUICK_CAPTURE}, type the thought, close. No title, no folder, no decision.`,
+    body: `On Mac, press ${MACOS_QUICK_CAPTURE}. On iPhone, tap the widget — Chinotto opens ready to capture. No title, no folder, no decision.`,
   },
   {
     index: "02",
@@ -27,9 +27,10 @@ export function HowItWorksSection() {
     <Section id="how-it-works" className="!py-20 md:!py-28 lg:!py-32">
       <div className="mx-auto grid w-full max-w-[1100px] grid-cols-1 gap-14 px-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-start lg:gap-20">
         <Reveal className="order-2 lg:order-1 lg:sticky lg:top-24">
-          <ScreenshotFrame
-            src={productScreenshots.capture.src}
-            alt={productScreenshots.capture.alt}
+          <ProductVideoFrame
+            src={productVideos.howItWorks.src}
+            poster={productVideos.howItWorks.poster}
+            alt={productVideos.howItWorks.alt}
           />
         </Reveal>
 

@@ -1,7 +1,6 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { ScreenshotFrame } from "./ScreenshotFrame";
-import { productScreenshots } from "../../content/productScreenshots";
+
 const VALUES = [
   {
     title: "Yours by default",
@@ -39,15 +38,6 @@ export function LocalFirstSection() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal className="mt-16" delay={100}>
-          <div className="mx-auto max-w-[22rem] sm:max-w-md">
-            <ScreenshotFrame
-              src={productScreenshots.settings.src}
-              alt={productScreenshots.settings.alt}
-            />
-          </div>
-        </Reveal>
       </div>
     </Section>
   );

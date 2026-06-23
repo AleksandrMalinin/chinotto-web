@@ -30,7 +30,7 @@ const ISLAND_LENS = "#101016";
 
 /** Default width for phone mockups across the landing. */
 export const PHONE_MOCKUP_CLASS =
-  "w-[min(240px,85vw)] sm:w-[230px] lg:w-[250px]";
+  "w-[min(260px,86vw)] sm:w-[250px] lg:w-[275px]";
 
 const OUTER_BODY =
   "M2 73C2 32.6832 34.6832 0 75 0H357C397.317 0 430 32.6832 430 73V809C430 849.317 397.317 882 357 882H75C34.6832 882 2 849.317 2 809V73Z";

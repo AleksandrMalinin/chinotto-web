@@ -2,18 +2,18 @@
  * One screenshot per landing role — swap files in `src/assets/` when updating captures.
  *
  *   chinotto-main.webp          → capture, platformDesktop, How it works
- *   chinotto-preview.webp       → trails (Trails); replace with chinotto-spaces.webp for Spaces
- *   chinotto-welcome.webp       → settings (Local-first)
+ *   chinotto-preview.webp       → trails (Trails)
+ *   chinotto-spaces.webp        → spaces (Spaces)
  *   chinotto-mobile-main.webp   → platformMobile, mobile hero
  *   chinotto-mobile-preview.webp → mobile flip hero
+ *   chinotto-widget-medium.webp   → medium home screen widget (Platforms mobile)
  */
 import captureImg from "@/assets/chinotto-main.webp";
 import trailsImg from "@/assets/chinotto-preview.webp";
-/** Replace with `@/assets/chinotto-spaces.webp` when the Spaces capture is ready. */
-import spacesImg from "@/assets/chinotto-preview.webp";
-import settingsImg from "@/assets/chinotto-welcome.webp";
+import spacesImg from "@/assets/chinotto-spaces.webp";
 import mobileMainImg from "@/assets/chinotto-mobile-main.webp";
 import mobilePreviewImg from "@/assets/chinotto-mobile-preview.webp";
+import widgetMediumImg from "@/assets/chinotto-widget-medium.webp";
 
 export interface ProductScreenshot {
   src: string;
@@ -33,10 +33,6 @@ export const productScreenshots = {
     src: spacesImg,
     alt: "Chinotto on desktop — Spaces",
   },
-  settings: {
-    src: settingsImg,
-    alt: "Chinotto — settings and privacy",
-  },
   platformDesktop: {
     src: captureImg,
     alt: "Chinotto on desktop — thought stream",
@@ -52,5 +48,9 @@ export const productScreenshots = {
   mobilePreview: {
     src: mobilePreviewImg,
     alt: "Chinotto on mobile — thought detail",
+  },
+  widgetMedium: {
+    src: widgetMediumImg,
+    alt: "Chinotto medium home screen widget on iPhone",
   },
 } as const satisfies Record<string, ProductScreenshot>;

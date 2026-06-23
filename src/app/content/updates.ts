@@ -22,6 +22,17 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
+    version: "2.2.3",
+    milestone: "Patch",
+    title: "Calmer ambient glow",
+    date: "2026-06-23",
+    items: [
+      "Softer cosmic background",
+      "Less background banding",
+      "Grain overlay removed",
+    ],
+  },
+  {
     version: "2.2.2",
     milestone: "Patch",
     title: "Stronger trail links",

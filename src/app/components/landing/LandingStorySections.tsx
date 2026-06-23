@@ -4,13 +4,13 @@ import { LocalFirstSection } from "./LocalFirstSection";
 import { NotForSection } from "./NotForSection";
 import { PlatformsSection } from "./PlatformsSection";
 
-/** Shared narrative blocks — category first, differentiator, then mechanics. */
+/** Shared narrative blocks — roles, mechanics, differentiators, trust. */
 export function LandingStorySections() {
   return (
     <>
       <PlatformsSection />
-      <TrailsSpacesSection />
       <HowItWorksSection />
+      <TrailsSpacesSection />
       <NotForSection />
       <LocalFirstSection />
     </>
