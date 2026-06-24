@@ -6,6 +6,8 @@ import {
   continuityLead,
   continuityQuestion,
   continuityThreads,
+  heroSloganLine1,
+  heroSloganLine2,
   manifestoPlatformRoles,
   manifestoSyncNote,
 } from "../content/continuity";
@@ -38,9 +40,9 @@ export function ManifestoPage() {
         <p>{manifestoSyncNote}</p>
 
         <p className="text-landing-foreground font-light">
-          Capture first.
+          {heroSloganLine1}
           <br />
-          Revisit later.
+          {heroSloganLine2}
         </p>
       </div>
     </ContentPageLayout>
