@@ -26,27 +26,27 @@ export const continuityBelief =
 export const continuityThreads =
   "Chinotto is built around the idea that thoughts are not files to be stored. They are ongoing threads that unfold across time.";
 
-export const problemEyebrow = "Why thoughts disappear";
-export const problemContrastLine1 = "Most tools capture.";
-export const problemContrastLine2 = "Chinotto continues.";
+export const problemEyebrow = "A familiar gap";
+export const problemContrastLine1 = "The note is still there.";
+export const problemContrastLine2 = "The thread isn't.";
 export const problemHeading = "Thoughts stop mid-sentence.";
 export const problemBody =
-  "Most apps treat saved as done — the thread breaks before it continues.";
+  "You had more to say — then something else happened. When you open it again, you don't know what you meant.";
 
-export const resurfacingEyebrow = "How it continues";
+export const resurfacingEyebrow = "When you come back";
 export const resurfacingHeading = "What you didn't finish can come back.";
 export const resurfacingStory = [
   {
     day: "Day 1",
-    body: "\"AI: Skills are needed to tie all the complexity together over time.\" A half-thought, not an argument.",
+    body: "\"AI: Skills are needed to tie all the complexity together over time.\" Not a post. Not a conclusion. Worth keeping anyway.",
   },
   {
     day: "Week 3",
-    body: "The line returns beside notes on speed and consistency — same worry, different words.",
+    body: "Scrolling past it again — speed, consistency. You've been saying the same thing.",
   },
   {
     day: "Month 2",
-    body: "Scattered takes read as one thread. You can name what you've been circling.",
+    body: "You finally know what you meant.",
   },
 ] as const;
 
