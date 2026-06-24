@@ -31,14 +31,17 @@ export function ResurfacingStorySection() {
             <h2 className="landing-heading mt-3 sm:mt-4">{resurfacingHeading}</h2>
           </Reveal>
 
-          <ol className="mt-10 space-y-8 border-l border-landing-card-border pl-6 lg:max-w-md">
+          <ol className="story-thread mt-10 lg:max-w-md">
             {resurfacingStory.map((beat, i) => (
-              <Reveal key={beat.day} delay={i * 90}>
-                <li>
+              <li
+                key={beat.day}
+                className={cn("story-thread-beat", `story-thread-beat--${i}`)}
+              >
+                <Reveal delay={i * 90}>
                   <p className="landing-story-label">{beat.day}</p>
                   <p className="landing-body mt-2">{beat.body}</p>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </div>
