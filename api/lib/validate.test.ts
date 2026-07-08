@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parsePublishBody, isValidToken } from "./validate";
+import { parsePublishBody, isValidToken } from "./validate.js";
 
 describe("share validate", () => {
   const token = "550e8400-e29b-41d4-a716-446655440000";

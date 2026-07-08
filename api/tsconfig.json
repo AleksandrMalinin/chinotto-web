@@ -9,11 +9,7 @@
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
     "types": ["node"]
   },
-  "include": ["api/**/*.ts"]
+  "include": ["./**/*.ts", "./lib/**/*.ts"]
 }

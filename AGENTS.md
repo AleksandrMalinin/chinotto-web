@@ -25,7 +25,7 @@ Build and maintain a fast, minimal, elegant static landing page that explains th
 - **Tailwind CSS v4** — styling (`@tailwindcss/vite`)
 - **Static build** — `pnpm build` → static output, deployable anywhere
 - **Vercel-friendly** — static export + `vercel.json` rewrites for SPA routes
-- **Share hosting** — Vercel serverless routes under `api/` + `share/` for `share.chinotto.app` (see `docs/share-hosting.md`); uses Upstash Redis in production
+- **Share hosting** — Vercel serverless routes under `api/` on `getchinotto.app` (see `docs/share-hosting.md`); uses Upstash Redis in production
 - **Minimal JavaScript** — landing and content pages are mostly static; no app shell required
 - **No CMS** — no content API or admin
 

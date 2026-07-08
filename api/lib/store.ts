@@ -1,6 +1,6 @@
 import { Redis } from "@upstash/redis";
-import type { ShareThreadRecord } from "./types";
-import { isExpired, ttlSecondsUntil } from "./validate";
+import type { ShareThreadRecord } from "./types.js";
+import { isExpired, ttlSecondsUntil } from "./validate.js";
 
 const KEY_PREFIX = "share:thread:";
 

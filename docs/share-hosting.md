@@ -1,6 +1,6 @@
-# Share hosting (`share.chinotto.app`)
+# Share hosting (`getchinotto.app`)
 
-Private thread read URLs for the Chinotto desktop app. Implemented as **Vercel serverless functions** in this repo; separate from the static marketing SPA (`src/`).
+Private thread read URLs for the Chinotto desktop app. Vercel serverless routes in this repo on the same project as the marketing site.
 
 Contract matches `chinotto-app` → `docs/internal/sharing.md` (Slice 2).
 
@@ -34,22 +34,23 @@ GET returns stored HTML with `noindex`, `Cache-Control: private, no-store`.
 ## Storage
 
 - **Production:** [Upstash Redis](https://vercel.com/marketplace/upstash) on Vercel (`UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`). Legacy `KV_REST_API_*` env names also work. Keys `share:thread:{token}` with TTL through `expiresAt`.
-- **Local `vercel dev` without KV:** in-memory store (single process; not for production). Response header `X-Chinotto-Share-Store: memory`.
+- **Local `vercel dev` without Redis:** in-memory store (single process; not for production). Response header `X-Chinotto-Share-Store: memory`.
 
 ---
 
 ## Deploy
 
-1. Vercel project for this repo (or a dedicated project for `share.chinotto.app`).
-2. Add **Upstash Redis** from the Vercel Marketplace; connect env vars to the project.
-3. Assign domain **`share.chinotto.app`** to the same project (or a share-only deployment).
-4. Marketing site can stay on `getchinotto.app`; API routes do not affect `pnpm build` output.
+Same Vercel project as **getchinotto.app** — no extra domain. API routes do not affect `pnpm build` (static `src/` only).
+
+1. Upstash Redis connected; env vars on **Production**.
+2. Push → deploy.
+3. Smoke test: `POST https://getchinotto.app/api/threads`, `GET https://getchinotto.app/t/{token}`.
 
 ```bash
 pnpm install
-vercel dev          # local API + optional memory store
-pnpm typecheck:api  # api + share TypeScript
-pnpm test:share     # validation unit tests
+vercel dev
+pnpm typecheck:api
+pnpm test:share
 ```
 
 ---

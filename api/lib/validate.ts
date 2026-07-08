@@ -1,4 +1,4 @@
-import type { ShareThreadPublishBody } from "./types";
+import type { ShareThreadPublishBody } from "./types.js";
 
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -9,13 +9,25 @@ export function isValidToken(token: string): boolean {
   return UUID_RE.test(token);
 }
 
+export function coerceJsonBody(raw: unknown): unknown {
+  if (typeof raw === "string") {
+    try {
+      return JSON.parse(raw) as unknown;
+    } catch {
+      return null;
+    }
+  }
+  return raw;
+}
+
 export function parsePublishBody(
   raw: unknown
 ): { ok: true; body: ShareThreadPublishBody } | { ok: false; error: string } {
-  if (raw == null || typeof raw !== "object") {
+  const body = coerceJsonBody(raw);
+  if (body == null || typeof body !== "object") {
     return { ok: false, error: "expected JSON object" };
   }
-  const o = raw as Record<string, unknown>;
+  const o = body as Record<string, unknown>;
   const token = o.token;
   const html = o.html;
   const expiresAt = o.expiresAt;

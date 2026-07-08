@@ -28,7 +28,7 @@ pnpm build
 
 Site routes and copy conventions: [`AGENTS.md`](AGENTS.md).
 
-Share thread hosting (`share.chinotto.app`): [`docs/share-hosting.md`](docs/share-hosting.md).
+Share thread hosting (`getchinotto.app/t/…`): [`docs/share-hosting.md`](docs/share-hosting.md).
 
 ## Related
 
