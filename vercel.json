@@ -3,15 +3,20 @@
     {
       "source": "/.well-known/apple-app-site-association",
       "headers": [{ "key": "Content-Type", "value": "application/json" }]
+    },
+    {
+      "source": "/t/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }
   ],
   "rewrites": [
+    { "source": "/t/:token", "destination": "/api/t/:token" },
     { "source": "/privacy", "destination": "/privacy/index.html" },
     { "source": "/privacy/", "destination": "/privacy/index.html" },
     { "source": "/manifesto", "destination": "/index.html" },
     { "source": "/showcase", "destination": "/index.html" },
     {
-      "source": "/((?!assets/|\\.well-known/|og-image\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml|apple-touch-icon\\.png|favicon-32x32\\.png|favicon-16\\.png|favicon-32\\.png|favicon-light-16\\.png|favicon-light-32\\.png|favicon\\.svg).*)",
+      "source": "/((?!assets/|api/|t/|\\.well-known/|og-image\\.png|favicon\\.ico|robots\\.txt|sitemap\\.xml|apple-touch-icon\\.png|favicon-32x32\\.png|favicon-16\\.png|favicon-32\\.png|favicon-light-16\\.png|favicon-light-32\\.png|favicon\\.svg).*)",
       "destination": "/index.html"
     }
   ]
