@@ -1,14 +1,14 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { MacWindowMockup, MobilePhoneMockup } from "./DeviceMockup";
-import {
-  showcaseGridClass,
-} from "./ScreenshotFrame";
+import { showcaseGridClass } from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
 import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
 import {
+  desktopPlatformExtras,
   desktopSpacesNote,
+  mobilePlatformExtras,
   optionalSyncBody,
   platformLandingRoles,
   platformRoles,
@@ -68,7 +68,7 @@ export function PlatformsSection() {
       <div className="mx-auto w-full max-w-[1100px] px-1">
         <Reveal className="text-center">
           <p className="landing-eyebrow">{platformsEyebrow}</p>
-          <h2 className="landing-heading landing-copy-narrow mt-3 sm:mt-4">
+          <h2 className="landing-heading landing-copy-narrow mt-3 sm:mt-4 md:mx-auto">
             {platformsHeadingLine1}
             <br />
             {platformsHeadingLine2}
@@ -117,10 +117,23 @@ export function PlatformsSection() {
                       {platformLandingRoles[key]}
                     </p>
                     {key === "desktop" ? (
-                      <p className="landing-caption mt-4 text-landing-muted/75">
-                        {desktopSpacesNote}
-                      </p>
-                    ) : null}
+                      <>
+                        <ul className="landing-caption mt-4 space-y-1.5 text-landing-muted/80">
+                          {desktopPlatformExtras.map((line) => (
+                            <li key={line}>{line}</li>
+                          ))}
+                        </ul>
+                        <p className="landing-caption mt-4 text-landing-muted/75">
+                          {desktopSpacesNote}
+                        </p>
+                      </>
+                    ) : (
+                      <ul className="landing-caption mt-4 space-y-1.5 text-landing-muted/80">
+                        {mobilePlatformExtras.map((line) => (
+                          <li key={line}>{line}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </Reveal>
               </div>
