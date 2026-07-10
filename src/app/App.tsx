@@ -7,13 +7,14 @@ import {
   Header,
   Hero,
   LandingEnhancements,
+  LandingScrollWash,
   LandingStorySections,
   LogoShowcasePage,
 } from "./components/landing";
 import { useMinMd } from "./hooks/useMinMd";
 import { ManifestoPage } from "./pages/ManifestoPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
-import { PlaceholderLandingPage } from "./pages/PlaceholderLandingPage";
+import { MobileLandingPage } from "./pages/MobileLandingPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { NotesPage } from "./pages/UpdatesPage";
 
@@ -21,7 +22,9 @@ const LANDING_HASH_TARGETS = new Set([
   "#download",
   "#problem",
   "#resurfacing",
+  "#sharing",
   "#capture",
+  "#connected",
   "#two-experiences",
   "#local-first",
   "#positioning",
@@ -39,14 +42,17 @@ function useLandingHashScroll() {
 
 function DesktopLandingPage() {
   return (
-    <div className="min-h-screen bg-landing-bg">
-      <Header />
-      <Hero />
-      <FloatingBlobs />
-      <LandingStorySections />
-      <CTASection />
-      <Footer />
-      <LandingEnhancements />
+    <div className="relative min-h-screen bg-landing-bg">
+      <LandingScrollWash />
+      <div className="relative z-10">
+        <Header />
+        <Hero />
+        <FloatingBlobs />
+        <LandingStorySections />
+        <CTASection />
+        <Footer />
+        <LandingEnhancements />
+      </div>
     </div>
   );
 }
@@ -55,7 +61,7 @@ function DesktopLandingPage() {
 function MainLandingPage() {
   const isDesktop = useMinMd();
   useLandingHashScroll();
-  return isDesktop ? <DesktopLandingPage /> : <PlaceholderLandingPage />;
+  return isDesktop ? <DesktopLandingPage /> : <MobileLandingPage />;
 }
 
 /** Reset scroll on SPA navigations so new routes paint from the top (esp. mobile). */
@@ -72,17 +78,17 @@ export default function App() {
     <>
       <ScrollToTop />
       <Routes>
-      <Route path="/" element={<MainLandingPage />} />
-      {/* Universal Link path; same UI as / — no 404 for /sync */}
-      <Route path="/sync" element={<MainLandingPage />} />
-      <Route path="/showcase" element={<LogoShowcasePage />} />
-      <Route path="/privacy" element={<PrivacyPage />} />
-      <Route path="/manifesto" element={<ManifestoPage />} />
-      <Route path="/changelog" element={<NotesPage />} />
-      <Route path="/notes" element={<NotesPage />} />
-      <Route path="/updates" element={<NotesPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+        <Route path="/" element={<MainLandingPage />} />
+        {/* Universal Link path; same UI as / — no 404 for /sync */}
+        <Route path="/sync" element={<MainLandingPage />} />
+        <Route path="/showcase" element={<LogoShowcasePage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/manifesto" element={<ManifestoPage />} />
+        <Route path="/changelog" element={<NotesPage />} />
+        <Route path="/notes" element={<NotesPage />} />
+        <Route path="/updates" element={<NotesPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </>
   );
 }
