@@ -1,7 +1,10 @@
+import { useRef, useState } from "react";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { ScreenshotFrame, showcaseGridClass } from "./ScreenshotFrame";
-import { productScreenshots } from "../../content/productScreenshots";
+import { MemoryEchoMoment } from "./MemoryEchoMoment";
+import { StoryThreadBeat, StoryThreadList } from "./StoryThreadList";
+import { TimeStrandRiver } from "./TimeStrandRiver";
+import { showcaseGridClass } from "./ScreenshotFrame";
 import {
   resurfacingEyebrow,
   resurfacingHeading,
@@ -10,40 +13,62 @@ import {
 import { cn } from "../ui/utils";
 
 export function ResurfacingStorySection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [activeBeat, setActiveBeat] = useState(0);
+
+  const scrollToBeat = (beatIndex: number) => {
+    const beat = sectionRef.current?.querySelector(
+      `[data-story-beat="${beatIndex}"]`,
+    );
+    beat?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "center",
+    });
+  };
+
   return (
     <Section id="resurfacing" className="!py-12 md:!py-20 lg:!py-24">
-      <div
-        className={cn(
-          "mx-auto grid w-full max-w-[1100px] grid-cols-1 gap-14 px-2 lg:items-start lg:gap-20",
-          showcaseGridClass(true),
-        )}
-      >
-        <Reveal className="order-2 min-w-0 lg:order-1 lg:sticky lg:top-24">
-          <ScreenshotFrame
-            src={productScreenshots.trails.src}
-            alt={productScreenshots.trails.alt}
-          />
+      <div ref={sectionRef} className="mx-auto w-full max-w-[1100px] px-2">
+        <Reveal>
+          <p className="landing-eyebrow">{resurfacingEyebrow}</p>
+          <h2 className="landing-heading mt-3 sm:mt-4">{resurfacingHeading}</h2>
         </Reveal>
 
-        <div className="order-1 min-w-0 lg:order-2 lg:py-6">
-          <Reveal>
-            <p className="landing-eyebrow">{resurfacingEyebrow}</p>
-            <h2 className="landing-heading mt-3 sm:mt-4">{resurfacingHeading}</h2>
+        <div
+          className={cn(
+            "mt-8 grid grid-cols-1 gap-8 sm:mt-10 sm:gap-10 lg:items-start lg:gap-20",
+            showcaseGridClass(true),
+          )}
+        >
+          <Reveal className="min-w-0 lg:sticky lg:top-24">
+            <div className="landing-depth-zone landing-depth-zone--has-echo">
+              <div className="landing-memory-echo-slot hidden sm:block">
+                <MemoryEchoMoment visible={activeBeat >= 1} />
+              </div>
+              <TimeStrandRiver
+                activeBeatIndex={activeBeat}
+                onStoryWeekSelect={scrollToBeat}
+              />
+            </div>
           </Reveal>
 
-          <ol className="story-thread mt-10 lg:max-w-md">
-            {resurfacingStory.map((beat, i) => (
-              <li
-                key={beat.day}
-                className={cn("story-thread-beat", `story-thread-beat--${i}`)}
-              >
-                <Reveal delay={i * 90}>
-                  <p className="landing-story-label">{beat.day}</p>
-                  <p className="landing-body mt-2">{beat.body}</p>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
+          <div className="min-w-0 lg:py-6">
+            <StoryThreadList
+              className="story-thread mt-0 lg:mt-0 lg:max-w-md"
+              onActiveChange={setActiveBeat}
+            >
+              {resurfacingStory.map((beat, i) => (
+                <StoryThreadBeat key={beat.day} index={i}>
+                  <Reveal delay={i * 90}>
+                    <p className="landing-story-label">{beat.day}</p>
+                    <p className="landing-body mt-2">{beat.body}</p>
+                  </Reveal>
+                </StoryThreadBeat>
+              ))}
+            </StoryThreadList>
+          </div>
         </div>
       </div>
     </Section>

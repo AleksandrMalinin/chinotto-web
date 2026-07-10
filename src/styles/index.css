@@ -1,6 +1,7 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+@import './time-strand.css';
 
 /* Mobile: snappier taps — avoids double-tap-to-zoom delay on many browsers */
 @media (max-width: 767px) {
@@ -21,9 +22,6 @@
   letter-spacing: 0.04em;
   color: rgba(160, 170, 255, 0.35);
   opacity: 0.8;
-  text-shadow:
-    0 0 6px rgba(120, 140, 255, 0.25),
-    0 0 14px rgba(90, 110, 255, 0.15);
   pointer-events: none;
 }
 
