@@ -1,43 +1,61 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import {
-  ScreenshotFrame,
-  showcaseGridClass,
-} from "./ScreenshotFrame";
+import { ProductScreenshotMedia, showcaseGridClass } from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
+import {
+  connectedEyebrow,
+  connectedHeading,
+  recallFeature,
+  spacesFeature,
+  trailsFeature,
+} from "../../content/continuity";
 import { cn } from "../ui/utils";
 
-const FEATURES = [
+const VISUAL_FEATURES = [
   {
-    title: "Trails",
-    body: "Chinotto links thoughts that share language, so older context resurfaces exactly when it&rsquo;s relevant — no tagging, no manual linking.",
+    key: "trails",
+    ...trailsFeature,
     screenshot: productScreenshots.trails,
   },
   {
-    title: "Spaces",
-    body: "On desktop, optional lenses — Inbox, Work, Personal — separate threads without folders. One timeline, filtered when you want it.",
+    key: "spaces",
+    ...spacesFeature,
     screenshot: productScreenshots.spaces,
   },
 ] as const;
 
+/** Trails, recall labels, and Spaces — two screenshots, recall is text-only. */
 export function TrailsSpacesSection() {
   return (
-    <Section id="connected" className="!py-20 md:!py-28 lg:!py-32">
+    <Section id="connected" className="!py-12 md:!py-28 lg:!py-32">
       <div className="mx-auto w-full max-w-[1100px] px-2">
         <Reveal className="text-center">
-          <p className="landing-eyebrow">Trails &amp; Spaces</p>
+          <p className="landing-eyebrow">{connectedEyebrow}</p>
           <h2 className="landing-heading mx-auto mt-4 max-w-[34rem]">
-            It connects your thinking for you.
+            {connectedHeading}
           </h2>
         </Reveal>
 
-        <div className="mt-16 space-y-20 lg:space-y-24">
-          {FEATURES.map((feature, i) => {
+        <Reveal
+          className="mx-auto mt-8 max-w-xl text-center sm:mt-14 lg:mt-16"
+          delay={40}
+        >
+          <div className="border-l border-landing-card-border pl-6 text-left lg:mx-auto lg:max-w-md">
+            <h3 className="landing-step-title">{recallFeature.title}</h3>
+            <p
+              className="landing-body mt-3"
+              dangerouslySetInnerHTML={{ __html: recallFeature.body }}
+            />
+          </div>
+        </Reveal>
+
+        <div className="mt-12 space-y-16 sm:mt-16 lg:space-y-24">
+          {VISUAL_FEATURES.map((feature, i) => {
             const imageFirst = i % 2 === 0;
 
             return (
               <div
-                key={feature.title}
+                key={feature.key}
                 className={cn(
                   "grid grid-cols-1 items-center gap-10 lg:gap-20",
                   showcaseGridClass(imageFirst),
@@ -47,10 +65,7 @@ export function TrailsSpacesSection() {
                   className={cn("min-w-0", !imageFirst && "lg:order-2")}
                   delay={i * 40}
                 >
-                  <ScreenshotFrame
-                    src={feature.screenshot.src}
-                    alt={feature.screenshot.alt}
-                  />
+                  <ProductScreenshotMedia screenshot={feature.screenshot} />
                 </Reveal>
 
                 <Reveal

@@ -10,6 +10,12 @@ export const heroSubhead =
   "Personal thought across your devices — one stream across time.";
 export const heroBody = "No folders. No ceremony.";
 
+/** Mobile landing — pocket-first hero lines. */
+export const heroMobileSubhead =
+  "A calm pocket for thoughts that aren't finished yet.";
+export const heroMobileBody =
+  "Capture in a tap. Optional sync keeps one stream with Mac.";
+
 export const continuityLead =
   "Chinotto helps unfinished personal thought pick up where it left off — across desktop and mobile.";
 
@@ -48,6 +54,10 @@ export const resurfacingStory = [
     day: "Month 2",
     body: "You finally know what you meant.",
   },
+  {
+    day: "Any time",
+    body: "Jump to a lit week on desktop, or scrub months on iPhone — the same thread, navigable when you return.",
+  },
 ] as const;
 
 export const captureEyebrow = "Capture";
@@ -77,6 +87,17 @@ export const platformRoles = {
     body: "A calm pocket for thoughts that aren't finished yet — reflections and half-formed ideas you need to set down before they disappear.",
   },
 } as const;
+
+export const desktopPlatformExtras = [
+  "Time strand — jump through weeks on one stream",
+  "Share a read-only thread when you choose",
+] as const;
+
+export const mobilePlatformExtras = [
+  "Voice capture and share-in from Safari",
+  "Pull the stream down to search",
+  "Swipe right on a dotted thought for a related entry",
+] as const;
 
 /** Longer platform copy — manifesto only. */
 export const manifestoPlatformRoles = {
@@ -116,8 +137,75 @@ export const localFirstHeadingLine2 = "It's the whole point.";
 export const optionalSyncBody =
   "Optional sync keeps one stream across your devices. No Chinotto account.";
 
+/** Mobile landing sections — iPhone-first narrative. */
+export const mobileCaptureEyebrow = "The pocket";
+export const mobileCaptureHeading = "Capture before it disappears.";
+export const mobileCaptureIntro = platformRoles.mobile.body;
+
+export const mobileResurfacingAnyTimeBeat =
+  "Scrub months on the stream, or swipe a dotted thought for what came before — the thread is there when you return.";
+
+export const mobileResurfacingStory = [
+  resurfacingStory[0]!,
+  resurfacingStory[1]!,
+  resurfacingStory[2]!,
+  { day: "Any time", body: mobileResurfacingAnyTimeBeat },
+] as const;
+
+export const mobileTrailsEyebrow = "Trails";
+export const mobileTrailsHeading = "Thoughts find each other.";
+export const mobileTrailsBody =
+  "Chinotto links entries that share language — swipe right on a dotted thought for a related one. No tags, no folders.";
+
+export const mobileBridgeEyebrow = "The return";
+export const mobileBridgeHeading = "Continue on Mac.";
+export const mobileBridgeBody =
+  "Same stream when you're back at your desk — time strand, trails, and share when you choose.";
+export const mobileBridgeNote = optionalSyncBody;
+
 export const desktopSpacesNote =
   "On desktop, optional Spaces — Inbox, Work, Personal — filter one timeline when you want separation, without folders.";
+
+export const sharingEyebrow = "Share a thread";
+export const sharingHeading = "Share a thread, not a document.";
+export const sharingBody =
+  "Pick connected thoughts from a trail, add one line of context, and send a read-only link that expires. Nothing leaves your device until you choose.";
+export const sharingPoints = [
+  {
+    title: "Read-only",
+    body: "A private editorial page — not a workspace export.",
+  },
+  {
+    title: "Your labels stay local",
+    body: "Recall themes never leave your device — use the context note if the reader needs framing.",
+  },
+  {
+    title: "Revoke anytime",
+    body: "Links expire on your schedule. Delete the share when you're done.",
+  },
+] as const;
+export const sharingPlatformNote = "Desktop — hosted at getchinotto.app";
+
+export const connectedEyebrow = "Trails & recall";
+export const connectedHeading = "It connects your thinking for you.";
+
+export const trailsFeature = {
+  title: "Trails",
+  body: "Chinotto links thoughts that share language and surfaces neighbors you&rsquo;d miss — no tagging, no manual linking.",
+} as const;
+
+export const recallFeature = {
+  title: "Recall labels",
+  body: "Name up to seven personal themes. Assign in entry detail; URLs become Links automatically. Structure when you&rsquo;re ready — not when you capture.",
+} as const;
+
+export const spacesFeature = {
+  title: "Spaces",
+  body: "On desktop, optional lenses — Inbox, Work, Personal — separate threads without folders. One timeline, filtered when you want it.",
+} as const;
+
+export const localFirstShareNote =
+  "Share a read-only thread when you choose — revoke anytime.";
 
 export const platformVisualCaptions = {
   desktop: "The return",
