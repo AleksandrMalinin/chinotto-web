@@ -2,8 +2,9 @@
  * One screenshot per landing role — swap files in `src/assets/` when updating captures.
  *
  *   chinotto-main.webp          → capture, platformDesktop, How it works
- *   chinotto-preview.webp       → trails (Trails)
+ *   chinotto-preview.webp       → resurfacing, trails (swap when echo / time strand capture ready)
  *   chinotto-spaces.webp        → spaces (Spaces)
+ *   chinotto-share.webp         → sharing (add before launch — placeholder on site until then)
  *   chinotto-mobile-main.webp   → platformMobile, mobile hero
  *   chinotto-mobile-preview.webp → mobile flip hero
  *   chinotto-widget-medium.webp   → medium home screen widget (Platforms mobile)
@@ -18,6 +19,8 @@ import widgetMediumImg from "@/assets/chinotto-widget-medium.webp";
 export interface ProductScreenshot {
   src: string;
   alt: string;
+  /** True when `src` is a stand-in — landing shows ScreenshotPlaceholder instead. */
+  pending?: boolean;
 }
 
 export const productScreenshots = {
@@ -25,9 +28,18 @@ export const productScreenshots = {
     src: captureImg,
     alt: "Chinotto on desktop — quick capture and stream",
   },
+  resurfacing: {
+    src: trailsImg,
+    alt: "Chinotto — memory echo and time strand",
+  },
   trails: {
     src: trailsImg,
-    alt: "Chinotto on desktop — related thoughts",
+    alt: "Chinotto — thought resurfacing and trails",
+  },
+  share: {
+    src: "",
+    alt: "Chinotto — shared read-only thread",
+    pending: true,
   },
   spaces: {
     src: spacesImg,
