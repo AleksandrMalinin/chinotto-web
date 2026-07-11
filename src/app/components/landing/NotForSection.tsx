@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { notForBody, notForLines } from "../../content/continuity";
+import { faqLinkClassName, faqNotForLinkLabel } from "../../content/faq";
 
 export function NotForSection() {
   return (
@@ -19,10 +20,21 @@ export function NotForSection() {
           <p className="landing-caption mt-7">
             <Link
               to="/manifesto"
-              className="text-landing-accent underline decoration-transparent underline-offset-[0.15em] transition-colors hover:text-landing-accent-hover hover:decoration-landing-accent/35"
+              className={faqLinkClassName}
               data-umami-event="landing-manifesto"
             >
               Read the manifesto
+            </Link>
+            <span className="text-landing-muted/40" aria-hidden>
+              {" "}
+              ·{" "}
+            </span>
+            <Link
+              to="/faq"
+              className={faqLinkClassName}
+              data-umami-event="landing-faq"
+            >
+              {faqNotForLinkLabel}
             </Link>
           </p>
         </Reveal>

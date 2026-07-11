@@ -12,6 +12,7 @@ import {
   LogoShowcasePage,
 } from "./components/landing";
 import { useMinMd } from "./hooks/useMinMd";
+import { FaqPage } from "./pages/FaqPage";
 import { ManifestoPage } from "./pages/ManifestoPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { MobileLandingPage } from "./pages/MobileLandingPage";
@@ -84,6 +85,8 @@ export default function App() {
         <Route path="/sync" element={<MainLandingPage />} />
         <Route path="/showcase" element={<LogoShowcasePage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/faq" element={<FaqPage />} />
+        <Route path="/questions" element={<FaqPage />} />
         <Route path="/manifesto" element={<ManifestoPage />} />
         <Route path="/changelog" element={<NotesPage />} />
         <Route path="/notes" element={<NotesPage />} />

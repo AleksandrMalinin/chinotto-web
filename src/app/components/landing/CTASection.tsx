@@ -1,9 +1,11 @@
+import { Link } from "react-router";
 import { useState } from "react";
 import { Section } from "./Section";
 import { Container } from "./Container";
 import { MacDownloadMobileDialog } from "./MacDownloadMobileDialog";
 import { useMinMd } from "../../hooks/useMinMd";
 import { ctaHeading } from "../../content/continuity";
+import { faqCtaLinkLabel, faqLinkClassName } from "../../content/faq";
 import {
   CHINOTTO_IOS_APP_STORE_URL,
   CHINOTTO_MAC_DOWNLOAD_URL,
@@ -79,6 +81,15 @@ export function CTASection() {
 
             <p className="landing-caption mt-3">
               Windows and Android — coming soon
+            </p>
+            <p className="landing-caption mt-2">
+              <Link
+                to="/faq"
+                className={faqLinkClassName}
+                data-umami-event="cta-faq"
+              >
+                {faqCtaLinkLabel}
+              </Link>
             </p>
           </div>
         </Container>
