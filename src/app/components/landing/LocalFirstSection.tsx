@@ -1,6 +1,8 @@
 import {
   localFirstHeadingLine1,
   localFirstHeadingLine2,
+  localFirstShareNote,
+  localFirstYoursByDefaultBody,
 } from "../../content/continuity";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
@@ -8,11 +10,11 @@ import { Reveal } from "./Reveal";
 const VALUES = [
   {
     title: "Yours by default",
-    body: "Thoughts live on your device. Nothing leaves until you turn on sync.",
+    body: localFirstYoursByDefaultBody,
   },
   {
     title: "Instant",
-    body: "No network, no spinner. Capture is as fast as the thought itself.",
+    body: "No network required to capture.",
   },
   {
     title: "No account",
@@ -33,10 +35,22 @@ export function LocalFirstSection() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-landing-card-border bg-landing-card-border sm:grid-cols-3 sm:mt-14">
+        <Reveal delay={60}>
+          <p className="landing-caption landing-copy-narrow mx-auto mt-6 max-w-md text-landing-muted/75">
+            {localFirstShareNote}
+          </p>
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 overflow-hidden rounded-2xl border border-landing-card-border sm:mt-10 sm:grid-cols-3">
           {VALUES.map((value, i) => (
             <Reveal key={value.title} delay={i * 90}>
-              <div className="h-full bg-landing-bg px-7 py-9 text-left">
+              <div
+                className={`h-full px-7 py-9 text-left${
+                  i > 0
+                    ? " border-t border-landing-card-border sm:border-t-0 sm:border-l"
+                    : ""
+                }`}
+              >
                 <h3 className="landing-step-title text-base">{value.title}</h3>
                 <p className="landing-body mt-3">{value.body}</p>
               </div>

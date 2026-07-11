@@ -1,4 +1,3 @@
-import { ChinottoLogo } from "../ChinottoLogo";
 import {
   heroBody,
   heroSloganLine1,
@@ -10,25 +9,25 @@ import {
   CHINOTTO_MAC_DOWNLOAD_URL,
 } from "../../content/links";
 import { HeroTrustLine } from "./HeroTrustLine";
+import {
+  HERO_LOGO_SIZE_DESKTOP,
+  HeroLogoLink,
+  HeroLogoStage,
+} from "./HeroLogo";
 
 /** Lean copy — logo, slogan, continuity line, CTAs, trust note. */
 export function Hero() {
   const iosStoreUrl = CHINOTTO_IOS_APP_STORE_URL.trim();
 
   return (
-    <section id="hero" className="px-6 py-16 sm:px-8 sm:py-20">
+    <section id="hero" className="px-6 pb-16 sm:px-8 sm:pb-20">
       <div className="mx-auto max-w-3xl text-center">
-        <div className="mb-7 flex justify-center sm:mb-8">
-          <button
-            type="button"
-            className="placeholder-logo-wrap inline-flex rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
-            aria-label="Top of page"
-            data-umami-event="hero-logo"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            <ChinottoLogo size={112} className="text-landing-accent" />
-          </button>
-        </div>
+        <HeroLogoStage>
+          <HeroLogoLink
+            size={HERO_LOGO_SIZE_DESKTOP}
+            umamiEvent="logo-showcase-hero"
+          />
+        </HeroLogoStage>
         <h1 className="landing-display mb-5">
           {heroSloganLine1}
           <br />

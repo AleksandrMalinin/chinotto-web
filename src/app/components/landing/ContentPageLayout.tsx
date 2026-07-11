@@ -5,7 +5,6 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { BogartLabsSignature } from "./BogartLabsSignature";
 import { Container } from "./Container";
-import { FloatingBlobs } from "./FloatingBlobs";
 
 interface ContentPageLayoutProps {
   title: string;
@@ -46,8 +45,7 @@ export function ContentPageLayout({
   }
 
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden bg-landing-bg">
-      <FloatingBlobs variant="background" />
+    <div className="landing-mobile-page relative flex min-h-screen flex-col overflow-x-clip">
       <Header logoHref="/" hideDownloadButton />
       <main className="relative z-10 flex-1 px-8 pt-8 pb-24">
         <h1 className="mb-6 text-2xl font-light text-landing-foreground">

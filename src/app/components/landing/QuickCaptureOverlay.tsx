@@ -5,6 +5,7 @@ import {
   useState,
   type FormEvent,
 } from "react";
+import { useMinMd } from "../../hooks/useMinMd";
 import { MACOS_QUICK_CAPTURE } from "../../content/macosShortcuts";
 
 function isCaptureShortcut(event: globalThis.KeyboardEvent) {
@@ -26,20 +27,26 @@ function isEditableTarget(target: EventTarget | null) {
   );
 }
 
-/** ⌘⇧K demo — type a thought, Enter dismisses. Nothing is stored. */
+/** ⌘⇧K demo — desktop only; type a thought, Enter dismisses. Nothing is stored. */
 export function QuickCaptureOverlay() {
+  const isDesktop = useMinMd();
   const [open, setOpen] = useState(false);
   const [savedFlash, setSavedFlash] = useState(false);
+  const [draft, setDraft] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const showContinuationHint = draft.trim().length >= 12 && !savedFlash;
 
   const close = useCallback(() => {
     setOpen(false);
     setSavedFlash(false);
+    setDraft("");
   }, []);
 
   const openOverlay = useCallback(() => {
     setOpen(true);
     setSavedFlash(false);
+    setDraft("");
   }, []);
 
   useEffect(() => {
@@ -57,6 +64,8 @@ export function QuickCaptureOverlay() {
   }, [open]);
 
   useEffect(() => {
+    if (!isDesktop) return;
+
     const onKeyDown = (event: KeyboardEvent) => {
       if (open) {
         if (event.key === "Escape") {
@@ -75,7 +84,7 @@ export function QuickCaptureOverlay() {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [close, open, openOverlay]);
+  }, [close, isDesktop, open, openOverlay]);
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -88,7 +97,7 @@ export function QuickCaptureOverlay() {
     close();
   };
 
-  if (!open) return null;
+  if (!isDesktop || !open) return null;
 
   return (
     <div
@@ -129,6 +138,8 @@ export function QuickCaptureOverlay() {
               autoComplete="off"
               spellCheck={false}
               placeholder="Capture a thought…"
+              value={draft}
+              onChange={(event) => setDraft(event.target.value)}
               className="w-full bg-transparent text-lg font-light text-landing-foreground placeholder:text-landing-muted/45 focus:outline-none"
               data-umami-event="quick-capture-input"
             />
@@ -136,6 +147,11 @@ export function QuickCaptureOverlay() {
               <span className="placeholder-cursor shrink-0" aria-hidden />
             ) : null}
           </div>
+          {showContinuationHint ? (
+            <p className="landing-caption mt-2 text-landing-note-violet/70">
+              Continues a thought from 3 days ago
+            </p>
+          ) : null}
         </form>
 
         <p

@@ -12,8 +12,8 @@ import { cn } from "../ui/utils";
 
 const LANDING_SECTION_LINKS = [
   { label: "Why", hash: "#problem" },
-  { label: "How it continues", hash: "#resurfacing" },
-  { label: "Two experiences", hash: "#two-experiences" },
+  { label: "Resurfacing", hash: "#resurfacing" },
+  { label: "Capture", hash: "#capture" },
   { label: "Trust", hash: "#local-first" },
 ] as const;
 
@@ -42,41 +42,6 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
       : false,
   );
 
-  const [showSectionNav, setShowSectionNav] = useState(false);
-
-  useEffect(() => {
-    if (!isLanding) {
-      setShowSectionNav(false);
-      return;
-    }
-
-    const hero = document.getElementById("hero");
-    if (!hero || typeof IntersectionObserver === "undefined") {
-      setShowSectionNav(false);
-      return;
-    }
-
-    let show = false;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!entry) return;
-        const ratio = entry.intersectionRatio;
-        if (ratio > 0.35) {
-          show = false;
-        } else if (ratio < 0.12) {
-          show = true;
-        }
-        setShowSectionNav((prev) => (prev === show ? prev : show));
-      },
-      { threshold: [0, 0.12, 0.35, 0.5, 0.75, 1] },
-    );
-
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, [isLanding]);
-
   useEffect(() => {
     if (!latestUpdatesVersion) return;
 
@@ -96,15 +61,29 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
 
   const logoMark = (
     <>
-      <ChinottoLogo size={32} className="text-landing-accent" />
-      <span className="text-lg font-light text-landing-foreground">
+      <ChinottoLogo
+        size={isDesktop ? 32 : 28}
+        className="shrink-0 text-landing-accent"
+      />
+      <span
+        className={cn(
+          "font-light text-landing-foreground",
+          isDesktop ? "text-lg" : "hidden text-lg sm:inline",
+        )}
+      >
         Chinotto
       </span>
     </>
   );
 
-  const logoClassName =
-    "flex items-center gap-3 rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg";
+  const logoClassName = cn(
+    "box-border flex items-center rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg",
+    isDesktop ? "gap-3" : "gap-2 h-11",
+  );
+
+  /** Hero + sticky bar cover install on mobile landing — header CTA only crowds the row. */
+  const showHeaderDownload =
+    !hideDownloadButton && (isDesktop || !(isLanding && iosStoreUrl));
 
   /** Same-route logo tap must not run a real navigation — on mobile Safari it can full-reload the document until JS boots again. */
   const logoLinkIsCurrent = Boolean(logoHref && pathname === logoHref);
@@ -113,9 +92,9 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
     <>
       <span
         className={cn(
-          "transition-[opacity,color,text-shadow] duration-[180ms] ease-out",
+          "transition-[opacity,color] duration-[180ms] ease-out",
           !isUpdates &&
-            "font-normal text-landing-muted opacity-[0.55] group-hover:opacity-[0.92] group-hover:text-[color-mix(in_srgb,var(--landing-foreground)_42%,var(--landing-muted))] group-hover:[text-shadow:0_0_16px_rgba(139,148,200,0.045),0_0_32px_rgba(139,148,200,0.022)]",
+            "font-normal text-landing-muted opacity-[0.55] group-hover:opacity-[0.92] group-hover:text-[color-mix(in_srgb,var(--landing-foreground)_42%,var(--landing-muted))]",
         )}
       >
         Updates
@@ -127,7 +106,7 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
           isUpdates && "bg-landing-accent",
           !isUpdates &&
             highlightUnreadDot &&
-            "bg-[#cab4ff] shadow-[inset_0_0_2px_rgba(248,244,255,1),0_0_5px_rgba(210,195,255,1),0_0_11px_rgba(175,155,245,1),0_0_22px_rgba(139,148,200,0.95),0_0_34px_rgba(110,98,185,0.65)]",
+            "bg-landing-accent",
           !isUpdates &&
             !highlightUnreadDot &&
             "bg-landing-accent/45 group-hover:bg-landing-accent/80",
@@ -141,74 +120,94 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
     isUpdates && "footer-nav-link--active",
   );
 
-  const sectionNavClassName =
-    "header-nav-link footer-nav-link footer-nav-link--inactive text-[13px] tracking-[0.02em]";
+  const showMobileSectionMenu = isLanding && !isDesktop;
+
+  const logoSlot = showMobileSectionMenu ? (
+    <span className="thread-nav-header-spacer" aria-hidden />
+  ) : logoHref ? (
+    logoLinkIsCurrent ? (
+      <button
+        type="button"
+        className={logoClassName}
+        aria-label="Top of page"
+        aria-current="page"
+        data-umami-event="header-logo"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        {logoMark}
+      </button>
+    ) : (
+      <Link
+        to={logoHref}
+        className={logoClassName}
+        aria-label="Logo and icon showcase"
+        data-umami-event="header-logo"
+      >
+        {logoMark}
+      </Link>
+    )
+  ) : (
+    <span className="flex items-center gap-3">{logoMark}</span>
+  );
 
   return (
-    <header className="relative z-20 py-6 px-8">
+    <header className="landing-header relative z-20 px-5 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6">
       <nav className="relative mx-auto max-w-7xl">
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex min-w-0 items-center gap-3">
-          {logoHref ? (
-            logoLinkIsCurrent ? (
+        <div className="landing-header-row flex items-center justify-between gap-4 sm:gap-6">
+          <div className="flex min-w-0 items-center">{logoSlot}</div>
+
+          {isLanding ? (
+            <ul
+              className="header-section-nav hidden lg:flex"
+              aria-label="Page sections"
+            >
+              {LANDING_SECTION_LINKS.map((link, index) => (
+                <li key={link.hash} className="flex items-center">
+                  {index > 0 ? (
+                    <span className="header-section-sep" aria-hidden />
+                  ) : null}
+                  <Link
+                    to={{ hash: link.hash.slice(1) }}
+                    className="header-section-link"
+                    data-umami-event={`header-section-${link.hash.slice(1)}`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          <div className="ml-auto flex shrink-0 items-center">
+            {isUpdates ? (
               <button
                 type="button"
-                className={logoClassName}
+                className={updatesNavClassName}
                 aria-label="Top of page"
                 aria-current="page"
-                data-umami-event="header-logo"
+                data-umami-event="header-updates"
                 onClick={() =>
                   window.scrollTo({ top: 0, behavior: "smooth" })
                 }
               >
-                {logoMark}
+                {updatesMark}
               </button>
             ) : (
               <Link
-                to={logoHref}
-                className={logoClassName}
-                aria-label="Logo and icon showcase"
-                data-umami-event="header-logo"
+                to="/updates"
+                className={updatesNavClassName}
+                aria-label={
+                  highlightUnreadDot ? "Updates — new release" : "Updates"
+                }
+                data-umami-event="header-updates"
               >
-                {logoMark}
+                {updatesMark}
               </Link>
-            )
-          ) : (
-            <span className="flex items-center gap-3">{logoMark}</span>
-          )}
-          </div>
-
-          <div className="flex items-center gap-6">
-          {isUpdates ? (
-            <button
-              type="button"
-              className={updatesNavClassName}
-              aria-label="Top of page"
-              aria-current="page"
-              data-umami-event="header-updates"
-              onClick={() =>
-                window.scrollTo({ top: 0, behavior: "smooth" })
-              }
-            >
-              {updatesMark}
-            </button>
-          ) : (
-            <Link
-              to="/updates"
-              className={updatesNavClassName}
-              aria-label={
-                highlightUnreadDot ? "Updates — new release" : "Updates"
-              }
-              data-umami-event="header-updates"
-            >
-              {updatesMark}
-            </Link>
-          )}
-          {!hideDownloadButton &&
-            (isDesktop || !iosStoreUrl ? (
+            )}
+            {!showHeaderDownload ? null : isDesktop || !iosStoreUrl ? (
               <Link
                 to="/#download"
-                className="btn-landing-primary px-6 py-2 inline-block"
+                className="btn-landing-primary ml-4 inline-block px-6 py-2 sm:ml-6"
                 data-umami-event="get-app-header"
               >
                 Get the app
@@ -216,40 +215,16 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
             ) : (
               <a
                 href={iosStoreUrl}
-                className="btn-landing-primary px-6 py-2 inline-block"
+                className="btn-landing-primary ml-4 inline-block px-5 py-2 text-sm sm:ml-6 sm:px-6 sm:text-base"
                 data-umami-event="get-app-header-ios"
                 rel="noreferrer"
                 target="_blank"
               >
                 Get on iPhone
               </a>
-            ))}
+            )}
           </div>
         </div>
-
-        {isLanding ? (
-          <ul
-            className={cn(
-              "pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 lg:flex",
-              showSectionNav && "pointer-events-auto visible",
-              !showSectionNav && "invisible",
-            )}
-            aria-label="Page sections"
-            aria-hidden={!showSectionNav}
-          >
-            {LANDING_SECTION_LINKS.map((link) => (
-              <li key={link.hash}>
-                <Link
-                  to={{ hash: link.hash.slice(1) }}
-                  className={sectionNavClassName}
-                  data-umami-event={`header-section-${link.hash.slice(1)}`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ) : null}
       </nav>
     </header>
   );

@@ -2,6 +2,8 @@ export { BogartLabsSignature } from "./BogartLabsSignature";
 export { Container } from "./Container";
 export { CTASection } from "./CTASection";
 export { LandingStorySections } from "./LandingStorySections";
+export { MobileLandingStorySections } from "./MobileLandingStorySections";
+export { MobileStickyCta } from "./MobileStickyCta";
 export { NotForSection } from "./NotForSection";
 export {
   MacWindowMockup,
@@ -9,15 +11,23 @@ export {
   MobileMockupPair,
   MobilePhoneMockup,
 } from "./MobileDeviceMockup";
-export { ScreenshotFrame, screenshotCardClass } from "./ScreenshotFrame";
+export {
+  MobileDesktopDetail,
+  ProductScreenshotMedia,
+  ResponsiveProductScreenshot,
+  ScreenshotFrame,
+  screenshotCardClass,
+} from "./ScreenshotFrame";
 export { FloatingBlobs } from "./FloatingBlobs";
 export { Footer } from "./Footer";
 export { Header } from "./Header";
 export { Hero } from "./Hero";
 export { HeroTrustLine } from "./HeroTrustLine";
 export { LandingEnhancements } from "./LandingEnhancements";
+export { LandingScrollWash } from "./LandingScrollWash";
 export { LogoShowcasePage } from "./LogoShowcasePage";
 export { MacDownloadMobileDialog } from "./MacDownloadMobileDialog";
 export { QuickCaptureOverlay } from "./QuickCaptureOverlay";
+export { Reveal } from "./Reveal";
 export { ScrollThread } from "./ScrollThread";
 export { Section } from "./Section";
