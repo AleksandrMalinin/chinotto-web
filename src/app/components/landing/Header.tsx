@@ -77,8 +77,8 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
   );
 
   const logoClassName = cn(
-    "flex items-center rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg",
-    isDesktop ? "gap-3" : "gap-2",
+    "box-border flex items-center rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg",
+    isDesktop ? "gap-3" : "gap-2 h-11",
   );
 
   /** Hero + sticky bar cover install on mobile landing — header CTA only crowds the row. */
@@ -120,39 +120,41 @@ export function Header({ logoHref, hideDownloadButton }: HeaderProps) {
     isUpdates && "footer-nav-link--active",
   );
 
+  const showMobileSectionMenu = isLanding && !isDesktop;
+
+  const logoSlot = showMobileSectionMenu ? (
+    <span className="thread-nav-header-spacer" aria-hidden />
+  ) : logoHref ? (
+    logoLinkIsCurrent ? (
+      <button
+        type="button"
+        className={logoClassName}
+        aria-label="Top of page"
+        aria-current="page"
+        data-umami-event="header-logo"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        {logoMark}
+      </button>
+    ) : (
+      <Link
+        to={logoHref}
+        className={logoClassName}
+        aria-label="Logo and icon showcase"
+        data-umami-event="header-logo"
+      >
+        {logoMark}
+      </Link>
+    )
+  ) : (
+    <span className="flex items-center gap-3">{logoMark}</span>
+  );
+
   return (
-    <header className="relative z-20 px-5 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6">
+    <header className="landing-header relative z-20 px-5 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6">
       <nav className="relative mx-auto max-w-7xl">
-        <div className="flex items-center justify-between gap-4 sm:gap-6">
-          <div className="flex min-w-0 items-center">
-            {logoHref ? (
-              logoLinkIsCurrent ? (
-                <button
-                  type="button"
-                  className={logoClassName}
-                  aria-label="Top of page"
-                  aria-current="page"
-                  data-umami-event="header-logo"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                >
-                  {logoMark}
-                </button>
-              ) : (
-                <Link
-                  to={logoHref}
-                  className={logoClassName}
-                  aria-label="Logo and icon showcase"
-                  data-umami-event="header-logo"
-                >
-                  {logoMark}
-                </Link>
-              )
-            ) : (
-              <span className="flex items-center gap-3">{logoMark}</span>
-            )}
-          </div>
+        <div className="landing-header-row flex items-center justify-between gap-4 sm:gap-6">
+          <div className="flex min-w-0 items-center">{logoSlot}</div>
 
           {isLanding ? (
             <ul

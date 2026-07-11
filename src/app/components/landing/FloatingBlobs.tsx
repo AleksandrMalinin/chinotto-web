@@ -7,7 +7,7 @@ export function FloatingBlobs({ variant = "default" }: FloatingBlobsProps) {
   if (variant === "background") {
     return (
       <div
-        className="landing-mobile-ambient-bg pointer-events-none absolute inset-0 z-0"
+        className="landing-mobile-ambient-bg pointer-events-none"
         aria-hidden
       />
     );

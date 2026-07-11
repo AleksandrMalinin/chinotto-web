@@ -5,17 +5,23 @@ interface StoryThreadListProps {
   children: ReactNode;
   className?: string;
   onActiveChange?: (index: number) => void;
+  /** Earlier beat index for linked river pan — fires before story highlight. */
+  onRiverBeatChange?: (index: number) => void;
 }
 
 /**
- * Scroll-linked pulse on story-thread markers — marks the beat nearest viewport center.
+ * Scroll-linked pulse on story-thread markers.
+ * Story highlight follows reading position; river beat can lead via onRiverBeatChange.
  */
 export function StoryThreadList({
   children,
   className,
   onActiveChange,
+  onRiverBeatChange,
 }: StoryThreadListProps) {
   const listRef = useRef<HTMLOListElement | null>(null);
+  const activeRef = useRef(0);
+  const riverBeatRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -37,25 +43,37 @@ export function StoryThreadList({
     const update = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const probe = window.innerHeight * 0.42;
-        let best = 0;
-        let bestDist = Number.POSITIVE_INFINITY;
+        const vh = window.innerHeight;
+        const storyProbe = vh * 0.4;
+        const riverProbe = vh * 0.86;
+
+        let storyBeat = 0;
+        let storyDist = Number.POSITIVE_INFINITY;
+        let riverBeat = 0;
 
         for (let i = 0; i < beats.length; i++) {
           const rect = beats[i]!.getBoundingClientRect();
           const center = rect.top + rect.height * 0.35;
-          const dist = Math.abs(center - probe);
-          if (dist < bestDist) {
-            bestDist = dist;
-            best = i;
+          const dist = Math.abs(center - storyProbe);
+          if (dist < storyDist) {
+            storyDist = dist;
+            storyBeat = i;
+          }
+          if (rect.top <= riverProbe) {
+            riverBeat = i;
           }
         }
 
-        setActiveIndex((prev) => {
-          if (prev === best) return prev;
-          onActiveChange?.(best);
-          return best;
-        });
+        if (riverBeatRef.current !== riverBeat) {
+          riverBeatRef.current = riverBeat;
+          onRiverBeatChange?.(riverBeat);
+        }
+
+        if (activeRef.current === storyBeat) return;
+
+        activeRef.current = storyBeat;
+        setActiveIndex(storyBeat);
+        onActiveChange?.(storyBeat);
       });
     };
 
@@ -68,7 +86,7 @@ export function StoryThreadList({
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [onActiveChange]);
+  }, [onActiveChange, onRiverBeatChange]);
 
   return (
     <ol

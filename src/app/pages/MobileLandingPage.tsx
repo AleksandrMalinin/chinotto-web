@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { ChinottoLogo } from "../components/ChinottoLogo";
+import { Link } from "react-router";
 import {
   CTASection,
-  FloatingBlobs,
   Footer,
   Header,
   HeroTrustLine,
@@ -11,6 +10,12 @@ import {
   MobileMockupFlip,
   MobileStickyCta,
 } from "../components/landing";
+import { MobileSectionMenu } from "../components/landing/MobileSectionMenu";
+import {
+  HERO_LOGO_SIZE_MOBILE,
+  HeroLogoLink,
+  HeroLogoStage,
+} from "../components/landing/HeroLogo";
 import { CHINOTTO_IOS_APP_STORE_URL } from "../content/links";
 import {
   heroMobileBody,
@@ -25,25 +30,21 @@ export function MobileLandingPage() {
   const [desktopModalOpen, setDesktopModalOpen] = useState(false);
 
   return (
-    <div className="relative flex min-h-screen flex-col overflow-x-hidden bg-landing-bg">
-      <FloatingBlobs variant="background" />
-
+    <div className="landing-mobile-page relative flex min-h-screen flex-col">
       <Header logoHref="/" />
+      <MobileSectionMenu className="thread-nav--dock" />
 
-      <main className="relative z-10 flex flex-1 flex-col pb-[calc(4.5rem+env(safe-area-inset-bottom))]">
+      <main className="relative z-10 flex flex-1 flex-col overflow-x-clip pb-[calc(4.5rem+env(safe-area-inset-bottom))]">
         <section
           id="hero"
-          className="flex w-full flex-col items-center px-6 pb-6 pt-[4.25rem] text-center sm:px-8"
+          className="flex w-full flex-col items-center px-6 pb-6 text-center sm:px-8"
         >
-          <button
-            type="button"
-            className="placeholder-logo-wrap mb-8 block rounded-md transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-landing-accent focus-visible:ring-offset-2 focus-visible:ring-offset-landing-bg"
-            aria-label="Top of page"
-            data-umami-event="hero-logo-mobile"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            <ChinottoLogo size={88} className="text-landing-accent" />
-          </button>
+          <HeroLogoStage>
+            <HeroLogoLink
+              size={HERO_LOGO_SIZE_MOBILE}
+              umamiEvent="logo-showcase-hero-mobile"
+            />
+          </HeroLogoStage>
           <h1 className="landing-display mb-3">
             {heroSloganLine1}
             <br />
@@ -52,14 +53,14 @@ export function MobileLandingPage() {
           <p className="landing-subhead mx-auto mb-2 max-w-[20rem]">
             {heroMobileSubhead}
           </p>
-          <p className="landing-body mx-auto mb-6 max-w-[20rem] text-landing-muted/85">
+          <p className="landing-body mx-auto mb-5 max-w-[20rem] text-landing-muted/85">
             {heroMobileBody}
           </p>
 
           {iosStoreUrl ? (
             <a
               href={iosStoreUrl}
-              className="btn-landing-primary mb-8 inline-block w-full max-w-[280px] px-6 py-3 text-center text-base"
+              className="btn-landing-primary mb-6 inline-block w-full max-w-[280px] px-6 py-3 text-center text-base"
               data-umami-event="app-store-hero"
               rel="noreferrer"
               target="_blank"
@@ -68,7 +69,7 @@ export function MobileLandingPage() {
             </a>
           ) : null}
 
-          <div className="mb-6 w-full max-w-[260px] px-1">
+          <div className="mb-5 w-full max-w-[260px] px-1">
             <MobileMockupFlip />
           </div>
 
@@ -80,11 +81,13 @@ export function MobileLandingPage() {
           >
             Also on Mac
           </button>
-          <HeroTrustLine className="mt-5" />
         </section>
 
         <MobileLandingStorySections />
         <CTASection />
+        <div className="flex justify-center px-6 pb-6 text-center">
+          <HeroTrustLine className="!border-t-0 !pt-0" />
+        </div>
       </main>
 
       <Footer />

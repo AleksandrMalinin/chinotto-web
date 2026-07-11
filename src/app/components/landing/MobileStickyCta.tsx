@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import { CHINOTTO_IOS_APP_STORE_URL } from "../../content/links";
+import {
+  LandingScrollTopButton,
+  useLandingScrollTopVisible,
+} from "./LandingScrollTop";
 
-/** App Store bar — appears after hero scrolls away. */
+/** App Store bar — appears after hero scrolls away; back-to-top joins on deep scroll. */
 export function MobileStickyCta() {
   const iosStoreUrl = CHINOTTO_IOS_APP_STORE_URL.trim();
-  const [visible, setVisible] = useState(false);
+  const [barVisible, setBarVisible] = useState(false);
+  const scrollTopVisible = useLandingScrollTopVisible();
 
   useEffect(() => {
     const hero = document.getElementById("hero");
@@ -15,7 +20,7 @@ export function MobileStickyCta() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
-        setVisible(entry.intersectionRatio < 0.08);
+        setBarVisible(entry.intersectionRatio < 0.08);
       },
       { threshold: [0, 0.08, 0.2] },
     );
@@ -24,22 +29,27 @@ export function MobileStickyCta() {
     return () => observer.disconnect();
   }, [iosStoreUrl]);
 
-  if (!iosStoreUrl || !visible) return null;
+  if (!iosStoreUrl || !barVisible) return null;
 
   return (
-    <div
-      className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-landing-bg/94 px-4 pt-3 backdrop-blur-md pb-[max(0.85rem,env(safe-area-inset-bottom))]"
-      aria-hidden={false}
-    >
-      <a
-        href={iosStoreUrl}
-        className="btn-landing-primary block w-full py-3 text-center text-base"
-        data-umami-event="app-store-sticky"
-        rel="noreferrer"
-        target="_blank"
-      >
-        Get on iPhone
-      </a>
+    <div className="landing-sticky-bar" aria-hidden={false}>
+      <div className="landing-sticky-bar__row">
+        <a
+          href={iosStoreUrl}
+          className="btn-landing-primary min-w-0 flex-1 py-3 text-center text-base"
+          data-umami-event="app-store-sticky"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Get on iPhone
+        </a>
+        {scrollTopVisible ? (
+          <LandingScrollTopButton
+            className="landing-scroll-top--bar"
+            umamiEvent="scroll-top-mobile"
+          />
+        ) : null}
+      </div>
     </div>
   );
 }

@@ -1,21 +1,31 @@
 import { Header } from "./Header";
 import { ChinottoLogo } from "../ChinottoLogo";
+import {
+  HERO_LOGO_SIZE_DESKTOP,
+  HERO_LOGO_SIZE_MOBILE,
+  HeroLogoLink,
+  HeroLogoStage,
+} from "./HeroLogo";
 import { useMinMd } from "../../hooks/useMinMd";
 
 export function LogoShowcasePage() {
   const isDesktop = useMinMd();
   const hideDownload = !isDesktop;
+  const heroLogoSize = isDesktop ? HERO_LOGO_SIZE_DESKTOP : HERO_LOGO_SIZE_MOBILE;
 
   return (
     <div className="min-h-screen bg-landing-bg flex flex-col">
       <Header logoHref="/" hideDownloadButton={hideDownload} />
 
-      <main className="flex-1 flex flex-col items-center pt-[70px] md:pt-20 pb-20 px-8 min-h-0 overflow-auto">
-        <div className="flex flex-col items-center gap-5">
-          {/* Logo showcase: 100px on mobile, 120px on desktop */}
-          <div className="flex flex-col items-center gap-2">
-            <ChinottoLogo size={100} className="text-landing-accent md:hidden" />
-            <ChinottoLogo size={120} className="text-landing-accent hidden md:block" />
+      <main className="flex-1 flex flex-col items-center px-6 pb-20 min-h-0 overflow-auto sm:px-8">
+        <div className="flex flex-col items-center gap-5 w-full">
+          <div className="flex flex-col items-center gap-2 w-full">
+            <HeroLogoStage tight>
+              <HeroLogoLink
+                size={heroLogoSize}
+                umamiEvent="logo-showcase-page"
+              />
+            </HeroLogoStage>
             <h1 className="text-4xl font-light tracking-tight text-landing-foreground">
               Chinotto
             </h1>

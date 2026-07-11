@@ -146,26 +146,34 @@ export function TimeStrandRiver({
     return () => el.removeEventListener("scroll", updatePastCue);
   }, [isScrollable, updatePastCue]);
 
+  const scrollWeekIntoView = useCallback(
+    (weekIndex: number) => {
+      const el = scrollRef.current;
+      const wrap = canvasWrapRef.current;
+      if (!el || !wrap || !isScrollable) return;
+
+      const node = wrap.querySelector<HTMLElement>(
+        `[data-strand-index="${weekIndex}"]`,
+      );
+      if (!node) return;
+
+      const nodeCenter = node.offsetLeft + node.offsetWidth / 2;
+      const target = nodeCenter - el.clientWidth * 0.4;
+
+      el.scrollTo({
+        left: Math.max(0, Math.min(target, el.scrollWidth - el.clientWidth)),
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+      });
+    },
+    [isScrollable],
+  );
+
   useEffect(() => {
     if (activeWeekIndex === null) return;
-    const el = scrollRef.current;
-    const wrap = canvasWrapRef.current;
-    if (!el || !wrap) return;
-
-    const node = wrap.querySelector<HTMLElement>(
-      `[data-strand-index="${activeWeekIndex}"]`,
-    );
-    if (!node) return;
-
-    const nodeCenter = node.offsetLeft + node.offsetWidth / 2;
-    const target = nodeCenter - el.clientWidth / 2;
-    el.scrollTo({
-      left: Math.max(0, Math.min(target, el.scrollWidth - el.clientWidth)),
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "auto"
-        : "smooth",
-    });
-  }, [activeWeekIndex]);
+    scrollWeekIntoView(activeWeekIndex);
+  }, [activeWeekIndex, scrollWeekIntoView]);
 
   const updateTooltip = useCallback(() => {
     if (hoveredIndex === null) {
@@ -364,6 +372,7 @@ export function TimeStrandRiver({
                       }
                       onClick={() => {
                         if (!active || storyBeat === null) return;
+                        scrollWeekIntoView(i);
                         onStoryWeekSelect?.(storyBeat);
                       }}
                       onMouseEnter={() => setHoveredIndex(i)}

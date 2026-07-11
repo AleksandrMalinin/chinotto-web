@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
+import { cn } from "../ui/utils";
 
-const FADE_START = 140;
-const FADE_END = 620;
-const MAX_OPACITY = 0.92;
+const CONFIG = {
+  desktop: { fadeStart: 140, fadeEnd: 620, minOpacity: 0, maxOpacity: 0.92 },
+  mobile: { fadeStart: 0, fadeEnd: 420, minOpacity: 1, maxOpacity: 1 },
+} as const;
 
-/** Desktop landing — cool ambient wash fades in after hero on scroll. */
-export function LandingScrollWash() {
-  const [opacity, setOpacity] = useState(0);
+type LandingScrollWashProps = {
+  variant?: keyof typeof CONFIG;
+};
+
+/** Landing ambient wash — scroll-linked on desktop; always-on base on mobile. */
+export function LandingScrollWash({ variant = "desktop" }: LandingScrollWashProps) {
+  const { fadeStart, fadeEnd, minOpacity, maxOpacity } = CONFIG[variant];
+  const [opacity, setOpacity] = useState(minOpacity);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia(
@@ -17,12 +24,13 @@ export function LandingScrollWash() {
 
     const update = () => {
       if (reducedMotion) {
-        setOpacity(window.scrollY > FADE_START ? MAX_OPACITY : 0);
+        setOpacity(window.scrollY > fadeStart ? maxOpacity : minOpacity);
         return;
       }
 
-      const t = (window.scrollY - FADE_START) / (FADE_END - FADE_START);
-      setOpacity(Math.min(MAX_OPACITY, Math.max(0, t)));
+      const t = (window.scrollY - fadeStart) / (fadeEnd - fadeStart);
+      const scrolled = Math.min(1, Math.max(0, t));
+      setOpacity(minOpacity + (maxOpacity - minOpacity) * scrolled);
     };
 
     const onScroll = () => {
@@ -39,13 +47,16 @@ export function LandingScrollWash() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, []);
+  }, [fadeEnd, fadeStart, maxOpacity, minOpacity]);
 
   if (opacity <= 0) return null;
 
   return (
     <div
-      className="landing-scroll-wash pointer-events-none fixed inset-0 z-0"
+      className={cn(
+        "landing-scroll-wash pointer-events-none fixed inset-0 z-0",
+        variant === "mobile" && "landing-scroll-wash--mobile",
+      )}
       aria-hidden
       style={{ opacity }}
     />

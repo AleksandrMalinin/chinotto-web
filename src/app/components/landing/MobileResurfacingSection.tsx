@@ -13,6 +13,7 @@ import {
 export function MobileResurfacingSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeBeat, setActiveBeat] = useState(0);
+  const [riverBeat, setRiverBeat] = useState(0);
 
   const scrollToBeat = (beatIndex: number) => {
     const beat = sectionRef.current?.querySelector(
@@ -37,7 +38,7 @@ export function MobileResurfacingSection() {
         <Reveal className="mt-8">
           <div className="landing-depth-zone">
             <TimeStrandRiver
-              activeBeatIndex={activeBeat}
+              activeBeatIndex={riverBeat}
               onStoryWeekSelect={scrollToBeat}
             />
           </div>
@@ -46,6 +47,7 @@ export function MobileResurfacingSection() {
         <StoryThreadList
           className="story-thread mt-8"
           onActiveChange={setActiveBeat}
+          onRiverBeatChange={setRiverBeat}
         >
           {mobileResurfacingStory.map((beat, i) => (
             <StoryThreadBeat key={beat.day} index={i}>

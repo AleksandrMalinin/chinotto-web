@@ -15,6 +15,7 @@ import { cn } from "../ui/utils";
 export function ResurfacingStorySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeBeat, setActiveBeat] = useState(0);
+  const [riverBeat, setRiverBeat] = useState(0);
 
   const scrollToBeat = (beatIndex: number) => {
     const beat = sectionRef.current?.querySelector(
@@ -48,7 +49,7 @@ export function ResurfacingStorySection() {
                 <MemoryEchoMoment visible={activeBeat >= 1} />
               </div>
               <TimeStrandRiver
-                activeBeatIndex={activeBeat}
+                activeBeatIndex={riverBeat}
                 onStoryWeekSelect={scrollToBeat}
               />
             </div>
@@ -58,6 +59,7 @@ export function ResurfacingStorySection() {
             <StoryThreadList
               className="story-thread mt-0 lg:mt-0 lg:max-w-md"
               onActiveChange={setActiveBeat}
+              onRiverBeatChange={setRiverBeat}
             >
               {resurfacingStory.map((beat, i) => (
                 <StoryThreadBeat key={beat.day} index={i}>

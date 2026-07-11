@@ -19,6 +19,7 @@ import { PrivacyPage } from "./pages/PrivacyPage";
 import { NotesPage } from "./pages/UpdatesPage";
 
 const LANDING_HASH_TARGETS = new Set([
+  "#pocket",
   "#download",
   "#problem",
   "#resurfacing",

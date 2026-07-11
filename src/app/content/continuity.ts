@@ -14,7 +14,7 @@ export const heroBody = "No folders. No ceremony.";
 export const heroMobileSubhead =
   "A calm pocket for thoughts that aren't finished yet.";
 export const heroMobileBody =
-  "Capture in a tap. Optional sync keeps one stream with Mac.";
+  "Capture in a tap. One stream with Mac.";
 
 export const continuityLead =
   "Chinotto helps unfinished personal thought pick up where it left off — across desktop and mobile.";
