@@ -8,10 +8,14 @@
  *   chinotto-mobile-main.webp   → platformMobile, mobile hero
  *   chinotto-mobile-preview.webp → mobile flip hero
  *   chinotto-widget-medium.webp   → medium home screen widget (Platforms mobile)
+ *   chinotto-detail-*.webp        → pre-cropped desktop UI for mobile landing (< md)
  */
 import captureImg from "@/assets/chinotto-main.webp";
 import trailsImg from "@/assets/chinotto-preview.webp";
 import spacesImg from "@/assets/chinotto-spaces.webp";
+import detailStreamImg from "@/assets/chinotto-detail-stream.webp";
+import detailTrailsImg from "@/assets/chinotto-detail-trails.webp";
+import detailSpacesImg from "@/assets/chinotto-detail-spaces.webp";
 import mobileMainImg from "@/assets/chinotto-mobile-main.webp";
 import mobilePreviewImg from "@/assets/chinotto-mobile-preview.webp";
 import widgetMediumImg from "@/assets/chinotto-widget-medium.webp";
@@ -19,6 +23,8 @@ import widgetMediumImg from "@/assets/chinotto-widget-medium.webp";
 export interface ProductScreenshot {
   src: string;
   alt: string;
+  /** Pre-cropped desktop UI — readable on narrow viewports; full `src` on md+. */
+  mobileDetailSrc?: string;
   /** True when `src` is a stand-in — landing shows ScreenshotPlaceholder instead. */
   pending?: boolean;
 }
@@ -35,6 +41,7 @@ export const productScreenshots = {
   trails: {
     src: trailsImg,
     alt: "Chinotto — thought resurfacing and trails",
+    mobileDetailSrc: detailTrailsImg,
   },
   share: {
     src: "",
@@ -44,10 +51,12 @@ export const productScreenshots = {
   spaces: {
     src: spacesImg,
     alt: "Chinotto on desktop — Spaces",
+    mobileDetailSrc: detailSpacesImg,
   },
   platformDesktop: {
     src: captureImg,
     alt: "Chinotto on desktop — thought stream",
+    mobileDetailSrc: detailStreamImg,
   },
   platformMobile: {
     src: mobileMainImg,
