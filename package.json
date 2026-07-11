@@ -9,8 +9,7 @@
     "typecheck:api": "tsc -p tsconfig.api.json",
     "test:share": "vitest run api/lib",
     "dev": "vite",
-    "favicon": "node scripts/favicon.js",
-    "og-image": "node scripts/og-image.js"
+    "favicon": "node scripts/favicon.js"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
