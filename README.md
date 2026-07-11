@@ -5,7 +5,7 @@
 # Chinotto
 
 *Capture first.  
-Revisit later.*
+Continue later.*
 
 Marketing website for Chinotto — the local-first thinking tool for Mac and iPhone.
 
