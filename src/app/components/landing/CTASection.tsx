@@ -78,7 +78,7 @@ export function CTASection() {
             </div>
 
             <p className="landing-caption mt-3">
-              Windows and Linux — coming soon
+              Windows and Android — coming soon
             </p>
           </div>
         </Container>
