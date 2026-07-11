@@ -1,7 +1,8 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { MacWindowMockup, MobilePhoneMockup } from "./DeviceMockup";
-import { MobileDesktopDetail, showcaseGridClass } from "./ScreenshotFrame";
+import { MobilePlatformsScrollStrip } from "./MobilePlatformsScrollStrip";
+import { showcaseGridClass } from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
 import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
@@ -19,6 +20,7 @@ import {
 } from "../../content/continuity";
 
 const PLATFORM_KEYS = ["desktop", "mobile"] as const;
+type PlatformKey = (typeof PLATFORM_KEYS)[number];
 
 function MobilePlatformVisual() {
   const { src, alt } = productScreenshots.platformMobile;
@@ -46,25 +48,37 @@ function MobilePlatformVisual() {
   );
 }
 
-function PlatformVisual({ platform }: { platform: (typeof PLATFORM_KEYS)[number] }) {
+function PlatformVisual({ platform }: { platform: PlatformKey }) {
   if (platform === "mobile") {
     return <MobilePlatformVisual />;
   }
 
   const shot = productScreenshots.platformDesktop;
   return (
-    <>
-      <div className="hidden md:block">
-        <MacWindowMockup src={shot.src} alt={shot.alt} />
-      </div>
-      {shot.mobileDetailSrc ? (
-        <MobileDesktopDetail
-          src={shot.mobileDetailSrc}
-          alt={shot.alt}
-          className="md:hidden"
-        />
-      ) : null}
-    </>
+    <MacWindowMockup src={shot.src} alt={shot.alt} />
+  );
+}
+
+function PlatformCopyBlock({ platform }: { platform: PlatformKey }) {
+  return (
+    <div className="border-l border-landing-card-border pl-6 lg:max-w-md">
+      <p className="landing-caption mb-2">{platformVisualCaptions[platform]}</p>
+      <h3 className="landing-step-title">{platformRoles[platform].title}</h3>
+      <p className="landing-body mt-3">{platformLandingRoles[platform]}</p>
+      {platform === "desktop" ? (
+        <ul className="landing-caption mt-4 space-y-1.5 text-landing-muted/80">
+          {desktopPlatformExtras.map((line) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+      ) : (
+        <ul className="landing-caption mt-4 space-y-1.5 text-landing-muted/80">
+          {mobilePlatformExtras.map((line) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 
@@ -96,54 +110,38 @@ export function PlatformsSection() {
         <div className="mt-12 space-y-16 sm:mt-16 lg:space-y-24">
           {platformKeys.map((key, i) => {
             const imageFirst = i % 2 === 0;
+            const mobileScroll = !isDesktop && key === "mobile";
+            const textOnlyOnMobile = !isDesktop && key === "desktop";
 
             return (
               <div
                 key={key}
                 className={cn(
                   "grid grid-cols-1 items-center gap-10 lg:gap-20",
+                  textOnlyOnMobile && "gap-6",
                   key === "desktop"
                     ? showcaseGridClass(imageFirst)
                     : "lg:grid-cols-2",
                 )}
               >
-                <Reveal
-                  className={cn("min-w-0", !imageFirst && "lg:order-2")}
-                  delay={i * 40}
-                >
-                  <PlatformVisual platform={key} />
-                </Reveal>
+                {!textOnlyOnMobile ? (
+                  <Reveal
+                    className={cn("min-w-0", !imageFirst && "lg:order-2")}
+                    delay={i * 40}
+                  >
+                    {mobileScroll ? (
+                      <MobilePlatformsScrollStrip />
+                    ) : (
+                      <PlatformVisual platform={key} />
+                    )}
+                  </Reveal>
+                ) : null}
 
                 <Reveal
                   className={cn("min-w-0", !imageFirst && "lg:order-1")}
                   delay={i * 40 + 60}
                 >
-                  <div className="border-l border-landing-card-border pl-6 lg:max-w-md">
-                    <p className="landing-caption mb-2">
-                      {platformVisualCaptions[key]}
-                    </p>
-                    <h3 className="landing-step-title">
-                      {platformRoles[key].title}
-                    </h3>
-                    <p className="landing-body mt-3">
-                      {platformLandingRoles[key]}
-                    </p>
-                    {key === "desktop" ? (
-                      <>
-                        <ul className="landing-caption mt-4 space-y-1.5 text-landing-muted/80">
-                          {desktopPlatformExtras.map((line) => (
-                            <li key={line}>{line}</li>
-                          ))}
-                        </ul>
-                      </>
-                    ) : (
-                      <ul className="landing-caption mt-4 space-y-1.5 text-landing-muted/80">
-                        {mobilePlatformExtras.map((line) => (
-                          <li key={line}>{line}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
+                  <PlatformCopyBlock platform={key} />
                 </Reveal>
               </div>
             );

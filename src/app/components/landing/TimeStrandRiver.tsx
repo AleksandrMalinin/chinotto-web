@@ -8,6 +8,7 @@ import {
   useState,
   type CSSProperties,
 } from "react";
+import { createPortal } from "react-dom";
 import {
   beatIndexForWeek,
   LANDING_STRAND_WEEKS,
@@ -19,6 +20,7 @@ const VB_H = 88;
 const MARGIN_X = 16;
 const WEEK_WIDTH = 34;
 const MIN_VB_W = 400;
+const TOOLTIP_GAP_PX = 12;
 
 type StrandPoint = { x: number; y: number };
 
@@ -187,33 +189,72 @@ export function TimeStrandRiver({
     }
     const wrap = canvasWrapRef.current;
     if (!wrap) return;
+
     const node = wrap.querySelector<HTMLElement>(
       `[data-strand-index="${hoveredIndex}"]`,
     );
     if (!node) return;
+
     const nodeRect = node.getBoundingClientRect();
     const x = nodeRect.left + nodeRect.width / 2;
     const y = nodeRect.top;
+
     let align: TooltipPlacement["align"] = "center";
     if (x < 120) align = "start";
     else if (x > window.innerWidth - 120) align = "end";
+
     setTooltip({ x, y, align });
   }, [hoveredIndex, strand]);
 
   useLayoutEffect(() => {
     updateTooltip();
     if (hoveredIndex === null) return;
+
     const scrollEl = scrollRef.current;
-    scrollEl?.addEventListener("scroll", updateTooltip, { passive: true });
-    window.addEventListener("resize", updateTooltip);
+    const onMove = () => updateTooltip();
+
+    scrollEl?.addEventListener("scroll", onMove, { passive: true });
+    window.addEventListener("scroll", onMove, { passive: true });
+    window.addEventListener("resize", onMove);
+
     return () => {
-      scrollEl?.removeEventListener("scroll", updateTooltip);
-      window.removeEventListener("resize", updateTooltip);
+      scrollEl?.removeEventListener("scroll", onMove);
+      window.removeEventListener("scroll", onMove);
+      window.removeEventListener("resize", onMove);
     };
   }, [hoveredIndex, updateTooltip]);
 
   const activeWeek =
     activeWeekIndex !== null ? strand[activeWeekIndex] : null;
+
+  const tooltipNode =
+    hoveredIndex !== null &&
+    tooltip &&
+    strand[hoveredIndex]?.count > 0 ? (
+      <div
+        className={cn(
+          "time-strand-tooltip time-strand-tooltip--floating",
+          `time-strand-tooltip--align-${tooltip.align}`,
+        )}
+        style={
+          {
+            left: tooltip.x,
+            top: tooltip.y,
+            "--strand-tooltip-gap": `${TOOLTIP_GAP_PX}px`,
+          } as CSSProperties
+        }
+        role="tooltip"
+      >
+        {strand[hoveredIndex]!.label}
+        <span className="time-strand-tooltip-sep" aria-hidden>
+          ·
+        </span>
+        <span className="time-strand-tooltip-count">
+          {strand[hoveredIndex]!.count}{" "}
+          {strand[hoveredIndex]!.count === 1 ? "thought" : "thoughts"}
+        </span>
+      </div>
+    ) : null;
 
   return (
     <div className={cn("landing-time-strand", className)}>
@@ -405,28 +446,19 @@ export function TimeStrandRiver({
           ) : null}
         </div>
 
-        {hoveredIndex !== null &&
-        tooltip &&
-        strand[hoveredIndex]?.count > 0 ? (
-          <div
-            className={cn(
-              "time-strand-tooltip time-strand-tooltip--floating",
-              `time-strand-tooltip--align-${tooltip.align}`,
-            )}
-            style={{ left: tooltip.x, top: tooltip.y }}
-            role="tooltip"
-          >
-            {strand[hoveredIndex]!.label}
-            <span className="time-strand-tooltip-sep" aria-hidden>
-              ·
-            </span>
-            <span className="time-strand-tooltip-count">
-              {strand[hoveredIndex]!.count}{" "}
-              {strand[hoveredIndex]!.count === 1 ? "thought" : "thoughts"}
-            </span>
-          </div>
-        ) : null}
       </section>
+
+      {typeof document !== "undefined" && tooltipNode
+        ? createPortal(
+            <div
+              className="landing-time-strand landing-time-strand-tooltip-layer"
+              aria-hidden
+            >
+              {tooltipNode}
+            </div>,
+            document.body,
+          )
+        : null}
     </div>
   );
 }

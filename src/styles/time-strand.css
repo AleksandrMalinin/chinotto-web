@@ -473,15 +473,23 @@
   position: fixed;
   top: 0;
   left: 0;
-  transform: translate(-50%, calc(-100% - 10px));
+  transform: translate(-50%, calc(-100% - var(--strand-tooltip-gap, 12px)));
 }
 
 .landing-time-strand .time-strand-tooltip--floating.time-strand-tooltip--align-start {
-  transform: translate(0, calc(-100% - 10px));
+  transform: translate(0, calc(-100% - var(--strand-tooltip-gap, 12px)));
 }
 
 .landing-time-strand .time-strand-tooltip--floating.time-strand-tooltip--align-end {
-  transform: translate(-100%, calc(-100% - 10px));
+  transform: translate(-100%, calc(-100% - var(--strand-tooltip-gap, 12px)));
+}
+
+.landing-time-strand-tooltip-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  overflow: visible;
 }
 
 .landing-time-strand .time-strand-tooltip-sep {

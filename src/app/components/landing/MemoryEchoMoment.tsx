@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { resurfacingDemoThought } from "../../content/continuity";
 
 /** Demo resurfacing card — mirrors desktop MemoryEcho in home depth zone. */
 const DEMO = {
   reason: "From 2 months ago",
   threadHint: "Part of a thread with 4 related thoughts",
-  preview: "https://github.com/github/spec-kit",
+  preview: resurfacingDemoThought,
 } as const;
 
 interface MemoryEchoMomentProps {

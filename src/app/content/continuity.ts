@@ -39,12 +39,15 @@ export const problemHeading = "Thoughts stop mid-sentence.";
 export const problemBody =
   "You had more to say — then something else happened. When you open it again, you don't know what you meant.";
 
+export const resurfacingDemoThought =
+  "AI: Skills are needed to tie all the complexity together over time.";
+
 export const resurfacingEyebrow = "When you come back";
 export const resurfacingHeading = "The unfinished thought is still there.";
 export const resurfacingStory = [
   {
     day: "Day 1",
-    body: "\"AI: Skills are needed to tie all the complexity together over time.\" Not a post. Not a conclusion. Worth keeping anyway.",
+    body: "Not a post. Not a conclusion — just a line you wanted to save before it slipped away.",
   },
   {
     day: "Week 3",
@@ -168,13 +171,13 @@ export const desktopSpacesNote =
   "On desktop, optional Spaces — Inbox, Work, Personal — filter one timeline when you want separation, without folders.";
 
 export const sharingEyebrow = "Share a thread";
-export const sharingHeading = "Send a read-only link.";
+export const sharingHeading = "When someone needs the trail.";
 export const sharingBody =
-  "Pick connected thoughts from a trail, add one line of context, and send a read-only link that expires. Nothing leaves your device until you choose.";
+  "A thread can span weeks — entries linked by the words you repeat. When someone needs how you got there, pick those entries, add one line of context, and send a read-only link. Your full stream stays private.";
 export const sharingPoints = [
   {
     title: "Read-only",
-    body: "A simple hosted page — not a workspace export.",
+    body: "They see what you chose — not your inbox, not a shared workspace.",
   },
   {
     title: "Your labels stay local",
