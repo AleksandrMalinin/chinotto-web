@@ -22,6 +22,20 @@ export interface ProductUpdate {
  */
 export const productUpdates: ProductUpdate[] = [
   {
+    version: "3.0.0",
+    milestone: "Major release — Share and resurfacing",
+    title: "Share threads and memory echo",
+    date: "2026-07-11",
+    items: [
+      "Time strand on home",
+      "Memory echo on return",
+      "Read-only share links",
+      "Trail strip in detail",
+      "Personal recall themes",
+    ],
+    note: "Recall theme sync requires Chinotto Pro.",
+  },
+  {
     version: "2.2.3",
     milestone: "Patch",
     title: "Calmer ambient glow",
