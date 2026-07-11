@@ -1,7 +1,7 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { MacWindowMockup, MobilePhoneMockup } from "./DeviceMockup";
-import { MobileDesktopDetail, ScreenshotFrame, showcaseGridClass } from "./ScreenshotFrame";
+import { MobileDesktopDetail, showcaseGridClass } from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
 import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
