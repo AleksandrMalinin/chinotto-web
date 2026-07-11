@@ -11,20 +11,13 @@ import {
 } from "../../content/continuity";
 import { cn } from "../ui/utils";
 
-const VISUAL_FEATURES = [
-  {
-    key: "trails",
-    ...trailsFeature,
-    screenshot: productScreenshots.trails,
-  },
-  {
-    key: "spaces",
-    ...spacesFeature,
-    screenshot: productScreenshots.spaces,
-  },
+const CONNECTED_FEATURES = [
+  trailsFeature,
+  recallFeature,
+  spacesFeature,
 ] as const;
 
-/** Trails, recall labels, and Spaces — two screenshots, recall is text-only. */
+/** Trails, recall, and Spaces — one desktop shot, three text blocks. */
 export function TrailsSpacesSection() {
   return (
     <Section id="connected" className="!py-12 md:!py-28 lg:!py-32">
@@ -36,53 +29,29 @@ export function TrailsSpacesSection() {
           </h2>
         </Reveal>
 
-        <Reveal
-          className="mx-auto mt-8 max-w-xl text-center sm:mt-14 lg:mt-16"
-          delay={40}
+        <div
+          className={cn(
+            "mt-12 grid grid-cols-1 items-start gap-10 sm:mt-16 lg:gap-20",
+            showcaseGridClass(true),
+          )}
         >
-          <div className="border-l border-landing-card-border pl-6 text-left lg:mx-auto lg:max-w-md">
-            <h3 className="landing-step-title">{recallFeature.title}</h3>
-            <p
-              className="landing-body mt-3"
-              dangerouslySetInnerHTML={{ __html: recallFeature.body }}
-            />
+          <Reveal className="min-w-0 lg:sticky lg:top-24">
+            <ResponsiveProductScreenshot screenshot={productScreenshots.trails} />
+          </Reveal>
+
+          <div className="min-w-0 space-y-10 lg:py-6">
+            {CONNECTED_FEATURES.map((feature, i) => (
+              <Reveal key={feature.title} delay={i * 50}>
+                <div className="border-l border-landing-card-border pl-6 lg:max-w-md">
+                  <h3 className="landing-step-title">{feature.title}</h3>
+                  <p
+                    className="landing-body mt-3"
+                    dangerouslySetInnerHTML={{ __html: feature.body }}
+                  />
+                </div>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
-
-        <div className="mt-12 space-y-16 sm:mt-16 lg:space-y-24">
-          {VISUAL_FEATURES.map((feature, i) => {
-            const imageFirst = i % 2 === 0;
-
-            return (
-              <div
-                key={feature.key}
-                className={cn(
-                  "grid grid-cols-1 items-center gap-10 lg:gap-20",
-                  showcaseGridClass(imageFirst),
-                )}
-              >
-                <Reveal
-                  className={cn("min-w-0", !imageFirst && "lg:order-2")}
-                  delay={i * 40}
-                >
-                  <ResponsiveProductScreenshot screenshot={feature.screenshot} />
-                </Reveal>
-
-                <Reveal
-                  className={cn("min-w-0", !imageFirst && "lg:order-1")}
-                  delay={i * 40 + 60}
-                >
-                  <div className="border-l border-landing-card-border pl-6 lg:max-w-md">
-                    <h3 className="landing-step-title">{feature.title}</h3>
-                    <p
-                      className="landing-body mt-3"
-                      dangerouslySetInnerHTML={{ __html: feature.body }}
-                    />
-                  </div>
-                </Reveal>
-              </div>
-            );
-          })}
         </div>
       </div>
     </Section>

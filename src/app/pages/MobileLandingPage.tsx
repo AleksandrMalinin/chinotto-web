@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router";
 import {
   CTASection,
   Footer,
   Header,
-  HeroTrustLine,
   MacDownloadMobileDialog,
   MobileLandingStorySections,
   MobileMockupFlip,
@@ -85,9 +83,6 @@ export function MobileLandingPage() {
 
         <MobileLandingStorySections />
         <CTASection />
-        <div className="flex justify-center px-6 pb-6 text-center">
-          <HeroTrustLine className="!border-t-0 !pt-0" />
-        </div>
       </main>
 
       <Footer />

@@ -1,21 +1,15 @@
 /**
  * One screenshot per landing role — swap files in `src/assets/` when updating captures.
  *
- *   chinotto-main.webp          → capture, platformDesktop, How it works
- *   chinotto-preview.webp       → resurfacing, trails (swap when echo / time strand capture ready)
- *   chinotto-spaces.webp        → spaces (Spaces)
- *   chinotto-share.webp         → sharing (add before launch — placeholder on site until then)
- *   chinotto-mobile-main.webp   → platformMobile, mobile hero
- *   chinotto-mobile-preview.webp → mobile flip hero
- *   chinotto-widget-medium.webp   → medium home screen widget (Platforms mobile)
- *   chinotto-detail-*.webp        → pre-cropped desktop UI for mobile landing (< md)
+ *   chinotto-main.webp          → platformDesktop (time strand + echo)
+ *   chinotto-preview.webp       → connected section (trails, spaces in frame)
+ *   chinotto-detail-stream.webp → platformDesktop mobile crop (from main)
+ *   chinotto-detail-trails.webp → connected section mobile crop (from preview)
  */
 import captureImg from "@/assets/chinotto-main.webp";
 import trailsImg from "@/assets/chinotto-preview.webp";
-import spacesImg from "@/assets/chinotto-spaces.webp";
 import detailStreamImg from "@/assets/chinotto-detail-stream.webp";
 import detailTrailsImg from "@/assets/chinotto-detail-trails.webp";
-import detailSpacesImg from "@/assets/chinotto-detail-spaces.webp";
 import mobileMainImg from "@/assets/chinotto-mobile-main.webp";
 import mobilePreviewImg from "@/assets/chinotto-mobile-preview.webp";
 import widgetMediumImg from "@/assets/chinotto-widget-medium.webp";
@@ -40,7 +34,7 @@ export const productScreenshots = {
   },
   trails: {
     src: trailsImg,
-    alt: "Chinotto — thought resurfacing and trails",
+    alt: "Chinotto — trails, recall, and Spaces on desktop",
     mobileDetailSrc: detailTrailsImg,
   },
   share: {
@@ -48,14 +42,9 @@ export const productScreenshots = {
     alt: "Chinotto — shared read-only thread",
     pending: true,
   },
-  spaces: {
-    src: spacesImg,
-    alt: "Chinotto on desktop — Spaces",
-    mobileDetailSrc: detailSpacesImg,
-  },
   platformDesktop: {
     src: captureImg,
-    alt: "Chinotto on desktop — thought stream",
+    alt: "Chinotto on desktop — time strand and memory echo",
     mobileDetailSrc: detailStreamImg,
   },
   platformMobile: {

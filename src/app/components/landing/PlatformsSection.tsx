@@ -7,7 +7,6 @@ import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
 import {
   desktopPlatformExtras,
-  desktopSpacesNote,
   mobilePlatformExtras,
   optionalSyncBody,
   platformLandingRoles,
@@ -136,9 +135,6 @@ export function PlatformsSection() {
                             <li key={line}>{line}</li>
                           ))}
                         </ul>
-                        <p className="landing-caption mt-4 text-landing-muted/75">
-                          {desktopSpacesNote}
-                        </p>
                       </>
                     ) : (
                       <ul className="landing-caption mt-4 space-y-1.5 text-landing-muted/80">

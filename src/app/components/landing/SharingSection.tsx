@@ -1,7 +1,8 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { ResponsiveProductScreenshot, showcaseGridClass } from "./ScreenshotFrame";
-import { productScreenshots } from "../../content/productScreenshots";
+import { ProductVideoFrame } from "./ProductVideoFrame";
+import { showcaseGridClass } from "./ScreenshotFrame";
+import { productVideos } from "../../content/productVideos";
 import {
   sharingBody,
   sharingEyebrow,
@@ -21,10 +22,10 @@ export function SharingSection() {
         )}
       >
         <Reveal className="order-2 hidden min-w-0 md:block lg:order-1 lg:sticky lg:top-24">
-          <ResponsiveProductScreenshot
-            screenshot={productScreenshots.share}
-            placeholderLabel="Share thread"
-            placeholderHint="src/assets/chinotto-share.webp"
+          <ProductVideoFrame
+            src={productVideos.shareThread.src}
+            poster={productVideos.shareThread.poster}
+            alt={productVideos.shareThread.alt}
           />
         </Reveal>
 
