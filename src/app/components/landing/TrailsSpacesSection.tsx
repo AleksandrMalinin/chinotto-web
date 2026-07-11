@@ -1,6 +1,6 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { ProductScreenshotMedia, showcaseGridClass } from "./ScreenshotFrame";
+import { ResponsiveProductScreenshot, showcaseGridClass } from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
 import {
   connectedEyebrow,
@@ -65,7 +65,7 @@ export function TrailsSpacesSection() {
                   className={cn("min-w-0", !imageFirst && "lg:order-2")}
                   delay={i * 40}
                 >
-                  <ProductScreenshotMedia screenshot={feature.screenshot} />
+                  <ResponsiveProductScreenshot screenshot={feature.screenshot} />
                 </Reveal>
 
                 <Reveal

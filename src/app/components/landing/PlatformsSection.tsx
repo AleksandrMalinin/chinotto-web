@@ -1,7 +1,7 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { MacWindowMockup, MobilePhoneMockup } from "./DeviceMockup";
-import { showcaseGridClass } from "./ScreenshotFrame";
+import { MobileDesktopDetail, ScreenshotFrame, showcaseGridClass } from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
 import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
@@ -52,8 +52,21 @@ function PlatformVisual({ platform }: { platform: (typeof PLATFORM_KEYS)[number]
     return <MobilePlatformVisual />;
   }
 
-  const { src, alt } = productScreenshots.platformDesktop;
-  return <MacWindowMockup src={src} alt={alt} />;
+  const shot = productScreenshots.platformDesktop;
+  return (
+    <>
+      <div className="hidden md:block">
+        <MacWindowMockup src={shot.src} alt={shot.alt} />
+      </div>
+      {shot.mobileDetailSrc ? (
+        <MobileDesktopDetail
+          src={shot.mobileDetailSrc}
+          alt={shot.alt}
+          className="md:hidden"
+        />
+      ) : null}
+    </>
+  );
 }
 
 /** Mobile pocket + desktop return — two experiences, one stream. */

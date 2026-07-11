@@ -12,7 +12,9 @@ export {
   MobilePhoneMockup,
 } from "./MobileDeviceMockup";
 export {
+  MobileDesktopDetail,
   ProductScreenshotMedia,
+  ResponsiveProductScreenshot,
   ScreenshotFrame,
   screenshotCardClass,
 } from "./ScreenshotFrame";

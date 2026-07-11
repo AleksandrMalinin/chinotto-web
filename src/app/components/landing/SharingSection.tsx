@@ -1,6 +1,6 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { ProductScreenshotMedia, showcaseGridClass } from "./ScreenshotFrame";
+import { ResponsiveProductScreenshot, showcaseGridClass } from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
 import {
   sharingBody,
@@ -21,8 +21,8 @@ export function SharingSection() {
           showcaseGridClass(true),
         )}
       >
-        <Reveal className="order-2 min-w-0 lg:order-1 lg:sticky lg:top-24">
-          <ProductScreenshotMedia
+        <Reveal className="order-2 hidden min-w-0 md:block lg:order-1 lg:sticky lg:top-24">
+          <ResponsiveProductScreenshot
             screenshot={productScreenshots.share}
             placeholderLabel="Share thread"
             placeholderHint="src/assets/chinotto-share.webp"

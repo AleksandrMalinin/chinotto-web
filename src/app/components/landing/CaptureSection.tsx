@@ -37,7 +37,7 @@ export function CaptureSection() {
           </ol>
         </div>
 
-        <Reveal className="order-2 min-w-0 lg:sticky lg:top-24">
+        <Reveal className="order-2 hidden min-w-0 md:block lg:sticky lg:top-24">
           <ProductVideoFrame
             src={productVideos.howItWorks.src}
             poster={productVideos.howItWorks.poster}

@@ -55,6 +55,40 @@ export function ScreenshotFrame({
   );
 }
 
+interface MobileDesktopDetailProps {
+  src: string;
+  alt: string;
+  caption?: string;
+  className?: string;
+}
+
+/** Large desktop UI fragment on narrow viewports — Cursor-style full-bleed detail shot. */
+export function MobileDesktopDetail({
+  src,
+  alt,
+  caption = "On Mac",
+  className,
+}: MobileDesktopDetailProps) {
+  return (
+    <figure className={cn("landing-mobile-detail", className)}>
+      <div className="landing-mobile-detail__frame">
+        <img
+          src={src}
+          alt={alt}
+          className="block h-auto w-full select-none"
+          decoding="async"
+          draggable={false}
+        />
+      </div>
+      {caption ? (
+        <figcaption className="landing-caption mt-3 text-center text-landing-muted/75">
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
 interface ProductScreenshotMediaProps {
   screenshot: ProductScreenshot;
   placeholderLabel?: string;
@@ -88,5 +122,54 @@ export function ProductScreenshotMedia({
       platformCaption={platformCaption}
       className={className}
     />
+  );
+}
+
+interface ResponsiveProductScreenshotProps extends ProductScreenshotMediaProps {
+  /** Caption under the mobile detail crop (default “On Mac”). */
+  mobileCaption?: string;
+}
+
+/**
+ * md+: full desktop screenshot. Below md: pre-cropped detail when `mobileDetailSrc` is set.
+ * Pending assets: placeholder on desktop only — no mobile visual.
+ */
+export function ResponsiveProductScreenshot({
+  screenshot,
+  placeholderLabel,
+  placeholderHint,
+  platformCaption,
+  mobileCaption = "On Mac",
+  className,
+}: ResponsiveProductScreenshotProps) {
+  if (screenshot.pending) {
+    return (
+      <ScreenshotPlaceholder
+        label={placeholderLabel ?? screenshot.alt}
+        assetHint={placeholderHint}
+        className={cn("hidden md:block", className)}
+      />
+    );
+  }
+
+  const mobileDetail = screenshot.mobileDetailSrc;
+
+  return (
+    <>
+      <ScreenshotFrame
+        src={screenshot.src}
+        alt={screenshot.alt}
+        platformCaption={platformCaption}
+        className={cn("hidden md:block", className)}
+      />
+      {mobileDetail ? (
+        <MobileDesktopDetail
+          src={mobileDetail}
+          alt={screenshot.alt}
+          caption={mobileCaption}
+          className={cn("md:hidden", className)}
+        />
+      ) : null}
+    </>
   );
 }
