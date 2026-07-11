@@ -2,7 +2,7 @@ import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { MacWindowMockup, MobilePhoneMockup } from "./DeviceMockup";
 import { MobilePlatformsScrollStrip } from "./MobilePlatformsScrollStrip";
-import { showcaseGridClass } from "./ScreenshotFrame";
+import { MobileDesktopDetail, showcaseGridClass } from "./ScreenshotFrame";
 import { productScreenshots } from "../../content/productScreenshots";
 import { useMinMd } from "../../hooks/useMinMd";
 import { cn } from "../ui/utils";
@@ -55,7 +55,18 @@ function PlatformVisual({ platform }: { platform: PlatformKey }) {
 
   const shot = productScreenshots.platformDesktop;
   return (
-    <MacWindowMockup src={shot.src} alt={shot.alt} />
+    <>
+      <div className="hidden md:block">
+        <MacWindowMockup src={shot.src} alt={shot.alt} />
+      </div>
+      {shot.mobileDetailSrc ? (
+        <MobileDesktopDetail
+          src={shot.mobileDetailSrc}
+          alt={shot.alt}
+          className="md:hidden"
+        />
+      ) : null}
+    </>
   );
 }
 
@@ -111,31 +122,27 @@ export function PlatformsSection() {
           {platformKeys.map((key, i) => {
             const imageFirst = i % 2 === 0;
             const mobileScroll = !isDesktop && key === "mobile";
-            const textOnlyOnMobile = !isDesktop && key === "desktop";
 
             return (
               <div
                 key={key}
                 className={cn(
                   "grid grid-cols-1 items-center gap-10 lg:gap-20",
-                  textOnlyOnMobile && "gap-6",
                   key === "desktop"
                     ? showcaseGridClass(imageFirst)
                     : "lg:grid-cols-2",
                 )}
               >
-                {!textOnlyOnMobile ? (
-                  <Reveal
-                    className={cn("min-w-0", !imageFirst && "lg:order-2")}
-                    delay={i * 40}
-                  >
-                    {mobileScroll ? (
-                      <MobilePlatformsScrollStrip />
-                    ) : (
-                      <PlatformVisual platform={key} />
-                    )}
-                  </Reveal>
-                ) : null}
+                <Reveal
+                  className={cn("min-w-0", !imageFirst && "lg:order-2")}
+                  delay={i * 40}
+                >
+                  {mobileScroll ? (
+                    <MobilePlatformsScrollStrip />
+                  ) : (
+                    <PlatformVisual platform={key} />
+                  )}
+                </Reveal>
 
                 <Reveal
                   className={cn("min-w-0", !imageFirst && "lg:order-1")}

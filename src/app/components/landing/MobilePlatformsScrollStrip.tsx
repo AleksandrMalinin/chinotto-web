@@ -18,7 +18,7 @@ const SLIDES = [
   },
 ] as const;
 
-/** Horizontal scroll-snap — mobile app + widget; active slide scales up. */
+/** One slide per view — horizontal scroll-snap between app and widget. */
 export function MobilePlatformsScrollStrip({ className }: { className?: string }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -51,10 +51,12 @@ export function MobilePlatformsScrollStrip({ className }: { className?: string }
 
     syncActive();
     root.addEventListener("scroll", syncActive, { passive: true });
+    root.addEventListener("scrollend", syncActive);
     window.addEventListener("resize", syncActive);
 
     return () => {
       root.removeEventListener("scroll", syncActive);
+      root.removeEventListener("scrollend", syncActive);
       window.removeEventListener("resize", syncActive);
     };
   }, [syncActive]);

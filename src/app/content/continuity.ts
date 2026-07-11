@@ -173,15 +173,15 @@ export const desktopSpacesNote =
 export const sharingEyebrow = "Share a thread";
 export const sharingHeading = "When someone needs the trail.";
 export const sharingBody =
-  "A thread can span weeks — entries linked by the words you repeat. When someone needs how you got there, pick those entries, add one line of context, and send a read-only link. Your full stream stays private.";
+  "A thread can span weeks. Pick the entries that matter, add one line of context, and send a read-only link — your full stream stays private.";
 export const sharingPoints = [
   {
     title: "Read-only",
-    body: "They see what you chose — not your inbox, not a shared workspace.",
+    body: "They see what you chose — not your inbox or a shared workspace.",
   },
   {
     title: "Your labels stay local",
-    body: "Recall themes never leave your device — use the context note if the reader needs framing.",
+    body: "Recall themes never leave your device — use the context note if needed.",
   },
   {
     title: "Revoke anytime",

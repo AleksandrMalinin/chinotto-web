@@ -1566,15 +1566,19 @@
 }
 
 /* Platforms — mobile-only horizontal scroll (app + widget) */
+.platforms-mobile-scroll {
+  width: 100%;
+}
+
 .platforms-mobile-scroll__track {
   display: flex;
   align-items: flex-end;
-  gap: 0.85rem;
+  gap: 0;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 1.25rem;
-  padding-inline: max(1.25rem, calc(50% - 7.25rem));
+  scroll-padding-inline: 0;
+  padding-inline: 0;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -1584,25 +1588,26 @@
 }
 
 .platforms-mobile-scroll__slide {
-  flex: 0 0 auto;
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
   scroll-snap-align: center;
-  width: min(14.5rem, 58vw);
-  transform: scale(0.88);
-  opacity: 0.55;
-  transition:
-    transform 0.4s cubic-bezier(0.33, 1, 0.32, 1),
-    opacity 0.4s ease;
-  transform-origin: center bottom;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 1.25rem;
+  opacity: 0.45;
+  transition: opacity 0.18s ease;
 }
 
 .platforms-mobile-scroll__slide--active {
-  transform: scale(1);
   opacity: 1;
 }
 
 .platforms-mobile-scroll__phone {
-  width: 100% !important;
-  max-width: none;
+  width: min(15rem, 100%) !important;
+  max-width: 17.5rem;
 }
 
 .platforms-mobile-scroll__dots {
@@ -1631,8 +1636,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .platforms-mobile-scroll__slide {
-    transition: opacity 0.2s ease;
-    transform: none;
+    transition: none;
   }
 
   .platforms-mobile-scroll__slide:not(.platforms-mobile-scroll__slide--active) {
