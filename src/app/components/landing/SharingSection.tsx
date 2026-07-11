@@ -6,7 +6,6 @@ import {
   sharingBody,
   sharingEyebrow,
   sharingHeading,
-  sharingPlatformNote,
   sharingPoints,
 } from "../../content/continuity";
 import { cn } from "../ui/utils";
@@ -34,9 +33,6 @@ export function SharingSection() {
             <p className="landing-eyebrow">{sharingEyebrow}</p>
             <h2 className="landing-heading mt-4">{sharingHeading}</h2>
             <p className="landing-body mt-5 max-w-md">{sharingBody}</p>
-            <p className="landing-caption mt-3 text-landing-muted/75">
-              {sharingPlatformNote}
-            </p>
           </Reveal>
 
           <ul className="mt-10 space-y-8">

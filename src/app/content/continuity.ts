@@ -7,30 +7,30 @@ export const siteDescription =
 export const heroSloganLine1 = "Capture first.";
 export const heroSloganLine2 = "Continue later.";
 export const heroSubhead =
-  "Personal thought across your devices — one stream across time.";
+  "Thoughts you didn't finish — picked up where you left off.";
 export const heroBody = "No folders. No ceremony.";
 
 /** Mobile landing — pocket-first hero lines. */
 export const heroMobileSubhead =
   "A calm pocket for thoughts that aren't finished yet.";
 export const heroMobileBody =
-  "Capture in a tap. One stream with Mac.";
+  "Capture in a tap. Pick up the thread on desktop.";
 
 export const continuityLead =
-  "Chinotto helps unfinished personal thought pick up where it left off — across desktop and mobile.";
+  "Chinotto is for thoughts that stop mid-sentence — and for returning to them when the context is still there.";
 
-export const continuityQuestion = "What helps thoughts continue?";
+export const continuityQuestion = "What helps a thought continue?";
 
 export const continuityIntro = [
-  "Most software helps us capture thoughts, organize them, or retrieve them later.",
-  "We are interested in a different question:",
+  "Most software helps you capture, organize, or find a note later.",
+  "Continuation is harder:",
 ] as const;
 
 export const continuityBelief =
-  "Many valuable ideas disappear not because they lack meaning, but because modern life constantly interrupts them before they have time to evolve.";
+  "Ideas often disappear from interruption — not because they lacked meaning, but because you never got back to them.";
 
 export const continuityThreads =
-  "Chinotto is built around the idea that thoughts are not files to be stored. They are ongoing threads that unfold across time.";
+  "You capture without closing the thought. Structure can come later — when you revisit, scroll, follow a trail, or jump to a week on the strand.";
 
 export const problemEyebrow = "A familiar gap";
 export const problemContrastLine1 = "The note is still there.";
@@ -40,7 +40,7 @@ export const problemBody =
   "You had more to say — then something else happened. When you open it again, you don't know what you meant.";
 
 export const resurfacingEyebrow = "When you come back";
-export const resurfacingHeading = "What you didn't finish can come back.";
+export const resurfacingHeading = "The unfinished thought is still there.";
 export const resurfacingStory = [
   {
     day: "Day 1",
@@ -56,12 +56,12 @@ export const resurfacingStory = [
   },
   {
     day: "Any time",
-    body: "Jump to a lit week on desktop, or scrub months on iPhone — the same thread, navigable when you return.",
+    body: "Lit weeks on the strand show where you were thinking. Same entry — more context around it.",
   },
 ] as const;
 
 export const captureEyebrow = "Capture";
-export const captureHeading = "Capture first. No ceremony.";
+export const captureHeading = "Quick capture, anywhere.";
 export const capturePoints = [
   {
     title: "Desktop",
@@ -73,18 +73,18 @@ export const capturePoints = [
   },
   {
     title: "One stream",
-    body: "Everything lands in one chronological flow you can scan.",
+    body: "One continuous stream — not documents or folders.",
   },
 ] as const;
 
 export const platformRoles = {
   desktop: {
     title: "Desktop",
-    body: "Where you return to continue a thread, revisit older context, and notice what connects over time.",
+    body: "Where you return to continue a thread, scan older context, and jump weeks on the strand.",
   },
   mobile: {
     title: "Mobile",
-    body: "A calm pocket for thoughts that aren't finished yet — reflections and half-formed ideas you need to set down before they disappear.",
+    body: "A calm pocket — widget, voice, or share-in when a half-formed thought needs somewhere to land.",
   },
 } as const;
 
@@ -94,7 +94,7 @@ export const desktopPlatformExtras = [
 ] as const;
 
 export const mobilePlatformExtras = [
-  "Voice capture and share-in from Safari",
+  "Voice capture and share-in from apps",
   "Pull the stream down to search",
   "Swipe right on a dotted thought for a related entry",
 ] as const;
@@ -102,9 +102,9 @@ export const mobilePlatformExtras = [
 /** Longer platform copy — manifesto only. */
 export const manifestoPlatformRoles = {
   desktop:
-    "On desktop, Chinotto becomes a space for continuing those threads — exploring unfinished ideas, reconnecting with earlier contexts, and maintaining continuity across months or years.",
+    "On desktop, you continue threads — reopen unfinished entries, follow trails, use the time strand to jump across months, and share a read-only link when you want someone else to read along.",
   mobile:
-    "On mobile, Chinotto becomes a calm mental pocket you carry with you — a quieter space where thoughts can be captured in the moment, gently resurfaced later, and continued when the time feels right.",
+    "On mobile, Chinotto is a calm pocket — capture in the moment with widget, voice, or share-in; search or swipe into what came before when you have a minute.",
 } as const;
 
 /** Shorter platform copy for the landing — manifesto keeps the long form. */
@@ -114,13 +114,13 @@ export const platformLandingRoles = {
 } as const;
 
 export const continuityClose =
-  "The goal is not to build a better notes app. The goal is to help thoughts survive fragmentation and continue over time.";
+  "Not a better notes app — a way to pick up unfinished thoughts months later.";
 
 export const platformsEyebrow = "Desktop & mobile";
 export const platformsHeadingLine1 = "Two roles.";
-export const platformsHeadingLine2 = "One stream.";
+export const platformsHeadingLine2 = "One timeline.";
 export const platformsIntro =
-  "Capture and continuation are different moments in the life of a thought — same stream, wherever you are.";
+  "Capture on mobile. Continue on desktop. Same entries, same order.";
 
 export const notForLines = [
   "Not a notes app.",
@@ -129,21 +129,22 @@ export const notForLines = [
 ] as const;
 
 export const notForBody =
-  "For the inner conversation — the one that gets interrupted, not scheduled.";
+  "For thoughts that interrupt you — not items on a calendar.";
 
-export const localFirstHeadingLine1 = "Local-first isn't a feature.";
-export const localFirstHeadingLine2 = "It's the whole point.";
+export const localFirstHeadingLine1 = "Your thoughts stay";
+export const localFirstHeadingLine2 = "on your device.";
 
 export const optionalSyncBody =
-  "Optional sync keeps one stream across your devices. No Chinotto account.";
+  "Optional sync across your devices. No Chinotto account.";
 
-/** Mobile landing sections — iPhone-first narrative. */
+/** Mobile landing sections — pocket-first narrative. */
 export const mobileCaptureEyebrow = "The pocket";
-export const mobileCaptureHeading = "Capture before it disappears.";
-export const mobileCaptureIntro = platformRoles.mobile.body;
+export const mobileCaptureHeading = "One tap to capture.";
+export const mobileCaptureIntro =
+  "Widget or app — the pocket is always one tap away.";
 
 export const mobileResurfacingAnyTimeBeat =
-  "Scrub months on the stream, or swipe a dotted thought for what came before — the thread is there when you return.";
+  "Pull the stream back to a month, or swipe right on a dotted thought — the earlier entry is still there.";
 
 export const mobileResurfacingStory = [
   resurfacingStory[0]!,
@@ -153,27 +154,27 @@ export const mobileResurfacingStory = [
 ] as const;
 
 export const mobileTrailsEyebrow = "Trails";
-export const mobileTrailsHeading = "Thoughts find each other.";
+export const mobileTrailsHeading = "Related entries, without tags.";
 export const mobileTrailsBody =
-  "Chinotto links entries that share language — swipe right on a dotted thought for a related one. No tags, no folders.";
+  "Entries that share words get linked — swipe right on a dotted thought for the one before it.";
 
 export const mobileBridgeEyebrow = "The return";
-export const mobileBridgeHeading = "Continue on Mac.";
+export const mobileBridgeHeading = "Continue on desktop.";
 export const mobileBridgeBody =
-  "Same stream when you're back at your desk — time strand, trails, and share when you choose.";
+  "Same stream at your desk — time strand, trails, and share when you choose.";
 export const mobileBridgeNote = optionalSyncBody;
 
 export const desktopSpacesNote =
   "On desktop, optional Spaces — Inbox, Work, Personal — filter one timeline when you want separation, without folders.";
 
 export const sharingEyebrow = "Share a thread";
-export const sharingHeading = "Share a thread, not a document.";
+export const sharingHeading = "Send a read-only link.";
 export const sharingBody =
   "Pick connected thoughts from a trail, add one line of context, and send a read-only link that expires. Nothing leaves your device until you choose.";
 export const sharingPoints = [
   {
     title: "Read-only",
-    body: "A private editorial page — not a workspace export.",
+    body: "A simple hosted page — not a workspace export.",
   },
   {
     title: "Your labels stay local",
@@ -184,24 +185,23 @@ export const sharingPoints = [
     body: "Links expire on your schedule. Delete the share when you're done.",
   },
 ] as const;
-export const sharingPlatformNote = "Desktop — hosted at getchinotto.app";
 
 export const connectedEyebrow = "Trails & recall";
-export const connectedHeading = "It connects your thinking for you.";
+export const connectedHeading = "Related entries, without tags.";
 
 export const trailsFeature = {
   title: "Trails",
-  body: "Chinotto links thoughts that share language and surfaces neighbors you&rsquo;d miss — no tagging, no manual linking.",
+  body: "Entries that share words get linked. On mobile, swipe right on a dotted thought; on desktop, follow neighbors in the stream.",
 } as const;
 
 export const recallFeature = {
   title: "Recall labels",
-  body: "Name up to seven personal themes. Assign in entry detail; URLs become Links automatically. Structure when you&rsquo;re ready — not when you capture.",
+  body: "Name up to seven personal themes. Assign in entry detail; URLs become Links automatically. Add structure when you want it — not at capture.",
 } as const;
 
 export const spacesFeature = {
   title: "Spaces",
-  body: "On desktop, optional lenses — Inbox, Work, Personal — separate threads without folders. One timeline, filtered when you want it.",
+  body: "On desktop, optional lenses — Inbox, Work, Personal — filter one timeline when you want separation, without folders.",
 } as const;
 
 export const localFirstShareNote =
@@ -212,7 +212,7 @@ export const platformVisualCaptions = {
   mobile: "The pocket",
 } as const;
 
-export const ctaHeading = "Get Chinotto";
+export const ctaHeading = "Try Chinotto";
 
 export const manifestoSyncNote =
   "Your thoughts stay local-first on your devices until you choose otherwise. Sync is optional: Sign in with Apple when you want the same stream on desktop and mobile. On desktop, optional Spaces — Inbox, Work, Personal — filter one timeline when you want separation, without folders or a workspace to set up first. There is no Chinotto account.";

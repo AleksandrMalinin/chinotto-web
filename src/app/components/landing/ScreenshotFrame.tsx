@@ -21,7 +21,7 @@ export function showcaseGridClass(imageFirst: boolean) {
 interface ScreenshotFrameProps {
   src: string;
   alt: string;
-  /** Quiet platform note below the frame (e.g. “On Mac” on mobile landing). */
+  /** Quiet platform note below the frame (e.g. “On desktop” on mobile landing). */
   platformCaption?: string;
   className?: string;
   imgClassName?: string;
@@ -66,7 +66,7 @@ interface MobileDesktopDetailProps {
 export function MobileDesktopDetail({
   src,
   alt,
-  caption = "On Mac",
+  caption = "On desktop",
   className,
 }: MobileDesktopDetailProps) {
   return (
@@ -126,7 +126,7 @@ export function ProductScreenshotMedia({
 }
 
 interface ResponsiveProductScreenshotProps extends ProductScreenshotMediaProps {
-  /** Caption under the mobile detail crop (default “On Mac”). */
+  /** Caption under the mobile detail crop (default “On desktop”). */
   mobileCaption?: string;
 }
 
@@ -139,7 +139,7 @@ export function ResponsiveProductScreenshot({
   placeholderLabel,
   placeholderHint,
   platformCaption,
-  mobileCaption = "On Mac",
+  mobileCaption = "On desktop",
   className,
 }: ResponsiveProductScreenshotProps) {
   if (screenshot.pending) {

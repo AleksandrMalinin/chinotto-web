@@ -13,7 +13,7 @@ const VALUES = [
   },
   {
     title: "Instant",
-    body: "No network, no spinner. Capture is as fast as the thought itself.",
+    body: "No network required to capture.",
   },
   {
     title: "No account",
