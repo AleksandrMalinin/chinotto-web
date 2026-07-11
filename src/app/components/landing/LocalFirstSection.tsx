@@ -2,6 +2,7 @@ import {
   localFirstHeadingLine1,
   localFirstHeadingLine2,
   localFirstShareNote,
+  localFirstYoursByDefaultBody,
 } from "../../content/continuity";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
@@ -9,7 +10,7 @@ import { Reveal } from "./Reveal";
 const VALUES = [
   {
     title: "Yours by default",
-    body: "Thoughts live on your device. Nothing leaves until you turn on sync.",
+    body: localFirstYoursByDefaultBody,
   },
   {
     title: "Instant",

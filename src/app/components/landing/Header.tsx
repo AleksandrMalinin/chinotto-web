@@ -13,7 +13,7 @@ import { cn } from "../ui/utils";
 const LANDING_SECTION_LINKS = [
   { label: "Why", hash: "#problem" },
   { label: "Resurfacing", hash: "#resurfacing" },
-  { label: "Share", hash: "#sharing" },
+  { label: "Capture", hash: "#capture" },
   { label: "Trust", hash: "#local-first" },
 ] as const;
 

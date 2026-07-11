@@ -204,6 +204,9 @@ export const spacesFeature = {
   body: "On desktop, optional lenses — Inbox, Work, Personal — filter one timeline when you want separation, without folders.",
 } as const;
 
+export const localFirstYoursByDefaultBody =
+  "Thoughts live on your device. Sync and share are optional — both stay off until you turn them on.";
+
 export const localFirstShareNote =
   "Share a read-only thread when you choose — revoke anytime.";
 

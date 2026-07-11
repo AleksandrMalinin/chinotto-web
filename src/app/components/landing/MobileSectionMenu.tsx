@@ -9,7 +9,6 @@ export const MOBILE_LANDING_SECTION_LINKS = [
   { label: "Pocket", hash: "#pocket" },
   { label: "Resurfacing", hash: "#resurfacing" },
   { label: "Platforms", hash: "#two-experiences" },
-  { label: "Share", hash: "#sharing" },
   { label: "Trust", hash: "#local-first" },
   { label: "Download", hash: "#download" },
 ] as const;

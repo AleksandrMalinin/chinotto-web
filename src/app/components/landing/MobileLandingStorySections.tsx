@@ -11,7 +11,7 @@ import { MobileResurfacingSection } from "./MobileResurfacingSection";
 
 /**
  * Mobile landing narrative — pocket-first, then full parity:
- * iPhone role → resurfacing → two platforms → desktop depth (capture, share, trails).
+ * iPhone role → resurfacing → platforms → desktop depth (capture, trails, share).
  */
 export function MobileLandingStorySections() {
   return (
@@ -22,8 +22,8 @@ export function MobileLandingStorySections() {
       <MobileResurfacingSection />
       <PlatformsSection />
       <CaptureSection />
-      <SharingSection />
       <TrailsSpacesSection />
+      <SharingSection />
       <SectionRule />
       <NotForSection />
       <LocalFirstSection />
