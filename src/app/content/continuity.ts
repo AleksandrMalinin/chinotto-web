@@ -33,11 +33,11 @@ export const continuityThreads =
   "You capture without closing the thought. Structure can wait until you come back — scroll the stream, follow a trail, or jump a week on the strand.";
 
 export const problemEyebrow = "A familiar gap";
-export const problemContrastLine1 = "Saved in a second.";
-export const problemContrastLine2 = "Worth more when you return.";
+export const problemContrastLine1 = "The note is still there.";
+export const problemContrastLine2 = "The thread isn't.";
 export const problemHeading = "Thoughts stop mid-sentence.";
 export const problemBody =
-  "You save it in a second. Over time, more gathers around it — and when you come back, the same line means more.";
+  "You save it in a second. Later you still have the note — but not a thread that kept going around it.";
 
 export const resurfacingDemoThought =
   "AI: Skills are needed to tie all the complexity together over time.";
