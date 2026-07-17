@@ -12,32 +12,32 @@ export const heroBody = "No folders. No ceremony.";
 
 /** Mobile landing — pocket-first hero lines. */
 export const heroMobileSubhead =
-  "A calm pocket for thoughts that aren't finished yet.";
+  "A pocket for thoughts that aren't finished yet.";
 export const heroMobileBody =
   "Capture in a tap. Pick up the thread on desktop.";
 
 export const continuityLead =
-  "Chinotto is for thoughts that stop mid-sentence — and for returning to them when the context is still there.";
+  "Chinotto is for thoughts that stop mid-sentence — and for returning to them when more has gathered around them.";
 
-export const continuityQuestion = "What helps a thought continue?";
+export const continuityQuestion = "How do you pick up where you left off?";
 
 export const continuityIntro = [
-  "Most software helps you capture, organize, or find a note later.",
-  "Continuation is harder:",
+  "Most notes apps help you capture, organize, or find a note later.",
+  "Returning to an unfinished thought — with more around it — is rarer:",
 ] as const;
 
 export const continuityBelief =
-  "Ideas often disappear from interruption — not because they lacked meaning, but because you never got back to them.";
+  "Most notes apps keep the file. Chinotto keeps the return — the same line, later, with more weight.";
 
 export const continuityThreads =
-  "You capture without closing the thought. Structure can come later — when you revisit, scroll, follow a trail, or jump to a week on the strand.";
+  "You capture without closing the thought. Structure can wait until you come back — scroll the stream, follow a trail, or jump a week on the strand.";
 
 export const problemEyebrow = "A familiar gap";
-export const problemContrastLine1 = "The note is still there.";
-export const problemContrastLine2 = "The thread isn't.";
+export const problemContrastLine1 = "Saved in a second.";
+export const problemContrastLine2 = "Worth more when you return.";
 export const problemHeading = "Thoughts stop mid-sentence.";
 export const problemBody =
-  "You had more to say — then something else happened. When you open it again, you don't know what you meant.";
+  "You save it in a second. Over time, more gathers around it — and when you come back, the same line means more.";
 
 export const resurfacingDemoThought =
   "AI: Skills are needed to tie all the complexity together over time.";
@@ -47,19 +47,19 @@ export const resurfacingHeading = "The unfinished thought is still there.";
 export const resurfacingStory = [
   {
     day: "Day 1",
-    body: "Not a post. Not a conclusion — just a line you wanted to save before it slipped away.",
+    body: "Not finished. Just something you didn't want to lose.",
   },
   {
     day: "Week 3",
-    body: "Scrolling past it again — speed, consistency. You've been saying the same thing.",
+    body: "You keep scrolling past it. Same half-thought, still open.",
   },
   {
     day: "Month 2",
-    body: "You finally know what you meant.",
+    body: "More sits around it now. The thought carries more weight.",
   },
   {
     day: "Any time",
-    body: "Lit weeks on the strand show where you were thinking. Same entry — more context around it.",
+    body: "Lit weeks mark when you were in it. The thought is still there — with more around it.",
   },
 ] as const;
 
@@ -87,7 +87,7 @@ export const platformRoles = {
   },
   mobile: {
     title: "Mobile",
-    body: "A calm pocket — widget, voice, or share-in when a half-formed thought needs somewhere to land.",
+    body: "The pocket — widget, voice, or share-in when a thought shows up and you need somewhere for it.",
   },
 } as const;
 
@@ -107,7 +107,7 @@ export const manifestoPlatformRoles = {
   desktop:
     "On desktop, you continue threads — reopen unfinished entries, follow trails, use the time strand to jump across months, and share a read-only link when you want someone else to read along.",
   mobile:
-    "On mobile, Chinotto is a calm pocket — capture in the moment with widget, voice, or share-in; search or swipe into what came before when you have a minute.",
+    "On mobile, Chinotto is the pocket — capture with widget, voice, or share-in; search or swipe into what came before when you have a minute.",
 } as const;
 
 /** Shorter platform copy for the landing — manifesto keeps the long form. */
@@ -117,7 +117,7 @@ export const platformLandingRoles = {
 } as const;
 
 export const continuityClose =
-  "Not a better notes app — a way to pick up unfinished thoughts months later.";
+  "Not another notes app. A place to pick up unfinished thoughts months later.";
 
 export const platformsEyebrow = "Desktop & mobile";
 export const platformsHeadingLine1 = "Two roles.";
@@ -132,7 +132,7 @@ export const notForLines = [
 ] as const;
 
 export const notForBody =
-  "For thoughts that interrupt you — not items on a calendar.";
+  "For unfinished thoughts — not calendar items.";
 
 export const localFirstHeadingLine1 = "Your thoughts stay";
 export const localFirstHeadingLine2 = "on your device.";
@@ -171,7 +171,7 @@ export const desktopSpacesNote =
   "On desktop, optional Spaces — Inbox, Work, Personal — filter one timeline when you want separation, without folders.";
 
 export const sharingEyebrow = "Share a thread";
-export const sharingHeading = "When someone needs the trail.";
+export const sharingHeading = "Send the trail, not the whole stream.";
 export const sharingBody =
   "A thread can span weeks. Pick the entries that matter, add one line of context, and send a read-only link — your full stream stays private.";
 export const sharingPoints = [
